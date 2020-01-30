@@ -1,12 +1,14 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+
 
 public class PlayerMotor : MonoBehaviour
 {
     private CharacterController controller;
     private Vector3 moveVector;
-    private float speed = 5.0f;    
+    private float speed = 7.0f;    
     private float verticalVelocity = 0.0f;
     private float animationDuration = 3.0f;
     private float gravity = 12.0f;
@@ -15,10 +17,17 @@ public class PlayerMotor : MonoBehaviour
     public Animator anim;
     Color green = new Color32(128, 255, 128, 255);
     Color invisible = new Color32(0,0,0,0);
+    Color white = new Color32(255,255,255,255);
+
+
+    public Text questionText;
+    public Image questionImage;
     
     // Start is called before the first frame update
     void Start()
     {
+        questionImage.color = invisible;
+        questionText.text = "";
         controller = GetComponent<CharacterController>();
         startTime = Time.time;
     }
@@ -69,12 +78,17 @@ public class PlayerMotor : MonoBehaviour
         speed = 5.0f + modifier;
     }
 
-    //called when capsule hits something
+    //called when player hits something
     private void OnControllerColliderHit(ControllerColliderHit hit)
     {
-        if(hit.point.z > transform.position.z + controller.radius)
+        Debug.Log(hit.gameObject.tag);
+        if(hit.point.z > transform.position.z + controller.radius && hit.gameObject.tag == "enemy")
             Death ();
 
+        if(hit.gameObject.tag == "leftlane" || hit.gameObject.tag == "middlelane" || hit.gameObject.tag == "rightlane")
+        {
+            SetQuestion(white, "What is the capital of California?");
+        }
         if (hit.gameObject.tag == "leftlane"){
             laneColorChange("middlelane", invisible);
             laneColorChange("leftlane", green);
@@ -89,6 +103,13 @@ public class PlayerMotor : MonoBehaviour
             laneColorChange("middlelane", invisible);
             laneColorChange("leftlane", invisible);
             laneColorChange("rightlane", green);
+        }  
+        else if(hit.gameObject.tag == "gameModeTile"){
+            laneColorChange("middlelane", invisible);
+            laneColorChange("leftlane", invisible);
+            laneColorChange("rightlane", invisible);
+            SetQuestion(invisible, "");
+
         }         
     }
 
@@ -98,6 +119,12 @@ public class PlayerMotor : MonoBehaviour
         isDead = true;
         GetComponent<Score>().OnDeath();
         anim.SetTrigger("isDead");
+    }
+
+    public void SetQuestion(Color newColor, string newText)
+    {
+        questionImage.color = newColor;
+        questionText.text = newText;
     }
 
     private void laneColorChange(string lane, Color32 color){

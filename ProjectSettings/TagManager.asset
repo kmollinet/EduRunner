@@ -8,6 +8,8 @@ TagManager:
   - rightlane
   - middlelane
   - leftlane
+  - gameModeTile
+  - enemy
   layers:
   - Default
   - TransparentFX

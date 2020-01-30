@@ -11,9 +11,9 @@ public class Score : MonoBehaviour
     private int maxDifficultyLevel = 100;
     private int scoreToNextLevel = 10;
     private bool isDead = false;
+    
 
     public Text scoreText;
-    public Text questionText;
     public DeathMenu deathMenu;
     // Start is called before the first frame update
     void Start()
@@ -26,18 +26,10 @@ public class Score : MonoBehaviour
     {
         if(isDead)
             return;
-        if(score >= scoreToNextLevel)
-            LevelUp();
+        // if(score >= scoreToNextLevel) // commenting this out because we probably don't want to change speeds with kids
+        //     LevelUp();
         score += Time.deltaTime * difficultyLevel;
-        scoreText.text = ((int)score).ToString();
-
-        if(score > 3){
-            questionText.text = "Is your score " + ((int)score).ToString() + "?";
-        }
-        if(score > 6){
-            questionText.text = "What is 8 X 8?";
-        }
-        
+        scoreText.text = ((int)score).ToString();        
     }
 
     void LevelUp()
@@ -48,8 +40,6 @@ public class Score : MonoBehaviour
         difficultyLevel++;
 
         GetComponent<PlayerMotor>().SetSpeed(difficultyLevel);
-    
-        Debug.Log(difficultyLevel);
     }
 
     public void OnDeath()
@@ -60,4 +50,6 @@ public class Score : MonoBehaviour
         }
         deathMenu.ToggleEndMenu(score);
     }
+
+
 }
