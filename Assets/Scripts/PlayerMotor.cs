@@ -19,15 +19,37 @@ public class PlayerMotor : MonoBehaviour
     Color invisible = new Color32(0,0,0,0);
     Color white = new Color32(255,255,255,255);
 
+    private Transform answer1Transform;
+    private Transform answer2Transform;
+    private Transform answer3Transform;
+
+    private Vector3 moveVectorAnswer1;
+    private Vector3 moveVectorAnswer2;
+    private Vector3 moveVectorAnswer3;
 
     public Text questionText;
     public Image questionImage;
+    public Text answer1Text;
+    public Image answer1Image;
+    public Text answer2Text;
+    public Image answer2Image;
+    public Text answer3Text;
+    public Image answer3Image;
     
     // Start is called before the first frame update
     void Start()
     {
+        answer1Transform = GameObject.FindGameObjectWithTag("answer1").transform;
+        answer2Transform = GameObject.FindGameObjectWithTag("answer2").transform;
+        answer3Transform = GameObject.FindGameObjectWithTag("answer3").transform;
         questionImage.color = invisible;
         questionText.text = "";
+        answer1Image.color = invisible; 
+        answer1Text.text = "";
+        answer2Image.color = invisible;
+        answer2Text.text = "";
+        answer3Image.color = invisible;
+        answer3Text.text = "";
         controller = GetComponent<CharacterController>();
         startTime = Time.time;
     }
@@ -71,6 +93,24 @@ public class PlayerMotor : MonoBehaviour
 
 
         controller.Move(moveVector * Time.deltaTime);
+
+        // AnswersMovement
+        moveVectorAnswer1.x = -2;
+        moveVectorAnswer1.y = 0;
+        moveVectorAnswer1.z = transform.position.z + 2.0f;
+
+        moveVectorAnswer2.x = 0;
+        moveVectorAnswer2.y = 0;
+        moveVectorAnswer2.z = transform.position.z + 2.0f;
+
+        moveVectorAnswer3.x = 2;
+        moveVectorAnswer3.y = 0;
+        moveVectorAnswer3.z = transform.position.z + 2.0f;
+
+        answer1Transform.position = moveVectorAnswer1;
+        answer2Transform.position = moveVectorAnswer2;
+        answer3Transform.position = moveVectorAnswer3;
+
     }    
 
     public void SetSpeed(float modifier)
@@ -87,7 +127,7 @@ public class PlayerMotor : MonoBehaviour
 
         if(hit.gameObject.tag == "leftlane" || hit.gameObject.tag == "middlelane" || hit.gameObject.tag == "rightlane")
         {
-            SetQuestion(white, "What is the capital of California?");
+            SetQuestion(white, "What is the capital of California?", "Albany", "Salt Lake City", "Raleigh");
         }
         if (hit.gameObject.tag == "leftlane"){
             laneColorChange("middlelane", invisible);
@@ -108,7 +148,7 @@ public class PlayerMotor : MonoBehaviour
             laneColorChange("middlelane", invisible);
             laneColorChange("leftlane", invisible);
             laneColorChange("rightlane", invisible);
-            SetQuestion(invisible, "");
+            SetQuestion(invisible, "", "", "", "");
 
         }         
     }
@@ -121,10 +161,16 @@ public class PlayerMotor : MonoBehaviour
         anim.SetTrigger("isDead");
     }
 
-    public void SetQuestion(Color newColor, string newText)
+    public void SetQuestion(Color newColor, string quesText, string ans1Text, string ans2Text, string ans3Text)
     {
         questionImage.color = newColor;
-        questionText.text = newText;
+        questionText.text = quesText;
+        answer1Image.color = newColor;
+        answer1Text.text = ans1Text;
+        answer2Image.color = newColor;
+        answer2Text.text = ans2Text;
+        answer3Image.color = newColor;
+        answer3Text.text = ans3Text;
     }
 
     private void laneColorChange(string lane, Color32 color){
