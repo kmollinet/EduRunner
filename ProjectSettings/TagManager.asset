@@ -10,6 +10,10 @@ TagManager:
   - leftlane
   - gameModeTile
   - enemy
+  - answer1Transform
+  - answer2
+  - answer1
+  - answer3
   layers:
   - Default
   - TransparentFX
