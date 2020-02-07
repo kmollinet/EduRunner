@@ -158,7 +158,7 @@ public class PlayerMotor : MonoBehaviour
         Debug.Log("Dead");
         isDead = true;
         GetComponent<Score>().OnDeath();
-        anim.SetTrigger("isDead");
+        anim.Play("Die");
     }
 
     public void SetQuestion(Color newColor, string quesText, string ans1Text, string ans2Text, string ans3Text)
