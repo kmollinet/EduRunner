@@ -59,6 +59,7 @@
      <Compile Include="Assets\AurynSky\Forest Pack\Scripts\WheelController.cs" />
      <Compile Include="Assets\Scripts\CameraMotor.cs" />
      <Compile Include="Assets\Scripts\DeathMenu.cs" />
+     <Compile Include="Assets\Scripts\JewelController.cs" />
      <Compile Include="Assets\Scripts\MainMenu.cs" />
      <Compile Include="Assets\Scripts\PlayerMotor.cs" />
      <Compile Include="Assets\Scripts\Score.cs" />

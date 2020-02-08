@@ -51,5 +51,21 @@ public class Score : MonoBehaviour
         deathMenu.ToggleEndMenu(score);
     }
 
+        //called when player hits something
+    private void OnControllerColliderHit(ControllerColliderHit hit)
+    {
+        // Debug.Log(hit.gameObject.tag);
+        if(hit.gameObject.tag == "jewel")
+        {
+            Destroy(hit.gameObject);
+            score += 10;
+        }
+        if(hit.gameObject.tag == "jewel5")
+        {
+            Destroy(hit.gameObject);
+            score += 50;
+        }
+    }
+
 
 }

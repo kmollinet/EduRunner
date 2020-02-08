@@ -7,6 +7,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+<<<<<<< Updated upstream
+=======
+    - target: {fileID: -927199367670048503, guid: dfdc1f8666b1744b1b0cb4d752aec47f,
+        type: 3}
+      propertyPath: m_Name
+      value: scroll Variant
+      objectReference: {fileID: 0}
+>>>>>>> Stashed changes
     - target: {fileID: -4216859302048453862, guid: dfdc1f8666b1744b1b0cb4d752aec47f,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -62,6 +70,7 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+<<<<<<< Updated upstream
     - target: {fileID: -927199367670048503, guid: dfdc1f8666b1744b1b0cb4d752aec47f,
         type: 3}
       propertyPath: m_Name
@@ -75,6 +84,8 @@ PrefabInstance:
       propertyPath: m_TagString
       value: rightlane
       objectReference: {fileID: 0}
+=======
+>>>>>>> Stashed changes
     - target: {fileID: 7561110372842451503, guid: dfdc1f8666b1744b1b0cb4d752aec47f,
         type: 3}
       propertyPath: m_AABB.m_Center.x
