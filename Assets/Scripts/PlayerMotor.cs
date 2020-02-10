@@ -28,7 +28,7 @@ public class PlayerMotor : MonoBehaviour
     private Vector3 moveVectorAnswer3;
 
     public Text questionText;
-    public Image questionImage;
+    public GameObject questionImage;
     public Text answer1Text;
     public Image answer1Image;
     public Text answer2Text;
@@ -42,7 +42,7 @@ public class PlayerMotor : MonoBehaviour
         answer1Transform = GameObject.FindGameObjectWithTag("answer1").transform;
         answer2Transform = GameObject.FindGameObjectWithTag("answer2").transform;
         answer3Transform = GameObject.FindGameObjectWithTag("answer3").transform;
-        questionImage.color = invisible;
+        // questionImage.color = invisible;
         questionText.text = "";
         answer1Image.color = invisible; 
         answer1Text.text = "";
@@ -127,7 +127,8 @@ public class PlayerMotor : MonoBehaviour
 
         if(hit.gameObject.tag == "leftlane" || hit.gameObject.tag == "middlelane" || hit.gameObject.tag == "rightlane")
         {
-            SetQuestion(white, "What is the capital of California?", "Albany", "Salt Lake City", "Raleigh");
+            Debug.Log("test!!!");
+            SetQuestion(white, "a a a a a a aa a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a aa  a a aa a a a a a a a a a a a a a aa a a ", "Albany", "Salt Lake City", "Raleigh");
         }
         if (hit.gameObject.tag == "leftlane"){
             laneColorChange("middlelane", invisible);
@@ -163,7 +164,8 @@ public class PlayerMotor : MonoBehaviour
 
     public void SetQuestion(Color newColor, string quesText, string ans1Text, string ans2Text, string ans3Text)
     {
-        questionImage.color = newColor;
+        Debug.Log("test");
+        // questionImage.color = newColor;
         questionText.text = quesText;
         answer1Image.color = newColor;
         answer1Text.text = ans1Text;

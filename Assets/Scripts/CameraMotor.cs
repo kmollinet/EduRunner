@@ -9,7 +9,7 @@ public class CameraMotor : MonoBehaviour
 
     private float transition = 0.0f;
     private float animationDuration = 3.0f;
-    private Vector3 animationOffset = new Vector3(0,5,5);
+    private Vector3 animationOffset = new Vector3(0,3,3);
     // Start is called before the first frame update
     void Start()
     {
@@ -25,7 +25,7 @@ public class CameraMotor : MonoBehaviour
         moveVector.x = 0;
 
         //Y
-        moveVector.y = Mathf.Clamp(moveVector.y,5,5);
+        moveVector.y = Mathf.Clamp(moveVector.y,3,3);
 
         if(transition > 1.0f)
         {
