@@ -14,7 +14,7 @@ public class TileManager : MonoBehaviour
     private int amnTilesOnScreen = 7;
     private int lastPrefabIndex = 0;
     private float tileTimer = 0.0f;
-    private float questionTimer = 10.0f;
+    private float questionTimer = 3.0f;
     private Color green = new Color32(128, 255, 128, 255);
     private Color invisible = new Color32(0,0,0,0);
     private Color white = new Color32(255,255,255,255);

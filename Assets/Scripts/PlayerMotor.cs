@@ -26,8 +26,9 @@ public class PlayerMotor : MonoBehaviour
     private Vector3 moveVectorAnswer1;
     private Vector3 moveVectorAnswer2;
     private Vector3 moveVectorAnswer3;
+    private Vector3 scrollVector;
 
-    public Text questionText;
+    private Text questionText;
     public GameObject questionImage;
     public Text answer1Text;
     public Image answer1Image;
@@ -42,8 +43,9 @@ public class PlayerMotor : MonoBehaviour
         answer1Transform = GameObject.FindGameObjectWithTag("answer1").transform;
         answer2Transform = GameObject.FindGameObjectWithTag("answer2").transform;
         answer3Transform = GameObject.FindGameObjectWithTag("answer3").transform;
-        // questionImage.color = invisible;
-        questionText.text = "";
+        // Destroy(questionImage);
+        
+        // questionText.text = "";
         answer1Image.color = invisible; 
         answer1Text.text = "";
         answer2Image.color = invisible;
@@ -122,36 +124,67 @@ public class PlayerMotor : MonoBehaviour
     private void OnControllerColliderHit(ControllerColliderHit hit)
     {
         Debug.Log(hit.gameObject.tag);
-        if(hit.point.z > transform.position.z + controller.radius && hit.gameObject.tag == "enemy")
+        // if(hit.point.z > transform.position.z + controller.radius && hit.gameObject.tag == "enemy")
+        if(hit.gameObject.tag == "enemy")
             Death ();
 
+        if(hit.gameObject.tag == "leftLaneQuestion" || hit.gameObject.tag == "middleLaneQuestion" || hit.gameObject.tag == "rightLaneQuestion")
+        {
+            Debug.Log("test!!!");
+
+            if(GameObject.FindWithTag ("scroll")){
+                GameObject scroll = GameObject.FindWithTag ("scroll");
+                Debug.Log ("Exists");
+                scrollVector.x = 0;
+                scrollVector.y = 2.0f;
+                scrollVector.z = transform.position.z + 2.0f;
+                scroll.transform.position = scrollVector;
+                Invoke("SetQuestionAfterDelay",1);
+            }
+            else{
+                GameObject go;
+                go = Instantiate(questionImage) as GameObject;
+                // go.transform.SetParent(transform);
+                
+            }
+        }
         if(hit.gameObject.tag == "leftlane" || hit.gameObject.tag == "middlelane" || hit.gameObject.tag == "rightlane")
         {
             Debug.Log("test!!!");
-            SetQuestion(white, "a a a a a a aa a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a aa  a a aa a a a a a a a a a a a a a aa a a ", "Albany", "Salt Lake City", "Raleigh");
+            if(GameObject.FindWithTag ("scroll")){
+                Destroy(GameObject.FindWithTag ("scroll"));
+                SetQuestion(invisible, "", "", "", "");
+            }
         }
-        if (hit.gameObject.tag == "leftlane"){
+        if (hit.gameObject.tag == "leftlane" || hit.gameObject.tag == "leftLaneQuestion"){
             laneColorChange("middlelane", invisible);
             laneColorChange("leftlane", green);
             laneColorChange("rightlane", invisible);
+            laneColorChange("middleLaneQuestion", invisible);
+            laneColorChange("leftLaneQuestion", green);
+            laneColorChange("rightLaneQuestion", invisible);
         }
-        else if(hit.gameObject.tag == "middlelane"){
+        else if(hit.gameObject.tag == "middlelane" || hit.gameObject.tag == "middleLaneQuestion"){
             laneColorChange("middlelane", green);
             laneColorChange("leftlane", invisible);
             laneColorChange("rightlane", invisible);
+            laneColorChange("middleLaneQuestion", green);
+            laneColorChange("leftLaneQuestion", invisible);
+            laneColorChange("rightLaneQuestion", invisible);
         }     
-        else if(hit.gameObject.tag == "rightlane"){
+        else if(hit.gameObject.tag == "rightlane" || hit.gameObject.tag == "rightLaneQuestion"){
             laneColorChange("middlelane", invisible);
             laneColorChange("leftlane", invisible);
             laneColorChange("rightlane", green);
+            laneColorChange("middleLaneQuestion", invisible);
+            laneColorChange("leftLaneQuestion", invisible);
+            laneColorChange("rightLaneQuestion", green);
         }  
         else if(hit.gameObject.tag == "gameModeTile"){
             laneColorChange("middlelane", invisible);
             laneColorChange("leftlane", invisible);
             laneColorChange("rightlane", invisible);
-            SetQuestion(invisible, "", "", "", "");
-
-        }         
+        }      
     }
 
     private void Death()
@@ -162,11 +195,19 @@ public class PlayerMotor : MonoBehaviour
         anim.Play("Die");
     }
 
+    public void SetQuestionAfterDelay(){
+
+        SetQuestion(white, "What is the capital of Utah?", "Albany", "Salt Lake City", "Raleigh");
+    }
+
     public void SetQuestion(Color newColor, string quesText, string ans1Text, string ans2Text, string ans3Text)
     {
+        GameObject scroll = GameObject.FindWithTag ("scroll");
+        Text scrollText = scroll.GetComponentInChildren<Text>();
+
         Debug.Log("test");
-        // questionImage.color = newColor;
-        questionText.text = quesText;
+        Debug.Log(quesText);
+        scrollText.text = quesText;
         answer1Image.color = newColor;
         answer1Text.text = ans1Text;
         answer2Image.color = newColor;
