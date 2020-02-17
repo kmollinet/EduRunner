@@ -5,20 +5,24 @@ using UnityEngine.UI;
 
 public class Score : MonoBehaviour
 {
+    public AudioSource tickSource;
     private float score = 0.0f;
 
     private int difficultyLevel = 1;
     private int maxDifficultyLevel = 100;
     private int scoreToNextLevel = 10;
     private bool isDead = false;
+    private Vector3 untouchableCoinPosition;
     
 
     public Text scoreText;
     public DeathMenu deathMenu;
+    public GameObject untouchableCoin;
+
     // Start is called before the first frame update
     void Start()
     {
-        
+        tickSource = GetComponent<AudioSource> ();
     }
 
     // Update is called once per frame
@@ -54,9 +58,18 @@ public class Score : MonoBehaviour
         //called when player hits something
     private void OnControllerColliderHit(ControllerColliderHit hit)
     {
-        // Debug.Log(hit.gameObject.tag);
         if(hit.gameObject.tag == "jewel")
         {
+            tickSource.Play();
+            GameObject go;
+            go = Instantiate(untouchableCoin) as GameObject;        
+            go.transform.SetParent(transform);
+            untouchableCoinPosition.x = hit.gameObject.transform.position.x;
+            untouchableCoinPosition.y = hit.gameObject.transform.position.y;
+            untouchableCoinPosition.z = hit.gameObject.transform.position.z + 1.0f;
+            go.transform.position = untouchableCoinPosition;
+
+            
             Destroy(hit.gameObject);
             score += 10;
         }

@@ -121,13 +121,11 @@ public class PlayerMotor : MonoBehaviour
     //called when player hits something
     private void OnControllerColliderHit(ControllerColliderHit hit)
     {
-        Debug.Log(hit.gameObject.tag);
         if(hit.point.z > transform.position.z + controller.radius && hit.gameObject.tag == "enemy")
             Death ();
 
         if(hit.gameObject.tag == "leftlane" || hit.gameObject.tag == "middlelane" || hit.gameObject.tag == "rightlane")
         {
-            Debug.Log("test!!!");
             SetQuestion(white, "a a a a a a aa a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a aa  a a aa a a a a a a a a a a a a a aa a a ", "Albany", "Salt Lake City", "Raleigh");
         }
         if (hit.gameObject.tag == "leftlane"){
@@ -156,7 +154,6 @@ public class PlayerMotor : MonoBehaviour
 
     private void Death()
     {
-        Debug.Log("Dead");
         isDead = true;
         GetComponent<Score>().OnDeath();
         anim.Play("Die");
@@ -164,7 +161,6 @@ public class PlayerMotor : MonoBehaviour
 
     public void SetQuestion(Color newColor, string quesText, string ans1Text, string ans2Text, string ans3Text)
     {
-        Debug.Log("test");
         // questionImage.color = newColor;
         questionText.text = quesText;
         answer1Image.color = newColor;
