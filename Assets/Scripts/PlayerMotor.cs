@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -19,9 +19,9 @@ public class PlayerMotor : MonoBehaviour
     Color invisible = new Color32(0,0,0,0);
     Color white = new Color32(255,255,255,255);
 
-    private Transform answer1Transform;
-    private Transform answer2Transform;
-    private Transform answer3Transform;
+    // private Transform answer1Transform;
+    // private Transform answer2Transform;
+    // private Transform answer3Transform;
 
     private Vector3 moveVectorAnswer1;
     private Vector3 moveVectorAnswer2;
@@ -36,16 +36,20 @@ public class PlayerMotor : MonoBehaviour
     public Image answer2Image;
     public Text answer3Text;
     public Image answer3Image;
+
+    public QuestionSet qs;
     
     // Start is called before the first frame update
     void Start()
     {
-        answer1Transform = GameObject.FindGameObjectWithTag("answer1").transform;
-        answer2Transform = GameObject.FindGameObjectWithTag("answer2").transform;
-        answer3Transform = GameObject.FindGameObjectWithTag("answer3").transform;
-        // Destroy(questionImage);
-        
-        // questionText.text = "";
+        qs = QuestionSet.Init("sample_question_set.json");
+        qs.answer1Transform = GameObject.FindGameObjectWithTag("answer1").transform;
+        qs.answer2Transform = GameObject.FindGameObjectWithTag("answer2").transform;
+        qs.answer3Transform = GameObject.FindGameObjectWithTag("answer3").transform;
+        // answer1Transform = GameObject.FindGameObjectWithTag("answer1").transform;
+        // answer2Transform = GameObject.FindGameObjectWithTag("answer2").transform;
+        // answer3Transform = GameObject.FindGameObjectWithTag("answer3").transform;
+
         answer1Image.color = invisible; 
         answer1Text.text = "";
         answer2Image.color = invisible;
@@ -109,9 +113,9 @@ public class PlayerMotor : MonoBehaviour
         moveVectorAnswer3.y = 0;
         moveVectorAnswer3.z = transform.position.z + 2.0f;
 
-        answer1Transform.position = moveVectorAnswer1;
-        answer2Transform.position = moveVectorAnswer2;
-        answer3Transform.position = moveVectorAnswer3;
+        qs.answer1Transform.position = moveVectorAnswer1;
+        qs.answer2Transform.position = moveVectorAnswer2;
+        qs.answer3Transform.position = moveVectorAnswer3;
 
     }    
 
@@ -151,6 +155,8 @@ public class PlayerMotor : MonoBehaviour
         if(hit.gameObject.tag == "leftlane" || hit.gameObject.tag == "middlelane" || hit.gameObject.tag == "rightlane")
         {
             Debug.Log("test!!!");
+           // SetQuestion(white, qs.CurrentQuestion.QuestionText, qs.CurrentQuestion.AnswerText, qs.CurrentQuestion.IncorrectAnswers[0], qs.CurrentQuestion.IncorrectAnswers[1]);
+
             if(GameObject.FindWithTag ("scroll")){
                 Destroy(GameObject.FindWithTag ("scroll"));
                 SetQuestion(invisible, "", "", "", "");
@@ -196,8 +202,8 @@ public class PlayerMotor : MonoBehaviour
     }
 
     public void SetQuestionAfterDelay(){
-
-        SetQuestion(white, "What is the capital of Utah?", "Albany", "Salt Lake City", "Raleigh");
+        SetQuestion(white, qs.CurrentQuestion.QuestionText, qs.CurrentQuestion.AnswerText, qs.CurrentQuestion.IncorrectAnswers[0], qs.CurrentQuestion.IncorrectAnswers[1]);
+        //SetQuestion(white, "What is the capital of Utah?", "Albany", "Salt Lake City", "Raleigh");
     }
 
     public void SetQuestion(Color newColor, string quesText, string ans1Text, string ans2Text, string ans3Text)

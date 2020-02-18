@@ -1,0 +1,454 @@
+﻿{
+    "Questions": [
+        {
+            "question": "What is the capital of Alabama?",
+            "answer": "Montgomery",
+            "incorrectAnswers": [
+                "apple",
+                "book",
+                "cat"
+            ]
+        },
+        {
+            "question": "What is the capital of Alaska?",
+            "answer": "Juneau",
+            "incorrectAnswers": [
+                "apple",
+                "book",
+                "cat"
+            ]
+        },
+        {
+            "question": "What is the capital of Arizona?",
+            "answer": "Phoenix",
+            "incorrectAnswers": [
+                "apple",
+                "book",
+                "cat"
+            ]
+        },
+        {
+            "question": "What is the capital of Arkansas?",
+            "answer": "Little Rock",
+            "incorrectAnswers": [
+                "apple",
+                "book",
+                "cat"
+            ]
+        },
+        {
+            "question": "What is the capital of California?",
+            "answer": "Sacramento",
+            "incorrectAnswers": [
+                "apple",
+                "book",
+                "cat"
+            ]
+        },
+        {
+            "question": "What is the capital of Colorado?",
+            "answer": "Denver",
+            "incorrectAnswers": [
+                "apple",
+                "book",
+                "cat"
+            ]
+        },
+        {
+            "question": "What is the capital of Connecticut?",
+            "answer": "Hartford",
+            "incorrectAnswers": [
+                "apple",
+                "book",
+                "cat"
+            ]
+        },
+        {
+            "question": "What is the capital of Delaware?",
+            "answer": "Dover",
+            "incorrectAnswers": [
+                "apple",
+                "book",
+                "cat"
+            ]
+        },
+        {
+            "question": "What is the capital of Florida?",
+            "answer": "Tallahassee",
+            "incorrectAnswers": [
+                "apple",
+                "book",
+                "cat"
+            ]
+        },
+        {
+            "question": "What is the capital of Georgia?",
+            "answer": "Atlanta",
+            "incorrectAnswers": [
+                "apple",
+                "book",
+                "cat"
+            ]
+        },
+        {
+            "question": "What is the capital of Hawaii?",
+            "answer": "Honolulu",
+            "incorrectAnswers": [
+                "apple",
+                "book",
+                "cat"
+            ]
+        },
+        {
+            "question": "What is the capital of Idaho?",
+            "answer": "Boise",
+            "incorrectAnswers": [
+                "apple",
+                "book",
+                "cat"
+            ]
+        },
+        {
+            "question": "What is the capital of Illinois?",
+            "answer": "Springfield",
+            "incorrectAnswers": [
+                "apple",
+                "book",
+                "cat"
+            ]
+        },
+        {
+            "question": "What is the capital of Indiana?",
+            "answer": "Indianapolis",
+            "incorrectAnswers": [
+                "apple",
+                "book",
+                "cat"
+            ]
+        },
+        {
+            "question": "What is the capital of Iowa?",
+            "answer": "Des Moines",
+            "incorrectAnswers": [
+                "apple",
+                "book",
+                "cat"
+            ]
+        },
+        {
+            "question": "What is the capital of Kansas?",
+            "answer": "Topeka",
+            "incorrectAnswers": [
+                "apple",
+                "book",
+                "cat"
+            ]
+        },
+        {
+            "question": "What is the capital of Kentucky?",
+            "answer": "Frankfort",
+            "incorrectAnswers": [
+                "apple",
+                "book",
+                "cat"
+            ]
+        },
+        {
+            "question": "What is the capital of Louisiana?",
+            "answer": "Baton Rouge",
+            "incorrectAnswers": [
+                "apple",
+                "book",
+                "cat"
+            ]
+        },
+        {
+            "question": "What is the capital of Maine?",
+            "answer": "Augusta",
+            "incorrectAnswers": [
+                "apple",
+                "book",
+                "cat"
+            ]
+        },
+        {
+            "question": "What is the capital of Maryland?",
+            "answer": "Annapolis",
+            "incorrectAnswers": [
+                "apple",
+                "book",
+                "cat"
+            ]
+        },
+        {
+            "question": "What is the capital of Massachusetts?",
+            "answer": "Boston",
+            "incorrectAnswers": [
+                "apple",
+                "book",
+                "cat"
+            ]
+        },
+        {
+            "question": "What is the capital of Michigan?",
+            "answer": "Lansing",
+            "incorrectAnswers": [
+                "apple",
+                "book",
+                "cat"
+            ]
+        },
+        {
+            "question": "What is the capital of Minnesota?",
+            "answer": "St. Paul",
+            "incorrectAnswers": [
+                "apple",
+                "book",
+                "cat"
+            ]
+        },
+        {
+            "question": "What is the capital of Mississippi?",
+            "answer": "Jackson",
+            "incorrectAnswers": [
+                "apple",
+                "book",
+                "cat"
+            ]
+        },
+        {
+            "question": "What is the capital of Missouri?",
+            "answer": "Jefferson City",
+            "incorrectAnswers": [
+                "apple",
+                "book",
+                "cat"
+            ]
+        },
+        {
+            "question": "What is the capital of Montana?",
+            "answer": "Helena",
+            "incorrectAnswers": [
+                "apple",
+                "book",
+                "cat"
+            ]
+        },
+        {
+            "question": "What is the capital of Nebraska?",
+            "answer": "Lincoln",
+            "incorrectAnswers": [
+                "apple",
+                "book",
+                "cat"
+            ]
+        },
+        {
+            "question": "What is the capital of Nevada?",
+            "answer": "Carson City",
+            "incorrectAnswers": [
+                "apple",
+                "book",
+                "cat"
+            ]
+        },
+        {
+            "question": "What is the capital of New Hampshire?",
+            "answer": "Hampshire",
+            "incorrectAnswers": [
+                "apple",
+                "book",
+                "cat"
+            ]
+        },
+        {
+            "question": "What is the capital of New Jersey?",
+            "answer": "Trenton",
+            "incorrectAnswers": [
+                "apple",
+                "book",
+                "cat"
+            ]
+        },
+        {
+            "question": "What is the capital of New Mexico?",
+            "answer": "Santa Fe",
+            "incorrectAnswers": [
+                "apple",
+                "book",
+                "cat"
+            ]
+        },
+        {
+            "question": "What is the capital of New York?",
+            "answer": "Albany",
+            "incorrectAnswers": [
+                "apple",
+                "book",
+                "cat"
+            ]
+        },
+        {
+            "question": "What is the capital of North Carolina?",
+            "answer": "Raleigh",
+            "incorrectAnswers": [
+                "apple",
+                "book",
+                "cat"
+            ]
+        },
+        {
+            "question": "What is the capital of North Dakota?",
+            "answer": "",
+            "incorrectAnswers": [
+                "apple",
+                "book",
+                "cat"
+            ]
+        },
+        {
+            "question": "What is the capital of Ohio?",
+            "answer": "Columbus",
+            "incorrectAnswers": [
+                "apple",
+                "book",
+                "cat"
+            ]
+        },
+        {
+            "question": "What is the capital of Oklahoma?",
+            "answer": "Oklahoma City",
+            "incorrectAnswers": [
+                "apple",
+                "book",
+                "cat"
+            ]
+        },
+        {
+            "question": "What is the capital of Oregon?",
+            "answer": "Salem",
+            "incorrectAnswers": [
+                "apple",
+                "book",
+                "cat"
+            ]
+        },
+        {
+            "question": "What is the capital of Pennsylvania?",
+            "answer": "Harrisburg",
+            "incorrectAnswers": [
+                "apple",
+                "book",
+                "cat"
+            ]
+        },
+        {
+            "question": "What is the capital of Rhode Island?",
+            "answer": "Providence",
+            "incorrectAnswers": [
+                "apple",
+                "book",
+                "cat"
+            ]
+        },
+        {
+            "question": "What is the capital of South Carolina?",
+            "answer": "Columbia",
+            "incorrectAnswers": [
+                "apple",
+                "book",
+                "cat"
+            ]
+        },
+        {
+            "question": "What is the capital of South Dakota?",
+            "answer": "Pierre",
+            "incorrectAnswers": [
+                "apple",
+                "book",
+                "cat"
+            ]
+        },
+        {
+            "question": "What is the capital of Tennessee?",
+            "answer": "Nashville",
+            "incorrectAnswers": [
+                "apple",
+                "book",
+                "cat"
+            ]
+        },
+        {
+            "question": "What is the capital of Texas?",
+            "answer": "Austin",
+            "incorrectAnswers": [
+                "apple",
+                "book",
+                "cat"
+            ]
+        },
+        {
+            "question": "What is the capital of Utah?",
+            "answer": "Salt Lake City",
+            "incorrectAnswers": [
+                "apple",
+                "book",
+                "cat"
+            ]
+        },
+        {
+            "question": "What is the capital of Vermont?",
+            "answer": "Montpelier",
+            "incorrectAnswers": [
+                "apple",
+                "book",
+                "cat"
+            ]
+        },
+        {
+            "question": "What is the capital of Virginia?",
+            "answer": "Richmond",
+            "incorrectAnswers": [
+                "apple",
+                "book",
+                "cat"
+            ]
+        },
+        {
+            "question": "What is the capital of Washington?",
+            "answer": "Olympia",
+            "incorrectAnswers": [
+                "apple",
+                "book",
+                "cat"
+            ]
+        },
+        {
+            "question": "What is the capital of West Virginia?",
+            "answer": "Charleston",
+            "incorrectAnswers": [
+                "apple",
+                "book",
+                "cat"
+            ]
+        },
+        {
+            "question": "What is the capital of Wisconsin?",
+            "answer": "Madison",
+            "incorrectAnswers": [
+                "apple",
+                "book",
+                "cat"
+            ]
+        },
+        {
+            "question": "What is the capital of Wyoming?",
+            "answer": "Cheyenne",
+            "incorrectAnswers": [
+                "apple",
+                "book",
+                "cat"
+            ]
+        }
+    ]
+}
