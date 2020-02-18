@@ -68,7 +68,6 @@
      <Compile Include="Assets\Scripts\Score.cs" />
      <Compile Include="Assets\Scripts\TileManager.cs" />
      <None Include="Assets\AurynSky\Forest Pack\READ ME.txt" />
-     <None Include="Assets\Battle Music Album - 060418\Notes.txt" />
  <Reference Include="Unity.TextMeshPro.Editor">
  <HintPath>C:/Users/kylem/EduRunner/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
  </Reference>
