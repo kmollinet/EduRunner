@@ -14,6 +14,13 @@ TagManager:
   - answer2
   - answer1
   - answer3
+  - jewel5
+  - jewel
+  - rightLaneQuestion
+  - leftLaneQuestion
+  - middleLaneQuestion
+  - scroll
+  - questionText
   layers:
   - Default
   - TransparentFX
