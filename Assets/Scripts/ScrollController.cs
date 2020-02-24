@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class ScrollController : MonoBehaviour
 {
-    public Text questionWords;
+    // public Text questionWords;
     // Start is called before the first frame update
     void Start()
     {
@@ -15,7 +15,7 @@ public class ScrollController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Vector3 questionPos = Camera.main.WorldToScreenPoint(this.transform.position);
-        questionWords.transform.position = questionPos;
+        // Vector3 questionPos = Camera.main.WorldToScreenPoint(this.transform.position);
+        // questionWords.transform.position = questionPos;
     }
 }

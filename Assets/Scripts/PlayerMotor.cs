@@ -8,7 +8,7 @@ public class PlayerMotor : MonoBehaviour
 {
     private CharacterController controller;
     private Vector3 moveVector;
-    private float speed = 7.0f;    
+    private float speed = 5.0f;    
     private float verticalVelocity = 0.0f;
     private float animationDuration = 3.0f;
     private float gravity = 12.0f;
@@ -19,43 +19,25 @@ public class PlayerMotor : MonoBehaviour
     Color invisible = new Color32(0,0,0,0);
     Color white = new Color32(255,255,255,255);
 
-    // private Transform answer1Transform;
-    // private Transform answer2Transform;
-    // private Transform answer3Transform;
-
-    private Vector3 moveVectorAnswer1;
-    private Vector3 moveVectorAnswer2;
-    private Vector3 moveVectorAnswer3;
     private Vector3 scrollVector;
-
     private Text questionText;
     public GameObject questionImage;
-    public Text answer1Text;
-    public Image answer1Image;
-    public Text answer2Text;
-    public Image answer2Image;
-    public Text answer3Text;
-    public Image answer3Image;
 
-    public QuestionSet qs;
+    private Vector3 answer01Vector;
+    public GameObject answer01;
+    private Vector3 answer02Vector;
+    public GameObject answer02;
+    private Vector3 answer03Vector;
+    public GameObject answer03;
+
+
+    // public QuestionSet qs;
     
     // Start is called before the first frame update
     void Start()
     {
-        qs = QuestionSet.Init("sample_question_set.json");
-        qs.answer1Transform = GameObject.FindGameObjectWithTag("answer1").transform;
-        qs.answer2Transform = GameObject.FindGameObjectWithTag("answer2").transform;
-        qs.answer3Transform = GameObject.FindGameObjectWithTag("answer3").transform;
-        // answer1Transform = GameObject.FindGameObjectWithTag("answer1").transform;
-        // answer2Transform = GameObject.FindGameObjectWithTag("answer2").transform;
-        // answer3Transform = GameObject.FindGameObjectWithTag("answer3").transform;
+        // qs = QuestionSet.Init("sample_question_set.json");
 
-        answer1Image.color = invisible; 
-        answer1Text.text = "";
-        answer2Image.color = invisible;
-        answer2Text.text = "";
-        answer3Image.color = invisible;
-        answer3Text.text = "";
         controller = GetComponent<CharacterController>();
         startTime = Time.time;
     }
@@ -99,24 +81,6 @@ public class PlayerMotor : MonoBehaviour
 
 
         controller.Move(moveVector * Time.deltaTime);
-
-        // AnswersMovement
-        moveVectorAnswer1.x = -2;
-        moveVectorAnswer1.y = 0;
-        moveVectorAnswer1.z = transform.position.z + 2.0f;
-
-        moveVectorAnswer2.x = 0;
-        moveVectorAnswer2.y = 0;
-        moveVectorAnswer2.z = transform.position.z + 2.0f;
-
-        moveVectorAnswer3.x = 2;
-        moveVectorAnswer3.y = 0;
-        moveVectorAnswer3.z = transform.position.z + 2.0f;
-
-        qs.answer1Transform.position = moveVectorAnswer1;
-        qs.answer2Transform.position = moveVectorAnswer2;
-        qs.answer3Transform.position = moveVectorAnswer3;
-
     }    
 
     public void SetSpeed(float modifier)
@@ -127,8 +91,6 @@ public class PlayerMotor : MonoBehaviour
     //called when player hits something
     private void OnControllerColliderHit(ControllerColliderHit hit)
     {
-        Debug.Log(hit.gameObject.tag);
-        // if(hit.point.z > transform.position.z + controller.radius && hit.gameObject.tag == "enemy")
         if(hit.gameObject.tag == "enemy")
             Death ();
 
@@ -138,10 +100,9 @@ public class PlayerMotor : MonoBehaviour
 
             if(GameObject.FindWithTag ("scroll")){
                 GameObject scroll = GameObject.FindWithTag ("scroll");
-                Debug.Log ("Exists");
                 scrollVector.x = 0;
                 scrollVector.y = 2.0f;
-                scrollVector.z = transform.position.z + 2.0f;
+                scrollVector.z = transform.position.z + 4.0f;
                 scroll.transform.position = scrollVector;
                 Invoke("SetQuestionAfterDelay",1);
             }
@@ -149,8 +110,10 @@ public class PlayerMotor : MonoBehaviour
                 GameObject go;
                 go = Instantiate(questionImage) as GameObject;
                 // go.transform.SetParent(transform);
-                
             }
+            initializeObject(answer01, "answer01", -1.0f, 2.0f, 2.0f);
+            initializeObject(answer02, "answer02", 0.0f, 2.0f, 2.0f);
+            initializeObject(answer03, "answer03", 1.0f, 2.0f, 2.0f);
         }
         if(hit.gameObject.tag == "leftlane" || hit.gameObject.tag == "middlelane" || hit.gameObject.tag == "rightlane")
         {
@@ -159,7 +122,17 @@ public class PlayerMotor : MonoBehaviour
 
             if(GameObject.FindWithTag ("scroll")){
                 Destroy(GameObject.FindWithTag ("scroll"));
-                SetQuestion(invisible, "", "", "", "");
+                
+                // SetQuestion(invisible, "", "", "", "");
+            }
+            if(GameObject.FindWithTag ("answer01")){
+                Destroy(GameObject.FindWithTag ("answer01"));
+            }
+            if(GameObject.FindWithTag ("answer02")){
+                Destroy(GameObject.FindWithTag ("answer02"));
+            }
+            if(GameObject.FindWithTag ("answer03")){
+                Destroy(GameObject.FindWithTag ("answer03"));
             }
         }
         if (hit.gameObject.tag == "leftlane" || hit.gameObject.tag == "leftLaneQuestion"){
@@ -202,24 +175,33 @@ public class PlayerMotor : MonoBehaviour
     }
 
     public void SetQuestionAfterDelay(){
-        SetQuestion(white, qs.CurrentQuestion.QuestionText, qs.CurrentQuestion.AnswerText, qs.CurrentQuestion.IncorrectAnswers[0], qs.CurrentQuestion.IncorrectAnswers[1]);
-        //SetQuestion(white, "What is the capital of Utah?", "Albany", "Salt Lake City", "Raleigh");
+        // SetQuestion(white, qs.CurrentQuestion.QuestionText, qs.CurrentQuestion.AnswerText, qs.CurrentQuestion.IncorrectAnswers[0], qs.CurrentQuestion.IncorrectAnswers[1]);
+        SetQuestion("What is the capital of Utah?", "Albany", "Salt Lake City", "Raleigh");
     }
 
-    public void SetQuestion(Color newColor, string quesText, string ans1Text, string ans2Text, string ans3Text)
+    public void SetQuestion(string quesText, string ans1Text, string ans2Text, string ans3Text)
     {
         GameObject scroll = GameObject.FindWithTag ("scroll");
-        Text scrollText = scroll.GetComponentInChildren<Text>();
+        if(scroll){
+            Text scrollText = scroll.GetComponentInChildren<Text>();
+            scrollText.text = quesText;
+        }
+        GameObject answer01 = GameObject.FindWithTag ("answer01");
+        if(answer01){
+            Text answer01Text = answer01.GetComponentInChildren<Text>();
+            answer01Text.text = ans1Text;
+        }
+        GameObject answer02 = GameObject.FindWithTag ("answer02");
+        if(answer02){
+            Text answer02Text = answer02.GetComponentInChildren<Text>();
+            answer02Text.text = ans2Text;
+        }
+        GameObject answer03 = GameObject.FindWithTag ("answer03");
+        if(answer03){
+            Text answer03Text = answer03.GetComponentInChildren<Text>();
+            answer03Text.text = ans3Text;
+        }
 
-        Debug.Log("test");
-        Debug.Log(quesText);
-        scrollText.text = quesText;
-        answer1Image.color = newColor;
-        answer1Text.text = ans1Text;
-        answer2Image.color = newColor;
-        answer2Text.text = ans2Text;
-        answer3Image.color = newColor;
-        answer3Text.text = ans3Text;
     }
 
     private void laneColorChange(string lane, Color32 color){
@@ -232,6 +214,21 @@ public class PlayerMotor : MonoBehaviour
                             m.color = color;
                     }
                 }
+            }
+    }
+
+    private void initializeObject(GameObject gameObj, string tag, float x, float y, float z)
+    {
+        if(GameObject.FindWithTag (tag)){
+                GameObject gameObject = GameObject.FindWithTag (tag);
+                answer03Vector.x = x;
+                answer03Vector.y = y;
+                answer03Vector.z = transform.position.z + z;
+                gameObject.transform.position = answer03Vector;
+            }
+            else{
+                GameObject gameObject;
+                gameObject = Instantiate(gameObj) as GameObject;
             }
     }
 }

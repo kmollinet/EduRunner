@@ -21,6 +21,11 @@ TagManager:
   - middleLaneQuestion
   - scroll
   - questionText
+  - Undefined
+  - answer4
+  - answer01
+  - answer02
+  - answer03
   layers:
   - Default
   - TransparentFX
