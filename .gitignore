@@ -61,8 +61,8 @@ sysinfo.txt
 
 # Crashlytics generated file
 crashlytics-build.properties
-**/*.meta
+
 Library/metadata/**/*
-obj/Debug/Assembly-CSharp.csprojAssemblyReference.cache
-Assembly-CSharp.csproj
-ProjectSettings/ProjectVersion.txt
+**/obj/Debug/Assembly-CSharp.*
+**/Assembly-CSharp.*
+**/ProjectSettings/ProjectVersion.txt
