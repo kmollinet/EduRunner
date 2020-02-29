@@ -69,6 +69,7 @@
      <Compile Include="Assets\Scripts\ScrollController.cs" />
      <Compile Include="Assets\Scripts\TileManager.cs" />
      <None Include="Assets\AurynSky\Forest Pack\READ ME.txt" />
+     <None Include="Assets\RPG Monster Wave PBR\Shaders\PBRMaskTint.shader" />
      <None Include="Assets\JsonDotNet\link.xml" />
  <Reference Include="UnityEngine.AIModule">
  <HintPath>C:/Program Files/Unity/Hub/Editor/2018.4.14f1/Editor/Data/Managed/UnityEngine/UnityEngine.AIModule.dll</HintPath>

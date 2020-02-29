@@ -15,9 +15,9 @@ public partial class QuestionSet
     public int CurrentQuestionIndex { get; set; }
 
 
-    public Transform answer1Transform { get; set; }
-    public Transform answer2Transform { get; set; }
-    public Transform answer3Transform { get; set; }
+    // public Transform answer1Transform { get; set; }
+    // public Transform answer2Transform { get; set; }
+    // public Transform answer3Transform { get; set; }
 
 
     public void Next()
@@ -32,11 +32,36 @@ public partial class QuestionSet
         }
     }
 
+        public void SetQuestion(string quesText, string ans1Text, string ans2Text, string ans3Text)
+    {
+        GameObject scroll = GameObject.FindWithTag ("scroll");
+        if(scroll){
+            Text scrollText = scroll.GetComponentInChildren<Text>();
+            scrollText.text = quesText;
+        }
+        GameObject answer01 = GameObject.FindWithTag ("answer01");
+        if(answer01){
+            Text answer01Text = answer01.GetComponentInChildren<Text>();
+            answer01Text.text = ans1Text;
+        }
+        GameObject answer02 = GameObject.FindWithTag ("answer02");
+        if(answer02){
+            Text answer02Text = answer02.GetComponentInChildren<Text>();
+            answer02Text.text = ans2Text;
+        }
+        GameObject answer03 = GameObject.FindWithTag ("answer03");
+        if(answer03){
+            Text answer03Text = answer03.GetComponentInChildren<Text>();
+            answer03Text.text = ans3Text;
+        }
+
+    }
+
     public void Update(Vector3 v1, Vector3 v2, Vector3 v3)
     {
-        answer1Transform.position = v1;
-        answer2Transform.position = v2;
-        answer3Transform.position = v3;
+        // answer1Transform.position = v1;
+        // answer2Transform.position = v2;
+        // answer3Transform.position = v3;
 
     }
 
@@ -74,9 +99,9 @@ public partial class QuestionSet
         }
         QuestionSet qs = FromJson(json);
 
-        qs.answer2Transform = GameObject.FindGameObjectWithTag("answer2").transform;
-        qs.answer1Transform = GameObject.FindGameObjectWithTag("answer1").transform;
-        qs.answer3Transform = GameObject.FindGameObjectWithTag("answer3").transform;
+        // qs.answer2Transform = GameObject.FindGameObjectWithTag("answer2").transform;
+        // qs.answer1Transform = GameObject.FindGameObjectWithTag("answer1").transform;
+        // qs.answer3Transform = GameObject.FindGameObjectWithTag("answer3").transform;
 
         qs.CurrentQuestionIndex = 0;
 

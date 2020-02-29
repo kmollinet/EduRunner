@@ -31,12 +31,12 @@ public class PlayerMotor : MonoBehaviour
     public GameObject answer03;
 
 
-    // public QuestionSet qs;
+    private QuestionSet qs;
     
     // Start is called before the first frame update
     void Start()
     {
-        // qs = QuestionSet.Init("sample_question_set.json");
+        qs = QuestionSet.Init("sample_question_set.json");
 
         controller = GetComponent<CharacterController>();
         startTime = Time.time;
@@ -91,12 +91,14 @@ public class PlayerMotor : MonoBehaviour
     //called when player hits something
     private void OnControllerColliderHit(ControllerColliderHit hit)
     {
+        Debug.Log(hit.point);
         if(hit.gameObject.tag == "enemy")
+        // if(hit.gameObject.tag == "enemy" && hit.point.z > transform.position.z + controller.radius)
             Death ();
 
         if(hit.gameObject.tag == "leftLaneQuestion" || hit.gameObject.tag == "middleLaneQuestion" || hit.gameObject.tag == "rightLaneQuestion")
         {
-            Debug.Log("test!!!");
+            // Debug.Log("test!!!");
 
             if(GameObject.FindWithTag ("scroll")){
                 GameObject scroll = GameObject.FindWithTag ("scroll");
@@ -117,13 +119,9 @@ public class PlayerMotor : MonoBehaviour
         }
         if(hit.gameObject.tag == "leftlane" || hit.gameObject.tag == "middlelane" || hit.gameObject.tag == "rightlane")
         {
-            Debug.Log("test!!!");
-           // SetQuestion(white, qs.CurrentQuestion.QuestionText, qs.CurrentQuestion.AnswerText, qs.CurrentQuestion.IncorrectAnswers[0], qs.CurrentQuestion.IncorrectAnswers[1]);
-
             if(GameObject.FindWithTag ("scroll")){
                 Destroy(GameObject.FindWithTag ("scroll"));
-                
-                // SetQuestion(invisible, "", "", "", "");
+                qs.Next();
             }
             if(GameObject.FindWithTag ("answer01")){
                 Destroy(GameObject.FindWithTag ("answer01"));
@@ -168,41 +166,17 @@ public class PlayerMotor : MonoBehaviour
 
     private void Death()
     {
-        Debug.Log("Dead");
+        // Debug.Log("Dead");
         isDead = true;
         GetComponent<Score>().OnDeath();
         anim.Play("Die");
     }
 
     public void SetQuestionAfterDelay(){
-        // SetQuestion(white, qs.CurrentQuestion.QuestionText, qs.CurrentQuestion.AnswerText, qs.CurrentQuestion.IncorrectAnswers[0], qs.CurrentQuestion.IncorrectAnswers[1]);
-        SetQuestion("What is the capital of Utah?", "Albany", "Salt Lake City", "Raleigh");
+        qs.SetQuestion(qs.CurrentQuestion.QuestionText, qs.CurrentQuestion.AnswerText, qs.CurrentQuestion.IncorrectAnswers[0], qs.CurrentQuestion.IncorrectAnswers[1]);
     }
 
-    public void SetQuestion(string quesText, string ans1Text, string ans2Text, string ans3Text)
-    {
-        GameObject scroll = GameObject.FindWithTag ("scroll");
-        if(scroll){
-            Text scrollText = scroll.GetComponentInChildren<Text>();
-            scrollText.text = quesText;
-        }
-        GameObject answer01 = GameObject.FindWithTag ("answer01");
-        if(answer01){
-            Text answer01Text = answer01.GetComponentInChildren<Text>();
-            answer01Text.text = ans1Text;
-        }
-        GameObject answer02 = GameObject.FindWithTag ("answer02");
-        if(answer02){
-            Text answer02Text = answer02.GetComponentInChildren<Text>();
-            answer02Text.text = ans2Text;
-        }
-        GameObject answer03 = GameObject.FindWithTag ("answer03");
-        if(answer03){
-            Text answer03Text = answer03.GetComponentInChildren<Text>();
-            answer03Text.text = ans3Text;
-        }
 
-    }
 
     private void laneColorChange(string lane, Color32 color){
         GameObject[] rightLaneTiles = GameObject.FindGameObjectsWithTag(lane);
