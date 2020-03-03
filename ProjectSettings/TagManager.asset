@@ -26,6 +26,7 @@ TagManager:
   - answer01
   - answer02
   - answer03
+  - castle
   layers:
   - Default
   - TransparentFX
