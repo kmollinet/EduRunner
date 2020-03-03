@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class Score : MonoBehaviour
 {
@@ -16,7 +17,8 @@ public class Score : MonoBehaviour
     
 
     public Text scoreText;
-    public DeathMenu deathMenu;
+    public DeathMenu deathMenu; //changing it to the endingMenu
+    //public EndingMenu endingMenu;
     public GameObject untouchableCoin;
     // Start is called before the first frame update
     void Start()
@@ -52,6 +54,7 @@ public class Score : MonoBehaviour
             PlayerPrefs.SetFloat("Highscore", score);
         }
         deathMenu.ToggleEndMenu(score);
+        //SceneManager.LoadScene("EndingMenu");
     }
 
         //called when player hits something
