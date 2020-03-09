@@ -2,6 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.Events; // This is so that you can extend the pointer handlers
+using UnityEngine.EventSystems; // This is so that you can extend the pointer handlers
+using System;
 
 public class Score : MonoBehaviour
 {
@@ -13,9 +16,10 @@ public class Score : MonoBehaviour
     private int scoreToNextLevel = 10;
     private bool isDead = false;
     private Vector3 untouchableCoinPosition;
-    
+    Color invisible = new Color32(0,0,0,0);
 
     public Text scoreText;
+    public Text negativeScore;
     public DeathMenu deathMenu;
     public GameObject untouchableCoin;
     // Start is called before the first frame update
@@ -70,14 +74,50 @@ public class Score : MonoBehaviour
             go.transform.position = untouchableCoinPosition;
 
             Destroy(hit.gameObject);
-            score += 10;
+            score += 1;
         }
         if(hit.gameObject.tag == "jewel5")
         {
             Destroy(hit.gameObject);
-            score += 50;
+            score += 5;
         }
     }
+
+    public void OnHitEnemy()
+    {
+        if(score > 50)
+        {
+            score -= 50;
+        }
+        else
+        {
+            score = 0;
+        }
+        StartCoroutine(InvokeMethod(setColorRed, 0.4f, 3));
+    }
+
+     private void setColorRed()
+     {
+        negativeScore.color = Color.red;
+        Invoke("setColorInvisible",0.2f);
+
+     }
+ 
+    private void setColorInvisible()
+    {
+        negativeScore.color = invisible;
+
+    }
+ 
+    public IEnumerator InvokeMethod(Action method, float interval, int invokeCount)
+    {
+        for (int i = 0; i < invokeCount; i++)
+        {
+            method();
+            yield return new WaitForSeconds(interval);
+        }
+    }
+
 
 
 }
