@@ -1405,7 +1405,9 @@ MonoBehaviour:
   anim: {fileID: 2563594963563154892}
   questionImage: {fileID: 6596736517811287993, guid: 4c6232f1e956ab64ba52a2ee1e5a8cac,
     type: 3}
-  answer4: {fileID: 5414385024064632978, guid: 798c44b34bf55bf449a952cb27504953, type: 3}
+  answer01: {fileID: 0}
+  answer02: {fileID: 0}
+  answer03: {fileID: 0}
 --- !u!64 &2563594963793808534
 MeshCollider:
   m_ObjectHideFlags: 0

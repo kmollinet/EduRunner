@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class Score : MonoBehaviour
@@ -16,7 +17,7 @@ public class Score : MonoBehaviour
     
 
     public Text scoreText;
-    public DeathMenu deathMenu;
+    //public DeathMenu deathMenu;
     public GameObject untouchableCoin;
     // Start is called before the first frame update
     void Start()
@@ -51,7 +52,16 @@ public class Score : MonoBehaviour
         if (score > PlayerPrefs.GetFloat("Highscore")){
             PlayerPrefs.SetFloat("Highscore", score);
         }
-        deathMenu.ToggleEndMenu(score);
+
+        /*Setting a score to the PlayerPrefs instead of passing it to the DeathMenu.
+         Also, Load the EndingScene instead of toggling death menu*/
+
+        //deathMenu.ToggleEndMenu(score);
+
+        PlayerPrefs.SetFloat("currentScore", score);
+
+        SceneManager.LoadScene("EndingMenu");
+
     }
 
         //called when player hits something
