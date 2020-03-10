@@ -91,7 +91,7 @@ public class PlayerMotor : MonoBehaviour
     //called when player hits something
     private void OnControllerColliderHit(ControllerColliderHit hit)
     {
-        Debug.Log(hit.point);
+        //Debug.Log(hit.point);
         if(hit.gameObject.tag == "enemy")
         // if(hit.gameObject.tag == "enemy" && hit.point.z > transform.position.z + controller.radius)
             Death ();
