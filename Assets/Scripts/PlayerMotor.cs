@@ -91,10 +91,15 @@ public class PlayerMotor : MonoBehaviour
     //called when player hits something
     private void OnControllerColliderHit(ControllerColliderHit hit)
     {
-        //Debug.Log(hit.point);
         if(hit.gameObject.tag == "enemy")
+        {
+            hitEnemy(hit.gameObject);
+        }
         // if(hit.gameObject.tag == "enemy" && hit.point.z > transform.position.z + controller.radius)
-            Death ();
+            
+
+
+            // Death ();
 
         if(hit.gameObject.tag == "leftLaneQuestion" || hit.gameObject.tag == "middleLaneQuestion" || hit.gameObject.tag == "rightLaneQuestion")
         {
@@ -166,10 +171,18 @@ public class PlayerMotor : MonoBehaviour
 
     private void Death()
     {
-        // Debug.Log("Dead");
         isDead = true;
         GetComponent<Score>().OnDeath();
         anim.Play("Die");
+    }
+
+    private void hitEnemy(GameObject enemy)
+    {
+        Destroy(enemy);
+        anim.Play("GetHit");
+        anim.Play("infantry_03_run");
+        GetComponent<Score>().OnHitEnemy();
+
     }
 
     public void SetQuestionAfterDelay(){
