@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using UnityEngine.Events; // This is so that you can extend the pointer handlers
 using UnityEngine.EventSystems; // This is so that you can extend the pointer handlers
@@ -55,7 +56,16 @@ public class Score : MonoBehaviour
         if (score > PlayerPrefs.GetFloat("Highscore")){
             PlayerPrefs.SetFloat("Highscore", score);
         }
-        deathMenu.ToggleEndMenu(score);
+
+        /*Setting a score to the PlayerPrefs instead of passing it to the DeathMenu.
+         Also, Load the EndingScene instead of toggling death menu*/
+
+        //deathMenu.ToggleEndMenu(score);
+
+        PlayerPrefs.SetFloat("currentScore", score);
+
+        SceneManager.LoadScene("EndingMenu");
+
     }
 
         //called when player hits something

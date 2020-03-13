@@ -26,6 +26,8 @@ TagManager:
   - answer01
   - answer02
   - answer03
+  - castle
+  - EndingUI
   layers:
   - Default
   - TransparentFX
