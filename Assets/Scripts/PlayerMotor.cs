@@ -111,11 +111,12 @@ public class PlayerMotor : MonoBehaviour
                 scrollVector.y = 2.0f;
                 scrollVector.z = transform.position.z + 4.0f;
                 scroll.transform.position = scrollVector;
-                Invoke("SetQuestionAfterDelay",1);
             }
             else{
                 GameObject go;
                 go = Instantiate(questionImage) as GameObject;
+                Invoke("SetQuestionAfterDelay",1);
+
                 // go.transform.SetParent(transform);
             }
             initializeObject(answer01, "answer01", -1.0f, 2.0f, 2.0f);
@@ -186,7 +187,7 @@ public class PlayerMotor : MonoBehaviour
     }
 
     public void SetQuestionAfterDelay(){
-        qs.SetQuestion(qs.CurrentQuestion.QuestionText, qs.CurrentQuestion.AnswerText, qs.CurrentQuestion.IncorrectAnswers[0], qs.CurrentQuestion.IncorrectAnswers[1]);
+        qs.SetQuestion();
     }
 
 

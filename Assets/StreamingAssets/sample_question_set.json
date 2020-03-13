@@ -1,454 +1,310 @@
 ﻿{
-    "Questions": [
-        {
-            "question": "What is the capital of Alabama?",
-            "answer": "Montgomery",
-            "incorrectAnswers": [
-                "apple",
-                "book",
-                "cat"
-            ]
-        },
-        {
-            "question": "What is the capital of Alaska?",
-            "answer": "Juneau",
-            "incorrectAnswers": [
-                "apple",
-                "book",
-                "cat"
-            ]
-        },
-        {
-            "question": "What is the capital of Arizona?",
-            "answer": "Phoenix",
-            "incorrectAnswers": [
-                "apple",
-                "book",
-                "cat"
-            ]
-        },
-        {
-            "question": "What is the capital of Arkansas?",
-            "answer": "Little Rock",
-            "incorrectAnswers": [
-                "apple",
-                "book",
-                "cat"
-            ]
-        },
-        {
-            "question": "What is the capital of California?",
-            "answer": "Sacramento",
-            "incorrectAnswers": [
-                "apple",
-                "book",
-                "cat"
-            ]
-        },
-        {
-            "question": "What is the capital of Colorado?",
-            "answer": "Denver",
-            "incorrectAnswers": [
-                "apple",
-                "book",
-                "cat"
-            ]
-        },
-        {
-            "question": "What is the capital of Connecticut?",
-            "answer": "Hartford",
-            "incorrectAnswers": [
-                "apple",
-                "book",
-                "cat"
-            ]
-        },
-        {
-            "question": "What is the capital of Delaware?",
-            "answer": "Dover",
-            "incorrectAnswers": [
-                "apple",
-                "book",
-                "cat"
-            ]
-        },
-        {
-            "question": "What is the capital of Florida?",
-            "answer": "Tallahassee",
-            "incorrectAnswers": [
-                "apple",
-                "book",
-                "cat"
-            ]
-        },
-        {
-            "question": "What is the capital of Georgia?",
-            "answer": "Atlanta",
-            "incorrectAnswers": [
-                "apple",
-                "book",
-                "cat"
-            ]
-        },
-        {
-            "question": "What is the capital of Hawaii?",
-            "answer": "Honolulu",
-            "incorrectAnswers": [
-                "apple",
-                "book",
-                "cat"
-            ]
-        },
-        {
-            "question": "What is the capital of Idaho?",
-            "answer": "Boise",
-            "incorrectAnswers": [
-                "apple",
-                "book",
-                "cat"
-            ]
-        },
-        {
-            "question": "What is the capital of Illinois?",
-            "answer": "Springfield",
-            "incorrectAnswers": [
-                "apple",
-                "book",
-                "cat"
-            ]
-        },
-        {
-            "question": "What is the capital of Indiana?",
-            "answer": "Indianapolis",
-            "incorrectAnswers": [
-                "apple",
-                "book",
-                "cat"
-            ]
-        },
-        {
-            "question": "What is the capital of Iowa?",
-            "answer": "Des Moines",
-            "incorrectAnswers": [
-                "apple",
-                "book",
-                "cat"
-            ]
-        },
-        {
-            "question": "What is the capital of Kansas?",
-            "answer": "Topeka",
-            "incorrectAnswers": [
-                "apple",
-                "book",
-                "cat"
-            ]
-        },
-        {
-            "question": "What is the capital of Kentucky?",
-            "answer": "Frankfort",
-            "incorrectAnswers": [
-                "apple",
-                "book",
-                "cat"
-            ]
-        },
-        {
-            "question": "What is the capital of Louisiana?",
-            "answer": "Baton Rouge",
-            "incorrectAnswers": [
-                "apple",
-                "book",
-                "cat"
-            ]
-        },
-        {
-            "question": "What is the capital of Maine?",
-            "answer": "Augusta",
-            "incorrectAnswers": [
-                "apple",
-                "book",
-                "cat"
-            ]
-        },
-        {
-            "question": "What is the capital of Maryland?",
-            "answer": "Annapolis",
-            "incorrectAnswers": [
-                "apple",
-                "book",
-                "cat"
-            ]
-        },
-        {
-            "question": "What is the capital of Massachusetts?",
-            "answer": "Boston",
-            "incorrectAnswers": [
-                "apple",
-                "book",
-                "cat"
-            ]
-        },
-        {
-            "question": "What is the capital of Michigan?",
-            "answer": "Lansing",
-            "incorrectAnswers": [
-                "apple",
-                "book",
-                "cat"
-            ]
-        },
-        {
-            "question": "What is the capital of Minnesota?",
-            "answer": "St. Paul",
-            "incorrectAnswers": [
-                "apple",
-                "book",
-                "cat"
-            ]
-        },
-        {
-            "question": "What is the capital of Mississippi?",
-            "answer": "Jackson",
-            "incorrectAnswers": [
-                "apple",
-                "book",
-                "cat"
-            ]
-        },
-        {
-            "question": "What is the capital of Missouri?",
-            "answer": "Jefferson City",
-            "incorrectAnswers": [
-                "apple",
-                "book",
-                "cat"
-            ]
-        },
-        {
-            "question": "What is the capital of Montana?",
-            "answer": "Helena",
-            "incorrectAnswers": [
-                "apple",
-                "book",
-                "cat"
-            ]
-        },
-        {
-            "question": "What is the capital of Nebraska?",
-            "answer": "Lincoln",
-            "incorrectAnswers": [
-                "apple",
-                "book",
-                "cat"
-            ]
-        },
-        {
-            "question": "What is the capital of Nevada?",
-            "answer": "Carson City",
-            "incorrectAnswers": [
-                "apple",
-                "book",
-                "cat"
-            ]
-        },
-        {
-            "question": "What is the capital of New Hampshire?",
-            "answer": "Hampshire",
-            "incorrectAnswers": [
-                "apple",
-                "book",
-                "cat"
-            ]
-        },
-        {
-            "question": "What is the capital of New Jersey?",
-            "answer": "Trenton",
-            "incorrectAnswers": [
-                "apple",
-                "book",
-                "cat"
-            ]
-        },
-        {
-            "question": "What is the capital of New Mexico?",
-            "answer": "Santa Fe",
-            "incorrectAnswers": [
-                "apple",
-                "book",
-                "cat"
-            ]
-        },
-        {
-            "question": "What is the capital of New York?",
-            "answer": "Albany",
-            "incorrectAnswers": [
-                "apple",
-                "book",
-                "cat"
-            ]
-        },
-        {
-            "question": "What is the capital of North Carolina?",
-            "answer": "Raleigh",
-            "incorrectAnswers": [
-                "apple",
-                "book",
-                "cat"
-            ]
-        },
-        {
-            "question": "What is the capital of North Dakota?",
-            "answer": "",
-            "incorrectAnswers": [
-                "apple",
-                "book",
-                "cat"
-            ]
-        },
-        {
-            "question": "What is the capital of Ohio?",
-            "answer": "Columbus",
-            "incorrectAnswers": [
-                "apple",
-                "book",
-                "cat"
-            ]
-        },
-        {
-            "question": "What is the capital of Oklahoma?",
-            "answer": "Oklahoma City",
-            "incorrectAnswers": [
-                "apple",
-                "book",
-                "cat"
-            ]
-        },
-        {
-            "question": "What is the capital of Oregon?",
-            "answer": "Salem",
-            "incorrectAnswers": [
-                "apple",
-                "book",
-                "cat"
-            ]
-        },
-        {
-            "question": "What is the capital of Pennsylvania?",
-            "answer": "Harrisburg",
-            "incorrectAnswers": [
-                "apple",
-                "book",
-                "cat"
-            ]
-        },
-        {
-            "question": "What is the capital of Rhode Island?",
-            "answer": "Providence",
-            "incorrectAnswers": [
-                "apple",
-                "book",
-                "cat"
-            ]
-        },
-        {
-            "question": "What is the capital of South Carolina?",
-            "answer": "Columbia",
-            "incorrectAnswers": [
-                "apple",
-                "book",
-                "cat"
-            ]
-        },
-        {
-            "question": "What is the capital of South Dakota?",
-            "answer": "Pierre",
-            "incorrectAnswers": [
-                "apple",
-                "book",
-                "cat"
-            ]
-        },
-        {
-            "question": "What is the capital of Tennessee?",
-            "answer": "Nashville",
-            "incorrectAnswers": [
-                "apple",
-                "book",
-                "cat"
-            ]
-        },
-        {
-            "question": "What is the capital of Texas?",
-            "answer": "Austin",
-            "incorrectAnswers": [
-                "apple",
-                "book",
-                "cat"
-            ]
-        },
-        {
-            "question": "What is the capital of Utah?",
-            "answer": "Salt Lake City",
-            "incorrectAnswers": [
-                "apple",
-                "book",
-                "cat"
-            ]
-        },
-        {
-            "question": "What is the capital of Vermont?",
-            "answer": "Montpelier",
-            "incorrectAnswers": [
-                "apple",
-                "book",
-                "cat"
-            ]
-        },
-        {
-            "question": "What is the capital of Virginia?",
-            "answer": "Richmond",
-            "incorrectAnswers": [
-                "apple",
-                "book",
-                "cat"
-            ]
-        },
-        {
-            "question": "What is the capital of Washington?",
-            "answer": "Olympia",
-            "incorrectAnswers": [
-                "apple",
-                "book",
-                "cat"
-            ]
-        },
-        {
-            "question": "What is the capital of West Virginia?",
-            "answer": "Charleston",
-            "incorrectAnswers": [
-                "apple",
-                "book",
-                "cat"
-            ]
-        },
-        {
-            "question": "What is the capital of Wisconsin?",
-            "answer": "Madison",
-            "incorrectAnswers": [
-                "apple",
-                "book",
-                "cat"
-            ]
-        },
-        {
-            "question": "What is the capital of Wyoming?",
-            "answer": "Cheyenne",
-            "incorrectAnswers": [
-                "apple",
-                "book",
-                "cat"
-            ]
-        }
+    "name": "50 States and Capitals",
+    "subject": "geography",
+    "description": "50 states and their capitals",
+    "ordered": false,
+    "ownerId": "tylergilland@gmail.com",
+    "visibility": "PUBLIC",
+    "questions": [
+      {
+        "questionText": "What is the capital of Alabama?",
+        "answer": "Montgomery",
+        "difficulty": 2,
+        "points": 2
+      },
+      {
+        "questionText": "What is the capital of Alaska?",
+        "answer": "Juneau",
+        "difficulty": 2,
+        "points": 2
+      },
+      {
+        "questionText": "What is the capital of Arizona?",
+        "answer": "Phoenix",
+        "difficulty": 2,
+        "points": 2
+      },
+      {
+        "questionText": "What is the capital of Arkansas?",
+        "answer": "Little Rock",
+        "difficulty": 2,
+        "points": 2
+      },
+      {
+        "questionText": "What is the capital of California?",
+        "answer": "Sacramento",
+        "difficulty": 2,
+        "points": 2
+      },
+      {
+        "questionText": "What is the capital of Colorado?",
+        "answer": "Denver",
+        "difficulty": 2,
+        "points": 2
+      },
+      {
+        "questionText": "What is the capital of Connecticut?",
+        "answer": "Hartford",
+        "difficulty": 2,
+        "points": 2
+      },
+      {
+        "questionText": "What is the capital of Delaware?",
+        "answer": "Dover",
+        "difficulty": 2,
+        "points": 2
+      },
+      {
+        "questionText": "What is the capital of Florida?",
+        "answer": "Tallahassee",
+        "difficulty": 2,
+        "points": 2
+      },
+      {
+        "questionText": "What is the capital of Georgia?",
+        "answer": "Atlanta",
+        "difficulty": 2,
+        "points": 2
+      },
+      {
+        "questionText": "What is the capital of Hawaii?",
+        "answer": "Honolulu",
+        "difficulty": 2,
+        "points": 2
+      },
+      {
+        "questionText": "What is the capital of Idaho?",
+        "answer": "Boise",
+        "difficulty": 2,
+        "points": 2
+      },
+      {
+        "questionText": "What is the capital of Illinois?",
+        "answer": "Springfield",
+        "difficulty": 2,
+        "points": 2
+      },
+      {
+        "questionText": "What is the capital of Indiana?",
+        "answer": "Indianapolis",
+        "difficulty": 2,
+        "points": 2
+      },
+      {
+        "questionText": "What is the capital of Iowa?",
+        "answer": "Des Moines",
+        "difficulty": 2,
+        "points": 2
+      },
+      {
+        "questionText": "What is the capital of Kansas?",
+        "answer": "Topeka",
+        "difficulty": 2,
+        "points": 2
+      },
+      {
+        "questionText": "What is the capital of Kentucky?",
+        "answer": "Frankfort",
+        "difficulty": 2,
+        "points": 2
+      },
+      {
+        "questionText": "What is the capital of Louisiana?",
+        "answer": "Baton Rouge",
+        "difficulty": 2,
+        "points": 2
+      },
+      {
+        "questionText": "What is the capital of Maine?",
+        "answer": "Augusta",
+        "difficulty": 2,
+        "points": 2
+      },
+      {
+        "questionText": "What is the capital of Maryland?",
+        "answer": "Annapolis",
+        "difficulty": 2,
+        "points": 2
+      },
+      {
+        "questionText": "What is the capital of Massachusetts?",
+        "answer": "Boston",
+        "difficulty": 2,
+        "points": 2
+      },
+      {
+        "questionText": "What is the capital of Michigan?",
+        "answer": "Lansing",
+        "difficulty": 2,
+        "points": 2
+      },
+      {
+        "questionText": "What is the capital of Minnesota?",
+        "answer": "St. Paul",
+        "difficulty": 2,
+        "points": 2
+      },
+      {
+        "questionText": "What is the capital of Mississippi?",
+        "answer": "Jackson",
+        "difficulty": 2,
+        "points": 2
+      },
+      {
+        "questionText": "What is the capital of Missouri?",
+        "answer": "Jefferson City",
+        "difficulty": 2,
+        "points": 2
+      },
+      {
+        "questionText": "What is the capital of Montana?",
+        "answer": "Helena",
+        "difficulty": 2,
+        "points": 2
+      },
+      {
+        "questionText": "What is the capital of Nebraska?",
+        "answer": "Lincoln",
+        "difficulty": 2,
+        "points": 2
+      },
+      {
+        "questionText": "What is the capital of Nevada?",
+        "answer": "Carson City",
+        "difficulty": 2,
+        "points": 2
+      },
+      {
+        "questionText": "What is the capital of New Hampshire?",
+        "answer": "Hampshire",
+        "difficulty": 2,
+        "points": 2
+      },
+      {
+        "questionText": "What is the capital of New Jersey?",
+        "answer": "Trenton",
+        "difficulty": 2,
+        "points": 2
+      },
+      {
+        "questionText": "What is the capital of New Mexico?",
+        "answer": "Santa Fe",
+        "difficulty": 2,
+        "points": 2
+      },
+      {
+        "questionText": "What is the capital of New York?",
+        "answer": "Albany",
+        "difficulty": 2,
+        "points": 2
+      },
+      {
+        "questionText": "What is the capital of North Carolina?",
+        "answer": "Raleigh",
+        "difficulty": 2,
+        "points": 2
+      },
+      {
+        "questionText": "What is the capital of North Dakota?",
+        "answer": "Bismarck",
+        "difficulty": 2,
+        "points": 2
+      },
+      {
+        "questionText": "What is the capital of Ohio?",
+        "answer": "Columbus",
+        "difficulty": 2,
+        "points": 2
+      },
+      {
+        "questionText": "What is the capital of Oklahoma?",
+        "answer": "Oklahoma City",
+        "difficulty": 2,
+        "points": 2
+      },
+      {
+        "questionText": "What is the capital of Oregon?",
+        "answer": "Salem",
+        "difficulty": 2,
+        "points": 2
+      },
+      {
+        "questionText": "What is the capital of Pennsylvania?",
+        "answer": "Harrisburg",
+        "difficulty": 2,
+        "points": 2
+      },
+      {
+        "questionText": "What is the capital of Rhode Island?",
+        "answer": "Providence",
+        "difficulty": 2,
+        "points": 2
+      },
+      {
+        "questionText": "What is the capital of South Carolina?",
+        "answer": "Columbia",
+        "difficulty": 2,
+        "points": 2
+      },
+      {
+        "questionText": "What is the capital of South Dakota?",
+        "answer": "Pierre",
+        "difficulty": 2,
+        "points": 2
+      },
+      {
+        "questionText": "What is the capital of Tennessee?",
+        "answer": "Nashville",
+        "difficulty": 2,
+        "points": 2
+      },
+      {
+        "questionText": "What is the capital of Texas?",
+        "answer": "Austin",
+        "difficulty": 2,
+        "points": 2
+      },
+      {
+        "questionText": "What is the capital of Utah?",
+        "answer": "Salt Lake City",
+        "difficulty": 2,
+        "points": 2
+      },
+      {
+        "questionText": "What is the capital of Vermont?",
+        "answer": "Montpelier",
+        "difficulty": 2,
+        "points": 2
+      },
+      {
+        "questionText": "What is the capital of Virginia?",
+        "answer": "Richmond",
+        "difficulty": 2,
+        "points": 2
+      },
+      {
+        "questionText": "What is the capital of Washington?",
+        "answer": "Olympia",
+        "difficulty": 2,
+        "points": 2
+      },
+      {
+        "questionText": "What is the capital of West Virginia?",
+        "answer": "Charleston",
+        "difficulty": 2,
+        "points": 2
+      },
+      {
+        "questionText": "What is the capital of Wisconsin?",
+        "answer": "Madison",
+        "difficulty": 2,
+        "points": 2
+      },
+      {
+        "questionText": "What is the capital of Wyoming?",
+        "answer": "Cheyenne",
+        "difficulty": 2,
+        "points": 2
+      }
     ]
-}
+  }

@@ -10,15 +10,9 @@ using UnityEngine.UI;
 
 public partial class QuestionSet
 {
-    [JsonProperty("Questions")]
+    [JsonProperty("questions")]
     public List<QuestionDocument> Questions { get; set; }
     public int CurrentQuestionIndex { get; set; }
-
-
-    // public Transform answer1Transform { get; set; }
-    // public Transform answer2Transform { get; set; }
-    // public Transform answer3Transform { get; set; }
-
 
     public void Next()
     {
@@ -32,29 +26,64 @@ public partial class QuestionSet
         }
     }
 
-        public void SetQuestion(string quesText, string ans1Text, string ans2Text, string ans3Text)
+    public void SetQuestion()
     {
+        int randomAnsIndex1 = -1;
+        int randomAnsIndex2 = -1;
+        int randomAnsIndex3 = -1;
+        int randomPositionIndex = -1;
+
+
+        randomAnsIndex1 = UnityEngine.Random.Range(0, Questions.Count - 1);
+        randomAnsIndex2 = UnityEngine.Random.Range(0, Questions.Count - 1);
+        randomAnsIndex3 = UnityEngine.Random.Range(0, Questions.Count - 1);
+
+        while(randomAnsIndex2 == randomAnsIndex1){  //Get a new number if you got the exact same one as the answer
+            randomAnsIndex2 = UnityEngine.Random.Range(0, Questions.Count - 1);
+        }
+        while(randomAnsIndex3 == randomAnsIndex2 && randomAnsIndex3 == randomAnsIndex1){
+            randomAnsIndex3 = UnityEngine.Random.Range(0, Questions.Count - 1);
+        }
+
+
         GameObject scroll = GameObject.FindWithTag ("scroll");
         if(scroll){
             Text scrollText = scroll.GetComponentInChildren<Text>();
-            scrollText.text = quesText;
+            scrollText.text = Questions[randomAnsIndex1].questionText;
         }
+
+        randomPositionIndex = UnityEngine.Random.Range(1, 4); // pick a random position for the answer to be. Where 1 <= number < 4
+        Debug.Log(randomPositionIndex);
+        switch (randomPositionIndex)
+        {
+            case 1:
+                applyTextToBanners(randomAnsIndex1, randomAnsIndex3, randomAnsIndex2);
+                break;
+            case 2:
+                applyTextToBanners(randomAnsIndex2, randomAnsIndex1, randomAnsIndex3);
+                break;
+            default:
+                applyTextToBanners(randomAnsIndex3, randomAnsIndex2, randomAnsIndex1);
+                break;
+        }
+    }
+
+    private void applyTextToBanners(int rand1, int rand2, int rand3){
         GameObject answer01 = GameObject.FindWithTag ("answer01");
         if(answer01){
             Text answer01Text = answer01.GetComponentInChildren<Text>();
-            answer01Text.text = ans1Text;
+            answer01Text.text = Questions[rand1].answer;
         }
         GameObject answer02 = GameObject.FindWithTag ("answer02");
         if(answer02){
             Text answer02Text = answer02.GetComponentInChildren<Text>();
-            answer02Text.text = ans2Text;
+            answer02Text.text = Questions[rand2].answer;
         }
         GameObject answer03 = GameObject.FindWithTag ("answer03");
         if(answer03){
             Text answer03Text = answer03.GetComponentInChildren<Text>();
-            answer03Text.text = ans3Text;
+            answer03Text.text = Questions[rand3].answer;
         }
-
     }
 
     public void Update(Vector3 v1, Vector3 v2, Vector3 v3)
@@ -75,14 +104,11 @@ public partial class QuestionSet
 
 public partial class QuestionDocument
 {
-    [JsonProperty("question")]
-    public string QuestionText { get; set; }
+    [JsonProperty("questionText")]
+    public string questionText { get; set; }
 
     [JsonProperty("answer")]
-    public string AnswerText { get; set; }
-
-    [JsonProperty("incorrectAnswers")]
-    public List<string> IncorrectAnswers { get; set; }
+    public string answer { get; set; }
 }
 
 public enum IncorrectAnswer { Apple, Book, Cat };
