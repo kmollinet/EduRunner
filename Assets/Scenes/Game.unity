@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.5649006, g: 0.6356399, b: 0.7239371, a: 1}
+  m_IndirectSpecularColor: {r: 0.5649006, g: 0.63563985, b: 0.7239369, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -260,7 +260,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 40}
   m_SizeDelta: {x: 216.72, y: 102.099976}
   m_Pivot: {x: 0, y: 0}
 --- !u!114 &245467580
@@ -296,7 +296,7 @@ MonoBehaviour:
     m_LineSpacing: 1
   m_Text: '15 Questions
 
-    14/15 Correct'
+'
 --- !u!222 &245467581
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -838,6 +838,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 245467579}
+  - {fileID: 1372684532}
   m_Father: {fileID: 51080097}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1162,6 +1163,83 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1172706678}
   m_CullTransparentMesh: 0
+--- !u!1 &1372684529
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1372684532}
+  - component: {fileID: 1372684531}
+  - component: {fileID: 1372684530}
+  m_Layer: 0
+  m_Name: numberCorrectText
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1372684530
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1372684529}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_FontData:
+    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_FontSize: 32
+    m_FontStyle: 0
+    m_BestFit: 0
+    m_MinSize: 10
+    m_MaxSize: 40
+    m_Alignment: 4
+    m_AlignByGeometry: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
+    m_LineSpacing: 1
+  m_Text: 14/15 Correct
+--- !u!222 &1372684531
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1372684529}
+  m_CullTransparentMesh: 0
+--- !u!224 &1372684532
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1372684529}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1047405577}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 216.72, y: 102.099976}
+  m_Pivot: {x: 0, y: 0}
 --- !u!1 &1654688207
 GameObject:
   m_ObjectHideFlags: 0
@@ -1622,6 +1700,16 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 5296302367293148817, guid: d388beb605d9a354a83e8673e6ee9b16,
         type: 3}
+    - target: {fileID: 2563594963672756163, guid: 7deb0c23423184e4c973524c08a0cd02,
+        type: 3}
+      propertyPath: totalQuestionsText
+      value: 
+      objectReference: {fileID: 245467580}
+    - target: {fileID: 2563594963672756163, guid: 7deb0c23423184e4c973524c08a0cd02,
+        type: 3}
+      propertyPath: numberCorrect
+      value: 
+      objectReference: {fileID: 1372684530}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7deb0c23423184e4c973524c08a0cd02, type: 3}
 --- !u!1 &2014422116
