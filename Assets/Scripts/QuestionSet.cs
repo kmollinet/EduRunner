@@ -1,17 +1,22 @@
 using System;
+using System.IO;
+using System.Linq;
+using System.Globalization;
 using System.Collections.Generic;
 using UnityEngine;
-using System.Globalization;
-using System.IO;
+using UnityEngine.UI;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
-using UnityEngine.UI;
+
+
 
 
 public partial class QuestionSet
 {
     [JsonProperty("questions")]
     public List<QuestionDocument> Questions { get; set; }
+    private List<int> usedQuestionIndices = new List<int>();
+
     public int CurrentQuestionIndex { get; set; }
 
     public void Next()
@@ -26,31 +31,34 @@ public partial class QuestionSet
         }
     }
 
-    public void SetQuestion()
+    public int SetQuestion()
     {
         int randomAnsIndex1 = -1;
         int randomAnsIndex2 = -1;
         int randomAnsIndex3 = -1;
         int randomPositionIndex = -1;
 
-
-        randomAnsIndex1 = UnityEngine.Random.Range(0, Questions.Count - 1);
-        randomAnsIndex2 = UnityEngine.Random.Range(0, Questions.Count - 1);
-        randomAnsIndex3 = UnityEngine.Random.Range(0, Questions.Count - 1);
-
-        while(randomAnsIndex2 == randomAnsIndex1){  //Get a new number if you got the exact same one as the answer
-            randomAnsIndex2 = UnityEngine.Random.Range(0, Questions.Count - 1);
-        }
-        while(randomAnsIndex3 == randomAnsIndex2 && randomAnsIndex3 == randomAnsIndex1){
-            randomAnsIndex3 = UnityEngine.Random.Range(0, Questions.Count - 1);
+        randomAnsIndex1 = UnityEngine.Random.Range(0, Questions.Count);
+        while(usedQuestionIndices.Contains(randomAnsIndex1)){ // make sure this question hasn't been used before
+            randomAnsIndex1 = UnityEngine.Random.Range(0, Questions.Count);
         }
 
+        randomAnsIndex2 = UnityEngine.Random.Range(0, Questions.Count);
+        randomAnsIndex3 = UnityEngine.Random.Range(0, Questions.Count);
+        while(randomAnsIndex2 == randomAnsIndex1 || randomAnsIndex2 == randomAnsIndex3){  //Get a new number if you got the exact same one as the answer
+            randomAnsIndex2 = UnityEngine.Random.Range(0, Questions.Count);
+        }
+        while(randomAnsIndex3 == randomAnsIndex2 || randomAnsIndex3 == randomAnsIndex1){
+            randomAnsIndex3 = UnityEngine.Random.Range(0, Questions.Count);
+        }
 
         GameObject scroll = GameObject.FindWithTag ("scroll");
         if(scroll){
             Text scrollText = scroll.GetComponentInChildren<Text>();
             scrollText.text = Questions[randomAnsIndex1].questionText;
         }
+
+        usedQuestionIndices.Add(randomAnsIndex1); // Add the random index to the usedQuestionsIndices array to avoid repeating questions for kids during the same game
 
         randomPositionIndex = UnityEngine.Random.Range(1, 4); // pick a random position for the answer to be. Where 1 <= number < 4
         Debug.Log(randomPositionIndex);
@@ -66,6 +74,7 @@ public partial class QuestionSet
                 applyTextToBanners(randomAnsIndex3, randomAnsIndex2, randomAnsIndex1);
                 break;
         }
+        return randomPositionIndex;
     }
 
     private void applyTextToBanners(int rand1, int rand2, int rand3){
@@ -86,11 +95,8 @@ public partial class QuestionSet
         }
     }
 
-    public void Update(Vector3 v1, Vector3 v2, Vector3 v3)
+    public void Update()
     {
-        // answer1Transform.position = v1;
-        // answer2Transform.position = v2;
-        // answer3Transform.position = v3;
 
     }
 
@@ -98,8 +104,6 @@ public partial class QuestionSet
     {
         get => Questions[CurrentQuestionIndex];
     }
-
-
 }
 
 public partial class QuestionDocument
@@ -124,10 +128,6 @@ public partial class QuestionSet
             json = File.ReadAllText(Application.streamingAssetsPath + "/" + fileName);
         }
         QuestionSet qs = FromJson(json);
-
-        // qs.answer2Transform = GameObject.FindGameObjectWithTag("answer2").transform;
-        // qs.answer1Transform = GameObject.FindGameObjectWithTag("answer1").transform;
-        // qs.answer3Transform = GameObject.FindGameObjectWithTag("answer3").transform;
 
         qs.CurrentQuestionIndex = 0;
 

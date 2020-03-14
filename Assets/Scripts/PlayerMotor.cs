@@ -14,18 +14,25 @@ public class PlayerMotor : MonoBehaviour
     private float gravity = 12.0f;
     private bool isDead = false;
     private float startTime = 0.0f;
+    private int totalQuestions = 10;
+    private int questionNum = 0;
+    public Text totalQuestionsText;
+    public Text numberCorrect;
+    private int numCorrect = 0;
+    private int correctAnsPosition;
+
+
+
+
     public Animator anim;
-    Color green = new Color32(128, 255, 128, 255);
+    // Color green = new Color32(128, 255, 128, 140);
+    Color green = new Color32(115, 164, 229, 255);
+
     Color invisible = new Color32(0,0,0,0);
-    Color white = new Color32(255,255,255,255);
 
     private Vector3 scrollVector;
-    private Text questionText;
     public GameObject questionImage;
-
-    private Vector3 answer01Vector;
     public GameObject answer01;
-    private Vector3 answer02Vector;
     public GameObject answer02;
     private Vector3 answer03Vector;
     public GameObject answer03;
@@ -37,14 +44,24 @@ public class PlayerMotor : MonoBehaviour
     void Start()
     {
         qs = QuestionSet.Init("sample_question_set.json");
-
+        if(qs.Questions.Count < 3){ // We can't handle less than 3 questions in a set because we need to display 3 answers.
+            Death();
+        }
+        if(qs.Questions.Count < totalQuestions){
+            totalQuestions = qs.Questions.Count;
+        }
         controller = GetComponent<CharacterController>();
         startTime = Time.time;
+        questionNum = 1;
+        totalQuestionsText.text = "Question " + questionNum.ToString() + "/" + totalQuestions.ToString();
     }
 
     // Update is called once per frame
     void Update()
     {
+        totalQuestionsText.text = "Question " + questionNum.ToString() + "/" + totalQuestions.ToString();
+
+        numberCorrect.text = numCorrect.ToString() + "/" + (questionNum - 1).ToString() + " Correct";
         if(isDead)
             return;
 
@@ -96,15 +113,10 @@ public class PlayerMotor : MonoBehaviour
             hitEnemy(hit.gameObject);
         }
         // if(hit.gameObject.tag == "enemy" && hit.point.z > transform.position.z + controller.radius)
-            
-
-
             // Death ();
 
         if(hit.gameObject.tag == "leftLaneQuestion" || hit.gameObject.tag == "middleLaneQuestion" || hit.gameObject.tag == "rightLaneQuestion")
         {
-            // Debug.Log("test!!!");
-
             if(GameObject.FindWithTag ("scroll")){
                 GameObject scroll = GameObject.FindWithTag ("scroll");
                 scrollVector.x = 0;
@@ -126,8 +138,25 @@ public class PlayerMotor : MonoBehaviour
         if(hit.gameObject.tag == "leftlane" || hit.gameObject.tag == "middlelane" || hit.gameObject.tag == "rightlane")
         {
             if(GameObject.FindWithTag ("scroll")){
+                if(hit.gameObject.tag == "leftlane" && correctAnsPosition == 1){
+                    numCorrect += 1;
+                }
+                else if(hit.gameObject.tag == "middlelane" && correctAnsPosition == 2){
+                    numCorrect += 1;
+                }
+                else if(hit.gameObject.tag == "rightlane" && correctAnsPosition == 3){
+                    numCorrect += 1;
+                }
                 Destroy(GameObject.FindWithTag ("scroll"));
                 qs.Next();
+                if(questionNum >= totalQuestions || questionNum >= qs.Questions.Count){
+                    // anim.Play("infantry_04_attack_A"); //If you want to play an animation on the knight before the questions end, use this code
+                    // Invoke("Death", 2);
+                    Death();
+                }
+                else{
+                    questionNum += 1;
+                }
             }
             if(GameObject.FindWithTag ("answer01")){
                 Destroy(GameObject.FindWithTag ("answer01"));
@@ -174,7 +203,7 @@ public class PlayerMotor : MonoBehaviour
     {
         isDead = true;
         GetComponent<Score>().OnDeath();
-        anim.Play("Die");
+        // anim.Play("Die");
     }
 
     private void hitEnemy(GameObject enemy)
@@ -187,7 +216,9 @@ public class PlayerMotor : MonoBehaviour
     }
 
     public void SetQuestionAfterDelay(){
-        qs.SetQuestion();
+        correctAnsPosition = qs.SetQuestion();
+        Debug.Log("Position");
+        Debug.Log(correctAnsPosition);
     }
 
 
