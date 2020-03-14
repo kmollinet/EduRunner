@@ -1,0 +1,22 @@
+{
+    "name": "50 States and Capitals",
+    "subject": "geography",
+    "description": "50 states and their capitals",
+    "ordered": false,
+    "ownerId": "tylergilland@gmail.com",
+    "visibility": "PUBLIC",
+    "questions": [
+      {
+        "questionText": "What is the capital of Alabama?",
+        "answer": "Montgomery",
+        "difficulty": 2,
+        "points": 2
+      },
+      {
+        "questionText": "What is the capital of Alaska?",
+        "answer": "Juneau",
+        "difficulty": 2,
+        "points": 2
+      }
+    ]
+  }
