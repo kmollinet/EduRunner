@@ -92,7 +92,7 @@ GameObject:
   - component: {fileID: 6763199566590134168}
   - component: {fileID: 6730964164951343218}
   m_Layer: 0
-  m_Name: Bridge_Answer_Doors
+  m_Name: Bridge_Answer_Middle
   m_TagString: gameModeTile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -113,6 +113,7 @@ Transform:
   - {fileID: 839361326343386113}
   - {fileID: 3295070113370862230}
   - {fileID: 6339165303234441546}
+  - {fileID: 5878469403145146350}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -500,6 +501,96 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 7690938853526424753, guid: 40621ab10cd7e9c44ae3bb20b42ed340,
     type: 3}
   m_PrefabInstance: {fileID: 6483383549527180258}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &7073083125168652495
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 2871639824675319370}
+    m_Modifications:
+    - target: {fileID: 3727897912525673217, guid: 8556be47957b1784e8ecbedc12134fe5,
+        type: 3}
+      propertyPath: m_Name
+      value: ForestChestBottom
+      objectReference: {fileID: 0}
+    - target: {fileID: 3727897912525770529, guid: 8556be47957b1784e8ecbedc12134fe5,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3727897912525770529, guid: 8556be47957b1784e8ecbedc12134fe5,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3727897912525770529, guid: 8556be47957b1784e8ecbedc12134fe5,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3727897912525770529, guid: 8556be47957b1784e8ecbedc12134fe5,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3727897912525770529, guid: 8556be47957b1784e8ecbedc12134fe5,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3727897912525770529, guid: 8556be47957b1784e8ecbedc12134fe5,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3727897912525770529, guid: 8556be47957b1784e8ecbedc12134fe5,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.0000029504295
+      objectReference: {fileID: 0}
+    - target: {fileID: 3727897912525770529, guid: 8556be47957b1784e8ecbedc12134fe5,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 3727897912525770529, guid: 8556be47957b1784e8ecbedc12134fe5,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3727897912525770529, guid: 8556be47957b1784e8ecbedc12134fe5,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 180.00002
+      objectReference: {fileID: 0}
+    - target: {fileID: 3727897912525770529, guid: 8556be47957b1784e8ecbedc12134fe5,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3727897912525770529, guid: 8556be47957b1784e8ecbedc12134fe5,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 3727897912525770529, guid: 8556be47957b1784e8ecbedc12134fe5,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 3727897912525770529, guid: 8556be47957b1784e8ecbedc12134fe5,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.7
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 8556be47957b1784e8ecbedc12134fe5, type: 3}
+--- !u!4 &5878469403145146350 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 3727897912525770529, guid: 8556be47957b1784e8ecbedc12134fe5,
+    type: 3}
+  m_PrefabInstance: {fileID: 7073083125168652495}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &8061961560055070416
 PrefabInstance:

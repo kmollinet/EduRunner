@@ -28,6 +28,9 @@ TagManager:
   - answer03
   - castle
   - EndingUI
+  - doorsBlack
+  - doorsBlue
+  - doorsRed
   layers:
   - Default
   - TransparentFX
