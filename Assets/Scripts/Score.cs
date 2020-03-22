@@ -21,7 +21,6 @@ public class Score : MonoBehaviour
 
     public Text scoreText;
     public Text negativeScore;
-    public DeathMenu deathMenu;
     public GameObject untouchableCoin;
     // Start is called before the first frame update
     void Start()
@@ -56,11 +55,6 @@ public class Score : MonoBehaviour
         if (score > PlayerPrefs.GetFloat("Highscore")){
             PlayerPrefs.SetFloat("Highscore", score);
         }
-
-        /*Setting a score to the PlayerPrefs instead of passing it to the DeathMenu.
-         Also, Load the EndingScene instead of toggling death menu*/
-
-        //deathMenu.ToggleEndMenu(score);
 
         PlayerPrefs.SetFloat("currentScore", score);
 
