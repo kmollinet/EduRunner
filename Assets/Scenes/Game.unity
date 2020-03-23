@@ -785,6 +785,8 @@ MonoBehaviour:
   questionTiles:
   - {fileID: 6112392899616977855, guid: 4460c34d75d0eee48845834f276fad26, type: 3}
   - {fileID: 2871639824675319371, guid: 12c06c45b53e47040b6c4c24b6d76f6c, type: 3}
+  bridgeEnd: {fileID: 625920543710625082, guid: 3d49cdf362a1d6246b68b018e5b7fad0,
+    type: 3}
 --- !u!4 &1059025004
 Transform:
   m_ObjectHideFlags: 0
@@ -1093,6 +1095,11 @@ PrefabInstance:
       propertyPath: numberCorrect
       value: 
       objectReference: {fileID: 1372684530}
+    - target: {fileID: 2563594963672756163, guid: 7deb0c23423184e4c973524c08a0cd02,
+        type: 3}
+      propertyPath: tileManager
+      value: 
+      objectReference: {fileID: 1059025002}
     - target: {fileID: 2563594963793808535, guid: 7deb0c23423184e4c973524c08a0cd02,
         type: 3}
       propertyPath: m_Enabled
