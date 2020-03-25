@@ -14,7 +14,7 @@ public class PlayerMotor : MonoBehaviour
     private float gravity = 12.0f;
     private bool isDead = false;
     private float startTime = 0.0f;
-    private int totalQuestions = 10;
+    private int totalQuestions = 3;
     private int questionNum = 0;
     public Text totalQuestionsText;
     public Text numberCorrect;
@@ -25,8 +25,12 @@ public class PlayerMotor : MonoBehaviour
 
 
     public Animator anim;
-    // Color green = new Color32(128, 255, 128, 140);
-    Color green = new Color32(115, 164, 229, 255);
+    // Color blue = new Color32(128, 255, 128, 140);
+    Color blue = new Color32(115, 164, 229, 255);
+    Color red = new Color32(191, 105, 105, 255);
+
+    Color black = new Color32(86, 89, 94, 255);
+
 
     Color invisible = new Color32(0,0,0,0);
 
@@ -36,6 +40,8 @@ public class PlayerMotor : MonoBehaviour
     public GameObject answer02;
     private Vector3 answer03Vector;
     public GameObject answer03;
+
+    public GameObject tileManager;
 
 
     private QuestionSet qs;
@@ -108,10 +114,10 @@ public class PlayerMotor : MonoBehaviour
     //called when player hits something
     private void OnControllerColliderHit(ControllerColliderHit hit)
     {
+        if(hit.gameObject.tag == "endGame")
+            Death();
         if(hit.gameObject.tag == "enemy")
-        {
             hitEnemy(hit.gameObject);
-        }
         // if(hit.gameObject.tag == "enemy" && hit.point.z > transform.position.z + controller.radius)
             // Death ();
 
@@ -128,8 +134,6 @@ public class PlayerMotor : MonoBehaviour
                 GameObject go;
                 go = Instantiate(questionImage) as GameObject;
                 Invoke("SetQuestionAfterDelay",1);
-
-                // go.transform.SetParent(transform);
             }
             initializeObject(answer01, "answer01", -1.0f, 2.0f, 2.0f);
             initializeObject(answer02, "answer02", 0.0f, 2.0f, 2.0f);
@@ -148,13 +152,14 @@ public class PlayerMotor : MonoBehaviour
                     numCorrect += 1;
                 }
                 Destroy(GameObject.FindWithTag ("scroll"));
-                qs.Next();
+                if(questionNum == totalQuestions - 1 || questionNum == qs.Questions.Count - 1){
+                    tileManager.GetComponent<TileManager>().MarkLastQuestion(); 
+                }
                 if(questionNum >= totalQuestions || questionNum >= qs.Questions.Count){
-                    // anim.Play("infantry_04_attack_A"); //If you want to play an animation on the knight before the questions end, use this code
-                    // Invoke("Death", 2);
-                    Death();
+                    tileManager.GetComponent<TileManager>().EndGame(); 
                 }
                 else{
+                    qs.Next();
                     questionNum += 1;
                 }
             }
@@ -170,27 +175,27 @@ public class PlayerMotor : MonoBehaviour
         }
         if (hit.gameObject.tag == "leftlane" || hit.gameObject.tag == "leftLaneQuestion"){
             laneColorChange("middlelane", invisible);
-            laneColorChange("leftlane", green);
+            laneColorChange("leftlane", red);
             laneColorChange("rightlane", invisible);
             laneColorChange("middleLaneQuestion", invisible);
-            laneColorChange("leftLaneQuestion", green);
+            laneColorChange("leftLaneQuestion", red);
             laneColorChange("rightLaneQuestion", invisible);
         }
         else if(hit.gameObject.tag == "middlelane" || hit.gameObject.tag == "middleLaneQuestion"){
-            laneColorChange("middlelane", green);
+            laneColorChange("middlelane", blue);
             laneColorChange("leftlane", invisible);
             laneColorChange("rightlane", invisible);
-            laneColorChange("middleLaneQuestion", green);
+            laneColorChange("middleLaneQuestion", blue);
             laneColorChange("leftLaneQuestion", invisible);
             laneColorChange("rightLaneQuestion", invisible);
         }     
         else if(hit.gameObject.tag == "rightlane" || hit.gameObject.tag == "rightLaneQuestion"){
             laneColorChange("middlelane", invisible);
             laneColorChange("leftlane", invisible);
-            laneColorChange("rightlane", green);
+            laneColorChange("rightlane", black);
             laneColorChange("middleLaneQuestion", invisible);
             laneColorChange("leftLaneQuestion", invisible);
-            laneColorChange("rightLaneQuestion", green);
+            laneColorChange("rightLaneQuestion", black);
         }  
         else if(hit.gameObject.tag == "gameModeTile"){
             laneColorChange("middlelane", invisible);
@@ -217,8 +222,6 @@ public class PlayerMotor : MonoBehaviour
 
     public void SetQuestionAfterDelay(){
         correctAnsPosition = qs.SetQuestion();
-        Debug.Log("Position");
-        Debug.Log(correctAnsPosition);
     }
 
 

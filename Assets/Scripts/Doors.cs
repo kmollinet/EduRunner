@@ -19,8 +19,6 @@ public class Doors : MonoBehaviour
 
     void OnTriggerEnter(Collider col)
     {
-        Debug.Log(col.gameObject.tag);
-        Debug.Log(tag);
 
         if(col.gameObject.tag == "Player" && tag == "doorsBlack") {
             doorOpenBlack = true;

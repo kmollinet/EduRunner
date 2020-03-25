@@ -65,7 +65,6 @@ public class Score : MonoBehaviour
         //called when player hits something
     private void OnControllerColliderHit(ControllerColliderHit hit)
     {
-        // Debug.Log(hit.gameObject.tag);
         if(hit.gameObject.tag == "jewel")
         {
             tickSource.Play();

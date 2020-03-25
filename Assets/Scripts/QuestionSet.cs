@@ -61,7 +61,7 @@ public partial class QuestionSet
         usedQuestionIndices.Add(randomAnsIndex1); // Add the random index to the usedQuestionsIndices array to avoid repeating questions for kids during the same game
 
         randomPositionIndex = UnityEngine.Random.Range(1, 4); // pick a random position for the answer to be. Where 1 <= number < 4
-        Debug.Log(randomPositionIndex);
+
         switch (randomPositionIndex)
         {
             case 1:
