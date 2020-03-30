@@ -22,6 +22,9 @@ public class Score : MonoBehaviour
     public Text scoreText;
     public Text negativeScore;
     public GameObject untouchableCoin;
+    public GameObject untouchableTreasure;
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -65,11 +68,18 @@ public class Score : MonoBehaviour
         //called when player hits something
     private void OnControllerColliderHit(ControllerColliderHit hit)
     {
-        if(hit.gameObject.tag == "jewel")
+        if(hit.gameObject.tag == "jewel" || hit.gameObject.tag == "treasure")
         {
             tickSource.Play();
             GameObject go;
-            go = Instantiate(untouchableCoin) as GameObject;        
+            if(hit.gameObject.tag == "jewel"){
+                go = Instantiate(untouchableCoin) as GameObject; 
+                score += 1;
+            }
+            else{
+                go = Instantiate(untouchableTreasure) as GameObject;   
+                score += 50;     
+            }
             go.transform.SetParent(transform);
             untouchableCoinPosition.x = hit.gameObject.transform.position.x;
             untouchableCoinPosition.y = hit.gameObject.transform.position.y;
@@ -77,12 +87,7 @@ public class Score : MonoBehaviour
             go.transform.position = untouchableCoinPosition;
 
             Destroy(hit.gameObject);
-            score += 1;
-        }
-        if(hit.gameObject.tag == "jewel5")
-        {
-            Destroy(hit.gameObject);
-            score += 5;
+
         }
     }
 
