@@ -58,6 +58,11 @@
      <Compile Include="Assets\AurynSky\Forest Pack\Scripts\Rotator.cs" />
      <Compile Include="Assets\AurynSky\Forest Pack\Scripts\WheelController.cs" />
      <Compile Include="Assets\AurynSky\Gems Ultimate Pack\Scripts\AnimationScript.cs" />
+     <Compile Include="Assets\Scripts\APIClient.cs" />
+     <Compile Include="Assets\Scripts\APIGraphQL\APIGraphQL.cs" />
+     <Compile Include="Assets\Scripts\APIGraphQL\Coroutiner.cs" />
+     <Compile Include="Assets\Scripts\APIGraphQL\GraphQLClient.cs" />
+     <Compile Include="Assets\Scripts\APIGraphQL\GraphQLResponse.cs" />
      <Compile Include="Assets\Scripts\CameraMotor.cs" />
      <Compile Include="Assets\Scripts\Coin.cs" />
      <Compile Include="Assets\Scripts\Coin_Fly.cs" />
