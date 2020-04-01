@@ -57,6 +57,7 @@
      <Compile Include="Assets\AurynSky\Forest Pack\Scripts\MaterialMover.cs" />
      <Compile Include="Assets\AurynSky\Forest Pack\Scripts\Rotator.cs" />
      <Compile Include="Assets\AurynSky\Forest Pack\Scripts\WheelController.cs" />
+     <Compile Include="Assets\AurynSky\Gems Ultimate Pack\Scripts\AnimationScript.cs" />
      <Compile Include="Assets\Scripts\CameraMotor.cs" />
      <Compile Include="Assets\Scripts\Coin.cs" />
      <Compile Include="Assets\Scripts\Coin_Fly.cs" />
@@ -71,6 +72,8 @@
      <None Include="Assets\AurynSky\Forest Pack\READ ME.txt" />
      <None Include="Assets\RPG Monster Wave PBR\Shaders\PBRMaskTint.shader" />
      <None Include="Assets\JsonDotNet\link.xml" />
+     <None Include="Assets\Ultra Skybox Fog\Textures\Readme.txt" />
+     <None Include="Assets\AurynSky\Gems Ultimate Pack\READ ME.txt" />
  <Reference Include="UnityEngine.AIModule">
  <HintPath>C:/Program Files/Unity/Hub/Editor/2018.4.14f1/Editor/Data/Managed/UnityEngine/UnityEngine.AIModule.dll</HintPath>
  </Reference>
@@ -273,22 +276,22 @@
  <HintPath>C:/Program Files/Unity/Hub/Editor/2018.4.14f1/Editor/Data/UnityExtensions/Unity/UnitySpatialTracking/RuntimeEditor/UnityEngine.SpatialTracking.dll</HintPath>
  </Reference>
  <Reference Include="Newtonsoft.Json">
- <HintPath>C:/Users/Tomi/Desktop/winter2020/EduRunner/Assets/JsonDotNet/Assemblies/AOT/Newtonsoft.Json.dll</HintPath>
+ <HintPath>C:/Users/kylem/EduRunner/Assets/JsonDotNet/Assemblies/AOT/Newtonsoft.Json.dll</HintPath>
  </Reference>
  <Reference Include="Newtonsoft.Json">
- <HintPath>C:/Users/Tomi/Desktop/winter2020/EduRunner/Assets/JsonDotNet/Assemblies/Standalone/Newtonsoft.Json.dll</HintPath>
+ <HintPath>C:/Users/kylem/EduRunner/Assets/JsonDotNet/Assemblies/Standalone/Newtonsoft.Json.dll</HintPath>
  </Reference>
  <Reference Include="Newtonsoft.Json">
- <HintPath>C:/Users/Tomi/Desktop/winter2020/EduRunner/Assets/JsonDotNet/Assemblies/Windows/Newtonsoft.Json.dll</HintPath>
+ <HintPath>C:/Users/kylem/EduRunner/Assets/JsonDotNet/Assemblies/Windows/Newtonsoft.Json.dll</HintPath>
  </Reference>
  <Reference Include="Unity.Analytics.Editor">
- <HintPath>C:/Users/Tomi/Desktop/winter2020/EduRunner/Library/PackageCache/com.unity.analytics@3.2.2/Unity.Analytics.Editor.dll</HintPath>
+ <HintPath>C:/Users/kylem/EduRunner/Library/PackageCache/com.unity.analytics@3.2.2/Unity.Analytics.Editor.dll</HintPath>
  </Reference>
  <Reference Include="Unity.Analytics.StandardEvents">
- <HintPath>C:/Users/Tomi/Desktop/winter2020/EduRunner/Library/PackageCache/com.unity.analytics@3.2.2/Unity.Analytics.StandardEvents.dll</HintPath>
+ <HintPath>C:/Users/kylem/EduRunner/Library/PackageCache/com.unity.analytics@3.2.2/Unity.Analytics.StandardEvents.dll</HintPath>
  </Reference>
  <Reference Include="Unity.Analytics.Tracker">
- <HintPath>C:/Users/Tomi/Desktop/winter2020/EduRunner/Library/PackageCache/com.unity.analytics@3.2.2/Unity.Analytics.Tracker.dll</HintPath>
+ <HintPath>C:/Users/kylem/EduRunner/Library/PackageCache/com.unity.analytics@3.2.2/Unity.Analytics.Tracker.dll</HintPath>
  </Reference>
  <Reference Include="netstandard">
  <HintPath>C:/Program Files/Unity/Hub/Editor/2018.4.14f1/Editor/Data/NetStandard/ref/2.0.0/netstandard.dll</HintPath>

@@ -30,6 +30,10 @@ public class PlayerMotor : MonoBehaviour
     Color red = new Color32(191, 105, 105, 255);
 
     Color black = new Color32(86, 89, 94, 255);
+    Color rightAnswerColor = new Color32(0, 255, 0, 255);
+
+    Color wrongAnswerColor = new Color32(234, 74, 70, 255);
+
 
 
     Color invisible = new Color32(0,0,0,0);
@@ -42,6 +46,10 @@ public class PlayerMotor : MonoBehaviour
     public GameObject answer03;
 
     public GameObject tileManager;
+    public GameObject treasureChest;
+    private Vector3 treasureVector;
+    private bool placeTreasureChest = false;
+
 
 
     private QuestionSet qs;
@@ -50,6 +58,7 @@ public class PlayerMotor : MonoBehaviour
     void Start()
     {
         qs = QuestionSet.Init("sample_question_set.json");
+        tileManager.GetComponent<TileManager>().DetermineTotalQuestions(totalQuestions); 
         if(qs.Questions.Count < 3){ // We can't handle less than 3 questions in a set because we need to display 3 answers.
             Death();
         }
@@ -67,7 +76,7 @@ public class PlayerMotor : MonoBehaviour
     {
         totalQuestionsText.text = "Question " + questionNum.ToString() + "/" + totalQuestions.ToString();
 
-        numberCorrect.text = numCorrect.ToString() + "/" + (questionNum - 1).ToString() + " Correct";
+        numberCorrect.text = numCorrect.ToString() + "/" + (questionNum).ToString() + " Correct";
         if(isDead)
             return;
 
@@ -142,26 +151,17 @@ public class PlayerMotor : MonoBehaviour
         if(hit.gameObject.tag == "leftlane" || hit.gameObject.tag == "middlelane" || hit.gameObject.tag == "rightlane")
         {
             if(GameObject.FindWithTag ("scroll")){
-                if(hit.gameObject.tag == "leftlane" && correctAnsPosition == 1){
-                    numCorrect += 1;
-                }
-                else if(hit.gameObject.tag == "middlelane" && correctAnsPosition == 2){
-                    numCorrect += 1;
-                }
-                else if(hit.gameObject.tag == "rightlane" && correctAnsPosition == 3){
-                    numCorrect += 1;
-                }
                 Destroy(GameObject.FindWithTag ("scroll"));
-                if(questionNum == totalQuestions - 1 || questionNum == qs.Questions.Count - 1){
-                    tileManager.GetComponent<TileManager>().MarkLastQuestion(); 
-                }
-                if(questionNum >= totalQuestions || questionNum >= qs.Questions.Count){
-                    tileManager.GetComponent<TileManager>().EndGame(); 
-                }
-                else{
+                // if(questionNum == totalQuestions - 1 || questionNum == qs.Questions.Count - 1){
+                //     tileManager.GetComponent<TileManager>().MarkLastQuestion(); 
+                // }
+                // if(questionNum >= totalQuestions || questionNum >= qs.Questions.Count){
+                //     tileManager.GetComponent<TileManager>().EndGame(); 
+                // }
+                // else{
                     qs.Next();
                     questionNum += 1;
-                }
+                // }
             }
             if(GameObject.FindWithTag ("answer01")){
                 Destroy(GameObject.FindWithTag ("answer01"));
@@ -175,10 +175,10 @@ public class PlayerMotor : MonoBehaviour
         }
         if (hit.gameObject.tag == "leftlane" || hit.gameObject.tag == "leftLaneQuestion"){
             laneColorChange("middlelane", invisible);
-            laneColorChange("leftlane", red);
+            laneColorChange("leftlane", blue);
             laneColorChange("rightlane", invisible);
             laneColorChange("middleLaneQuestion", invisible);
-            laneColorChange("leftLaneQuestion", red);
+            laneColorChange("leftLaneQuestion", blue);
             laneColorChange("rightLaneQuestion", invisible);
         }
         else if(hit.gameObject.tag == "middlelane" || hit.gameObject.tag == "middleLaneQuestion"){
@@ -192,16 +192,87 @@ public class PlayerMotor : MonoBehaviour
         else if(hit.gameObject.tag == "rightlane" || hit.gameObject.tag == "rightLaneQuestion"){
             laneColorChange("middlelane", invisible);
             laneColorChange("leftlane", invisible);
-            laneColorChange("rightlane", black);
+            laneColorChange("rightlane", blue);
             laneColorChange("middleLaneQuestion", invisible);
             laneColorChange("leftLaneQuestion", invisible);
-            laneColorChange("rightLaneQuestion", black);
+            laneColorChange("rightLaneQuestion", blue);
         }  
         else if(hit.gameObject.tag == "gameModeTile"){
             laneColorChange("middlelane", invisible);
             laneColorChange("leftlane", invisible);
             laneColorChange("rightlane", invisible);
-        }      
+        }  
+        GameObject scroll2 = GameObject.FindWithTag ("scroll");
+        
+        if(hit.gameObject.tag == "LeftDoorChoice" && correctAnsPosition == 1){
+            if(scroll2){
+                Text scroll2Text = scroll2.GetComponentInChildren<Text>();
+                scroll2Text.text = "Correct!";
+                scroll2Text.color = rightAnswerColor;
+                scroll2Text.fontSize = 36;
+            }
+            numCorrect += 1;
+            placeTreasureChest = true;
+            Destroy(hit.gameObject);
+        }
+        if(hit.gameObject.tag == "MiddleDoorChoice" && correctAnsPosition == 2){
+            if(scroll2){
+                Text scroll2Text = scroll2.GetComponentInChildren<Text>();
+                scroll2Text.text = "Correct!";
+                scroll2Text.color = rightAnswerColor;
+                scroll2Text.fontSize = 36;
+            }
+            numCorrect += 1;
+            placeTreasureChest = true;
+            Destroy(hit.gameObject);
+        }
+        if(hit.gameObject.tag == "RightDoorChoice" && correctAnsPosition == 3){
+            if(scroll2){
+                Text scroll2Text = scroll2.GetComponentInChildren<Text>();
+                scroll2Text.text = "Correct!";
+                scroll2Text.color = rightAnswerColor;
+                scroll2Text.fontSize = 36;
+            }
+            numCorrect += 1;
+            placeTreasureChest = true;
+            Destroy(hit.gameObject);
+        }    
+        if(placeTreasureChest){
+            GameObject treasure = Instantiate(treasureChest) as GameObject;
+            treasureVector.x = 0.0f;
+            treasureVector.y = 0.0f;
+            treasureVector.z = transform.position.z + 14.0f;
+            treasure.transform.position = treasureVector;
+            placeTreasureChest = false;
+        }
+
+        if(hit.gameObject.tag == "LeftDoorChoice" && correctAnsPosition != 1){
+            if(scroll2){
+                Text scroll2Text = scroll2.GetComponentInChildren<Text>();
+                scroll2Text.text = "Wrong Answer";
+                scroll2Text.color = wrongAnswerColor;
+                scroll2Text.fontSize = 36;
+            }
+            Destroy(hit.gameObject);
+        }
+        if(hit.gameObject.tag == "MiddleDoorChoice" && correctAnsPosition != 2){
+            if(scroll2){
+                Text scroll2Text = scroll2.GetComponentInChildren<Text>();
+                scroll2Text.text = "Wrong Answer";
+                scroll2Text.color = wrongAnswerColor;
+                scroll2Text.fontSize = 36;
+            }
+            Destroy(hit.gameObject);
+        }
+        if(hit.gameObject.tag == "RightDoorChoice" && correctAnsPosition != 3){
+            if(scroll2){
+                Text scroll2Text = scroll2.GetComponentInChildren<Text>();
+                scroll2Text.text = "Wrong Answer";
+                scroll2Text.color = wrongAnswerColor;
+                scroll2Text.fontSize = 36;
+            }
+            Destroy(hit.gameObject);
+        }    
     }
 
     private void Death()
@@ -217,7 +288,6 @@ public class PlayerMotor : MonoBehaviour
         anim.Play("GetHit");
         anim.Play("infantry_03_run");
         GetComponent<Score>().OnHitEnemy();
-
     }
 
     public void SetQuestionAfterDelay(){
@@ -242,15 +312,17 @@ public class PlayerMotor : MonoBehaviour
     private void initializeObject(GameObject gameObj, string tag, float x, float y, float z)
     {
         if(GameObject.FindWithTag (tag)){
-                GameObject gameObject = GameObject.FindWithTag (tag);
-                answer03Vector.x = x;
-                answer03Vector.y = y;
-                answer03Vector.z = transform.position.z + z;
-                gameObject.transform.position = answer03Vector;
-            }
-            else{
-                GameObject gameObject;
-                gameObject = Instantiate(gameObj) as GameObject;
-            }
+            GameObject gameObject = GameObject.FindWithTag (tag);
+            answer03Vector.x = x;
+            answer03Vector.y = y;
+            answer03Vector.z = transform.position.z + z;
+            gameObject.transform.position = answer03Vector;
+        }
+        else{
+            Debug.Log("initializing");
+            Debug.Log(tag);
+            GameObject gameObject;
+            gameObject = Instantiate(gameObj) as GameObject;
+        }
     }
 }
