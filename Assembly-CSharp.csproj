@@ -70,8 +70,6 @@
      <Compile Include="Assets\Scripts\ScrollController.cs" />
      <Compile Include="Assets\Scripts\TileManager.cs" />
      <None Include="Assets\AurynSky\Forest Pack\READ ME.txt" />
-     <None Include="Assets\Ultra Skybox Fog\Shaders\UltraSkyboxFog.shader" />
-     <None Include="Assets\Ultra Skybox Fog\Manual.txt" />
      <None Include="Assets\RPG Monster Wave PBR\Shaders\PBRMaskTint.shader" />
      <None Include="Assets\JsonDotNet\link.xml" />
      <None Include="Assets\Ultra Skybox Fog\Textures\Readme.txt" />
