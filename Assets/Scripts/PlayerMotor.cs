@@ -4,6 +4,8 @@ using UnityEngine;
 using UnityEngine.UI;
 using System.Net.Http;
 using Newtonsoft.Json.Linq;
+using AsyncQuizLoader;
+using EduRunner;
 
 
 public class PlayerMotor : MonoBehaviour
@@ -79,10 +81,24 @@ public class PlayerMotor : MonoBehaviour
         }
     }
 
+    public static QuizLoader quizLoader = new QuizLoader();
+
+     public static async void GetDataQuizLoader()
+    {
+        var quizId = "b273fab4-6ee1-46f9-91ca-2251c7c4788a";
+        var listQuizzesRespponse = await quizLoader.GetAllQuizzes();
+        var getQuizResponse = await quizLoader.GetQuizById(quizId);
+        Quiz[] quizlist = await quizLoader.GetAllQuizzes();
+        Quiz quiz = await quizLoader.GetQuizById(quizId);
+        Debug.Log(quizlist[1].Name);
+        Debug.Log(quiz);
+    }
+
     // Start is called before the first frame update
     void Start()
     {
         GetData();
+        GetDataQuizLoader();
         qs = QuestionSet.Init("sample_question_set.json");
         tileManager.GetComponent<TileManager>().DetermineTotalQuestions(totalQuestions);
         if (qs.Questions.Count < 3)
