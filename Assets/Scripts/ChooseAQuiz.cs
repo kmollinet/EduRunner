@@ -53,14 +53,15 @@ public class ChooseAQuiz : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        GetAllQuizzesAsync();     
+        QuestionSet.EnsureData();
+        QuestionSet.GetAvailableQuizzes();   
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(quizlist.IsCompleted)
-        {
+        // if(quizlist.IsCompleted)
+        // {
             if(1 + buttonAdder <= quizlist.Result.Length){
                 Button1.SetActive(true);
                 Button1.GetComponentInChildren<Text>().text =  (1 + buttonAdder).ToString() + ". " + quizlist.Result[0 + buttonAdder].Name;
@@ -97,7 +98,7 @@ public class ChooseAQuiz : MonoBehaviour
                 Button5.SetActive(false);
             }
 
-        }
+        // }
 
     }
 
