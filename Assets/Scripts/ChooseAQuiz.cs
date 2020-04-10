@@ -125,7 +125,6 @@ public class ChooseAQuiz : MonoBehaviour
 
     public void buttonUp()
     {
-        Debug.Log("Button up!");
         if(buttonAdder > 5){
             buttonAdder -= 5;
         }
