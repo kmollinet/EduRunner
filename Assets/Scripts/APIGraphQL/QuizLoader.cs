@@ -101,7 +101,7 @@ namespace AsyncQuizLoader
         public QuizLoader()
         {
             var httpClient = new HttpClient();
-            httpClient.DefaultRequestHeaders.Add("x-api-key", "da2-xwyq2ufwarf4nh5hgcprme72uu");
+            httpClient.DefaultRequestHeaders.Add("x-api-key", "da2-uw3aob4xl5c2lhz3zhbjtibmsi");
 
             var options = new GraphQLHttpClientOptions();
             options.EndPoint = new Uri("https://vrbvlnshabb2nl55jwduzkb62e.appsync-api.us-west-2.amazonaws.com/graphql");

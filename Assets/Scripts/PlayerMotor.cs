@@ -6,6 +6,10 @@ using System.Net.Http;
 using Newtonsoft.Json.Linq;
 using AsyncQuizLoader;
 using EduRunner;
+using System.Threading.Tasks;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Converters;
+
 
 
 public class PlayerMotor : MonoBehaviour
@@ -18,7 +22,7 @@ public class PlayerMotor : MonoBehaviour
     private float gravity = 12.0f;
     private bool isDead = false;
     private float startTime = 0.0f;
-    private int totalQuestions = 3;
+    private int totalQuestions;
     private int questionNum = 0;
     public Text totalQuestionsText;
     public Text numberCorrect;
@@ -58,6 +62,8 @@ public class PlayerMotor : MonoBehaviour
 
     private QuestionSet qs;
 
+
+    //  This "GetData()" Method does nothing - it's just an example of how to hit an API using standard REST API HTTP calls
      public static async void GetData()
     {
         string baseUrl = "https://jsonplaceholder.typicode.com/todos/2";
@@ -82,33 +88,17 @@ public class PlayerMotor : MonoBehaviour
     }
 
     public static QuizLoader quizLoader = new QuizLoader();
+    public static Task<Quiz[]> quizlist = quizLoader.GetAllQuizzes();
 
-     public static async void GetDataQuizLoader()
-    {
-        var quizId = "b273fab4-6ee1-46f9-91ca-2251c7c4788a";
-        var listQuizzesRespponse = await quizLoader.GetAllQuizzes();
-        var getQuizResponse = await quizLoader.GetQuizById(quizId);
-        Quiz[] quizlist = await quizLoader.GetAllQuizzes();
-        Quiz quiz = await quizLoader.GetQuizById(quizId);
-        Debug.Log(quizlist[1].Name);
-        Debug.Log(quiz);
-    }
+
+    public Quiz quiz;
 
     // Start is called before the first frame update
     void Start()
     {
         GetData();
-        GetDataQuizLoader();
-        qs = QuestionSet.Init("sample_question_set.json");
-        tileManager.GetComponent<TileManager>().DetermineTotalQuestions(totalQuestions);
-        if (qs.Questions.Count < 3)
-        { // We can't handle less than 3 questions in a set because we need to display 3 answers.
-            Death();
-        }
-        if (qs.Questions.Count < totalQuestions)
-        {
-            totalQuestions = qs.Questions.Count;
-        }
+        // GetDataQuizLoader();
+        
         controller = GetComponent<CharacterController>();
         startTime = Time.time;
         questionNum = 1;
@@ -118,6 +108,21 @@ public class PlayerMotor : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if(quizlist.IsCompleted)
+        {
+            var quizIndex = PlayerPrefs.GetInt("QuizIndex");
+            qs = QuestionSet.FromJson(JsonConvert.SerializeObject(quizlist.Result[quizIndex]));
+            totalQuestions = (int)quizlist.Result[quizIndex].QuestionsPerQuiz;
+            tileManager.GetComponent<TileManager>().DetermineTotalQuestions(totalQuestions);    
+            if (qs.Questions.Count < 3)
+            { // We can't handle less than 3 questions in a set because we need to display 3 answers.
+                Death();
+            }
+            if (qs.Questions.Count < totalQuestions)
+            {
+                totalQuestions = qs.Questions.Count;
+            }
+        }
         totalQuestionsText.text = "Question " + questionNum.ToString() + "/" + totalQuestions.ToString();
 
         numberCorrect.text = numCorrect.ToString() + "/" + (questionNum).ToString() + " Correct";
