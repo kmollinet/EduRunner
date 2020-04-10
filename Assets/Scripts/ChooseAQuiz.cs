@@ -15,7 +15,7 @@ using UnityEngine.EventSystems;
 
 public class ChooseAQuiz : MonoBehaviour
 {
-    public static QuizLoader quizLoader = new QuizLoader();
+    // public static QuizLoader quizLoader = new QuizLoader();
     public static Task<Quiz[]> quizlist;
     private int buttonAdder = 0;
     public GameObject Button1;
@@ -28,7 +28,7 @@ public class ChooseAQuiz : MonoBehaviour
 
     public static void GetAllQuizzesAsync()
     {
-        quizlist = quizLoader.GetAllQuizzes();      
+        // quizlist = quizLoader.GetAllQuizzes();      
     }
     // private static void passAllQuizzes(Quiz[] listQuizzesResponse)
     // {
@@ -53,8 +53,9 @@ public class ChooseAQuiz : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        QuestionSet.EnsureData();
-        QuestionSet.GetAvailableQuizzes();   
+        QuestionSet.EnsureData ();
+        var r = QuestionSet.GetAvailableQuizzes ();
+        Debug.Log(r[0].Id);
     }
 
     // Update is called once per frame

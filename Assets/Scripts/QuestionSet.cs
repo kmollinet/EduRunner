@@ -7,7 +7,7 @@
 // string id = "b273fab4-6ee1-46f9-91ca-2251c7c4788a"; //this val should come from the onclick function somehow
 // QuestionSet.SetById(id); // doesn't return anything, just sets the static QuestionSet to the quiez with the passed id
 //                          // so then in another file, (ie playermotor) you can access the selected quiz like this
-// Console.WriteLine(QuestionSet.Get().Id); // quiz matches quiz with id used in above function
+// Debug.Log(QuestionSet.Get().Id); // quiz matches quiz with id used in above function
 
 
 
@@ -128,7 +128,7 @@ public partial class QuestionSet
         if (initialized == false)
         {
             QuestionSet.Init();
-            Console.WriteLine("Fetching Quizlist");
+            Debug.Log("Fetching Quizlist");
             while (QuestionSet.qs == null)
             {
             }
