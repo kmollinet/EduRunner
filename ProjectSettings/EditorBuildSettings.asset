@@ -6,6 +6,9 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Scenes/SelectQuiz.unity
+    guid: c81ff1d2bce2be04485bec102a9a2110
+  - enabled: 1
     path: Assets/Scenes/Menu.unity
     guid: 7f9fcb5aced95cc4db3bc8c38555636a
   - enabled: 1

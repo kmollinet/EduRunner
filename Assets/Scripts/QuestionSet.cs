@@ -1,3 +1,16 @@
+// Notes on this file: 
+// QuestionSet.EnsureData(); // Make sure this gets called before trying to access data, one call should be enough so if you call it in start() you shouldn't need to call it again
+// QuestionSet.GetAvailableQuizzes(); // use this to get the Id and name of all available quizzes
+// QuestionSet.GetById("b273fab4-6ee1-46f9-91ca-2251c7c4788a"); // use this to get a specific quiz by ID (id may come from the above example)
+// QuestionSet.Get(); // this just gets the selected quiz (defaults to 1st in list)
+// // so, an example of how this could work with the quiz selection menu, inside an onclick function that takes the Id as a parameter
+// string id = "b273fab4-6ee1-46f9-91ca-2251c7c4788a"; //this val should come from the onclick function somehow
+// QuestionSet.SetById(id); // doesn't return anything, just sets the static QuestionSet to the quiez with the passed id
+//                          // so then in another file, (ie playermotor) you can access the selected quiz like this
+// Console.WriteLine(QuestionSet.Get().Id); // quiz matches quiz with id used in above function
+
+
+
 using System;
 using System.IO;
 using System.Linq;
@@ -7,18 +20,19 @@ using UnityEngine;
 using UnityEngine.UI;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
-
-
-
-
+using AsyncQuizLoader;
+using System.Threading.Tasks;
 public partial class QuestionSet
 {
+    private List<int> usedQuestionIndices = new List<int>();
+    private static QuizLoader quizLoader = new QuizLoader();
+    private static QuestionSet qs;
+    private static bool initialized = false;
+    public int CurrentQuestionIndex { get; set; }
+    [JsonProperty("Id")]
+    public string Id { get; set; }
     [JsonProperty("questions")]
     public List<QuestionDocument> Questions { get; set; }
-    private List<int> usedQuestionIndices = new List<int>();
-
-    public int CurrentQuestionIndex { get; set; }
-
     public void Next()
     {
         if (CurrentQuestionIndex + 1 >= Questions.Count)
@@ -30,38 +44,35 @@ public partial class QuestionSet
             CurrentQuestionIndex = CurrentQuestionIndex + 1;
         }
     }
-
     public int SetQuestion()
     {
         int randomAnsIndex1 = -1;
         int randomAnsIndex2 = -1;
         int randomAnsIndex3 = -1;
         int randomPositionIndex = -1;
-
         randomAnsIndex1 = UnityEngine.Random.Range(0, Questions.Count);
-        while(usedQuestionIndices.Contains(randomAnsIndex1)){ // make sure this question hasn't been used before
+        while (usedQuestionIndices.Contains(randomAnsIndex1))
+        { // make sure this question hasn't been used before
             randomAnsIndex1 = UnityEngine.Random.Range(0, Questions.Count);
         }
-
         randomAnsIndex2 = UnityEngine.Random.Range(0, Questions.Count);
         randomAnsIndex3 = UnityEngine.Random.Range(0, Questions.Count);
-        while(randomAnsIndex2 == randomAnsIndex1 || randomAnsIndex2 == randomAnsIndex3){  //Get a new number if you got the exact same one as the answer
+        while (randomAnsIndex2 == randomAnsIndex1 || randomAnsIndex2 == randomAnsIndex3)
+        {  //Get a new number if you got the exact same one as the answer
             randomAnsIndex2 = UnityEngine.Random.Range(0, Questions.Count);
         }
-        while(randomAnsIndex3 == randomAnsIndex2 || randomAnsIndex3 == randomAnsIndex1){
+        while (randomAnsIndex3 == randomAnsIndex2 || randomAnsIndex3 == randomAnsIndex1)
+        {
             randomAnsIndex3 = UnityEngine.Random.Range(0, Questions.Count);
         }
-
-        GameObject scroll = GameObject.FindWithTag ("scroll");
-        if(scroll){
+        GameObject scroll = GameObject.FindWithTag("scroll");
+        if (scroll)
+        {
             Text scrollText = scroll.GetComponentInChildren<Text>();
             scrollText.text = Questions[randomAnsIndex1].questionText;
         }
-
         usedQuestionIndices.Add(randomAnsIndex1); // Add the random index to the usedQuestionsIndices array to avoid repeating questions for kids during the same game
-
         randomPositionIndex = UnityEngine.Random.Range(1, 4); // pick a random position for the answer to be. Where 1 <= number < 4
-
         switch (randomPositionIndex)
         {
             case 1:
@@ -76,47 +87,102 @@ public partial class QuestionSet
         }
         return randomPositionIndex;
     }
-
-    private void applyTextToBanners(int rand1, int rand2, int rand3){
-        GameObject answer01 = GameObject.FindWithTag ("answer01");
-        if(answer01){
+    private void applyTextToBanners(int rand1, int rand2, int rand3)
+    {
+        GameObject answer01 = GameObject.FindWithTag("answer01");
+        if (answer01)
+        {
             Text answer01Text = answer01.GetComponentInChildren<Text>();
             answer01Text.text = Questions[rand1].answer;
         }
-        GameObject answer02 = GameObject.FindWithTag ("answer02");
-        if(answer02){
+        GameObject answer02 = GameObject.FindWithTag("answer02");
+        if (answer02)
+        {
             Text answer02Text = answer02.GetComponentInChildren<Text>();
             answer02Text.text = Questions[rand2].answer;
         }
-        GameObject answer03 = GameObject.FindWithTag ("answer03");
-        if(answer03){
+        GameObject answer03 = GameObject.FindWithTag("answer03");
+        if (answer03)
+        {
             Text answer03Text = answer03.GetComponentInChildren<Text>();
             answer03Text.text = Questions[rand3].answer;
         }
     }
-
     public void Update()
     {
-
     }
-
     public QuestionDocument CurrentQuestion
     {
         get => Questions[CurrentQuestionIndex];
     }
+    public static async void Init()
+    {
+        EduRunner.Quiz[] quizzes = await QuestionSet.quizLoader.GetAllQuizzes();
+        QuestionSet.quizzes = quizzes.ToDictionary(q => q.Id);
+        QuestionSet.qs = QuestionSet.FromJson(JsonConvert.SerializeObject(quizzes[0]));
+        QuestionSet.initialized = true;
+    }
+    public static Dictionary<string, EduRunner.Quiz> quizzes;
+    public static void EnsureData()
+    {
+        if (initialized == false)
+        {
+            QuestionSet.Init();
+            Console.WriteLine("Fetching Quizlist");
+            while (QuestionSet.qs == null)
+            {
+            }
+            return;
+        }
+        else
+        {
+            return;
+        }
+    }
+    public static QuestionSet Get()
+    {
+        if (QuestionSet.qs == null)
+        {
+            QuestionSet.qs = QuestionSet.FromJson(JsonConvert.SerializeObject(QuestionSet.quizzes.First()));
+        }
+        return QuestionSet.qs;
+    }
+    public static QuestionSet GetById(string key)
+    {
+        EduRunner.Quiz quiz;
+        QuestionSet.quizzes.TryGetValue(key, out quiz);
+        QuestionSet.qs = QuestionSet.FromJson(JsonConvert.SerializeObject(quiz));
+        return QuestionSet.qs;
+    }
+    public static void SetById (string key) {
+        EduRunner.Quiz quiz;
+        QuestionSet.quizzes.TryGetValue (key, out quiz);
+        QuestionSet.qs = QuestionSet.FromJson (JsonConvert.SerializeObject (quiz));
+        return;
+    }
+    public static QuizInfo[] GetAvailableQuizzes()
+    {
+        return QuestionSet.quizzes.Select(q => new QuizInfo(q.Key, q.Value.Name)).ToArray();
+    }
 }
-
+public class QuizInfo
+{
+    public string Id;
+    public string name;
+    public QuizInfo(string Id, string name)
+    {
+        this.Id = Id;
+        this.name = name;
+    }
+}
 public partial class QuestionDocument
 {
     [JsonProperty("questionText")]
     public string questionText { get; set; }
-
     [JsonProperty("answer")]
     public string answer { get; set; }
 }
-
 public enum IncorrectAnswer { Apple, Book, Cat };
-
 public partial class QuestionSet
 {
     public static QuestionSet FromJson(string json) => JsonConvert.DeserializeObject<QuestionSet>(json, global::Converter.Settings);
@@ -128,18 +194,14 @@ public partial class QuestionSet
             json = File.ReadAllText(Application.streamingAssetsPath + "/" + fileName);
         }
         QuestionSet qs = FromJson(json);
-
         qs.CurrentQuestionIndex = 0;
-
         return qs;
     }
 }
-
 public static class Serialize
 {
     public static string ToJson(this QuestionSet self) => JsonConvert.SerializeObject(self, global::Converter.Settings);
 }
-
 internal static class Converter
 {
     public static readonly JsonSerializerSettings Settings = new JsonSerializerSettings
