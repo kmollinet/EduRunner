@@ -1,0 +1,226 @@
+fileFormatVersion: 2
+guid: b34546caa46224650afdd27b4d354bda
+ModelImporter:
+  serializedVersion: 23
+  fileIDToRecycleName:
+    100000: //RootNode
+    100002: Body
+    100004: BottomEye_L
+    100006: BottomEye_R
+    100008: BottomJaw
+    100010: Ear01_L
+    100012: Ear01_R
+    100014: Ear02_L
+    100016: Ear02_R
+    100018: Ear03_L
+    100020: Ear03_R
+    100022: Foot_L
+    100024: Foot_R
+    100026: Hand_L
+    100028: Hand_R
+    100030: Head
+    100032: Index01_L
+    100034: Index01_R
+    100036: Index02_L
+    100038: Index02_R
+    100040: Index03_L
+    100042: Index03_R
+    100044: JawRoot
+    100046: LowerArm_L
+    100048: LowerArm_R
+    100050: LowerLeg_L
+    100052: LowerLeg_R
+    100054: Maul
+    100056: Mid01_L
+    100058: Mid01_R
+    100060: Mid02_L
+    100062: Mid02_R
+    100064: Mid03_L
+    100066: Mid03_R
+    100068: Neck
+    100070: Nose_L
+    100072: Nose_R
+    100074: Orc
+    100076: Pinky01_L
+    100078: Pinky01_R
+    100080: Pinky02_L
+    100082: Pinky02_R
+    100084: Pinky03_L
+    100086: Pinky03_R
+    100088: ShouderPad
+    100090: Spine01
+    100092: Spine02
+    100094: Spine03
+    100096: Thumb01_L
+    100098: Thumb01_R
+    100100: Thumb02_L
+    100102: Thumb02_R
+    100104: Thumb03_L
+    100106: Thumb03_R
+    100108: Toe_L
+    100110: Toe_R
+    100112: UpperArm_L
+    100114: UpperArm_R
+    100116: UpperEye_L
+    100118: UpperEye_R
+    100120: UpperJaw
+    100122: UpperLeg_L
+    100124: UpperLeg_R
+    100126: Weapon01
+    400000: //RootNode
+    400002: Body
+    400004: BottomEye_L
+    400006: BottomEye_R
+    400008: BottomJaw
+    400010: Ear01_L
+    400012: Ear01_R
+    400014: Ear02_L
+    400016: Ear02_R
+    400018: Ear03_L
+    400020: Ear03_R
+    400022: Foot_L
+    400024: Foot_R
+    400026: Hand_L
+    400028: Hand_R
+    400030: Head
+    400032: Index01_L
+    400034: Index01_R
+    400036: Index02_L
+    400038: Index02_R
+    400040: Index03_L
+    400042: Index03_R
+    400044: JawRoot
+    400046: LowerArm_L
+    400048: LowerArm_R
+    400050: LowerLeg_L
+    400052: LowerLeg_R
+    400054: Maul
+    400056: Mid01_L
+    400058: Mid01_R
+    400060: Mid02_L
+    400062: Mid02_R
+    400064: Mid03_L
+    400066: Mid03_R
+    400068: Neck
+    400070: Nose_L
+    400072: Nose_R
+    400074: Orc
+    400076: Pinky01_L
+    400078: Pinky01_R
+    400080: Pinky02_L
+    400082: Pinky02_R
+    400084: Pinky03_L
+    400086: Pinky03_R
+    400088: ShouderPad
+    400090: Spine01
+    400092: Spine02
+    400094: Spine03
+    400096: Thumb01_L
+    400098: Thumb01_R
+    400100: Thumb02_L
+    400102: Thumb02_R
+    400104: Thumb03_L
+    400106: Thumb03_R
+    400108: Toe_L
+    400110: Toe_R
+    400112: UpperArm_L
+    400114: UpperArm_R
+    400116: UpperEye_L
+    400118: UpperEye_R
+    400120: UpperJaw
+    400122: UpperLeg_L
+    400124: UpperLeg_R
+    400126: Weapon01
+    2100000: lambert1
+    4300000: Orc
+    4300002: Maul
+    7400000: Take 001
+    9500000: //RootNode
+    13700000: Maul
+    13700002: Orc
+  externalObjects: {}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    useSRGBMaterialColor: 1
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+    previousCalculatedGlobalScale: 0.01
+    hasPreviousCalculatedGlobalScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
+    blendShapeNormalImportMode: 1
+    normalSmoothingSource: 0
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
