@@ -60,7 +60,7 @@ public class PlayerMotor : MonoBehaviour
 
 
 
-    private QuestionSet qs;
+    // private QuestionSet QuestionSet.Get();
 
 
     //  This "GetData()" Method does nothing - it's just an example of how to hit an API using standard REST API HTTP calls
@@ -87,18 +87,16 @@ public class PlayerMotor : MonoBehaviour
         }
     }
 
-    public static QuizLoader quizLoader = new QuizLoader();
-    public static Task<Quiz[]> quizlist = quizLoader.GetAllQuizzes();
+    // public static QuizLoader quizLoader = new QuizLoader();
+    // public static Task<Quiz[]> quizlist = quizLoader.GetAllQuizzes();
 
 
     public Quiz quiz;
+    private string quizId;
 
     // Start is called before the first frame update
     void Start()
-    {
-        GetData();
-        // GetDataQuizLoader();
-        
+    {      
         controller = GetComponent<CharacterController>();
         startTime = Time.time;
         questionNum = 1;
@@ -108,22 +106,20 @@ public class PlayerMotor : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(quizlist.IsCompleted)
+        if(QuestionSet.initialized)
         {
-            var quizIndex = PlayerPrefs.GetInt("QuizIndex");
-            qs = QuestionSet.FromJson(JsonConvert.SerializeObject(quizlist.Result[quizIndex]));
-            totalQuestions = (int)quizlist.Result[quizIndex].QuestionsPerQuiz;
-            if(totalQuestions > quizlist.Result[quizIndex].Questions.Count){
-                totalQuestions = quizlist.Result[quizIndex].Questions.Count;
+            totalQuestions = (int)QuestionSet.Get().QuestionsPerQuiz;
+            if(totalQuestions > QuestionSet.Get().Questions.Count){
+                totalQuestions = QuestionSet.Get().Questions.Count;
             }
             tileManager.GetComponent<TileManager>().DetermineTotalQuestions(totalQuestions);  
-            if (qs.Questions.Count < 3)
+            if (QuestionSet.Get().Questions.Count < 3)
             { // We can't handle less than 3 questions in a set because we need to display 3 answers.
                 Death();
             }
-            if (qs.Questions.Count < totalQuestions)
+            if (QuestionSet.Get().Questions.Count < totalQuestions)
             {
-                totalQuestions = qs.Questions.Count;
+                totalQuestions = QuestionSet.Get().Questions.Count;
             }
         }
         totalQuestionsText.text = "Question " + questionNum.ToString() + "/" + totalQuestions.ToString();
@@ -149,18 +145,18 @@ public class PlayerMotor : MonoBehaviour
         }
         // X
         moveVector.x = Input.GetAxisRaw("Horizontal") * speed;
-        // if (Input.GetMouseButton(0))
-        // {
-        //     //right side of screen
-        //     if (Input.mousePosition.x > Screen.width / 2)
-        //     {
-        //         moveVector.x = speed;
-        //     }
-        //     else
-        //     {
-        //         moveVector.x = -speed;
-        //     }
-        // }
+        if (Input.GetMouseButton(0))
+        {
+            //right side of screen
+            if (Input.mousePosition.x > Screen.width / 2)
+            {
+                moveVector.x = speed;
+            }
+            else
+            {
+                moveVector.x = -speed;
+            }
+        }
         // y
         moveVector.y = verticalVelocity;
         // z
@@ -210,14 +206,14 @@ public class PlayerMotor : MonoBehaviour
             if (GameObject.FindWithTag("scroll"))
             {
                 Destroy(GameObject.FindWithTag("scroll"));
-                // if(questionNum == totalQuestions - 1 || questionNum == qs.Questions.Count - 1){
+                // if(questionNum == totalQuestions - 1 || questionNum == QuestionSet.Get().Questions.Count - 1){
                 //     tileManager.GetComponent<TileManager>().MarkLastQuestion(); 
                 // }
-                // if(questionNum >= totalQuestions || questionNum >= qs.Questions.Count){
+                // if(questionNum >= totalQuestions || questionNum >= QuestionSet.Get().Questions.Count){
                 //     tileManager.GetComponent<TileManager>().EndGame(); 
                 // }
                 // else{
-                qs.Next();
+                QuestionSet.Get().Next();
                 questionNum += 1;
                 // }
             }
@@ -370,7 +366,7 @@ public class PlayerMotor : MonoBehaviour
 
     public void SetQuestionAfterDelay()
     {
-        correctAnsPosition = qs.SetQuestion();
+        correctAnsPosition = QuestionSet.Get().SetQuestion();
     }
 
 

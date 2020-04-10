@@ -15,8 +15,8 @@ using UnityEngine.EventSystems;
 
 public class ChooseAQuiz : MonoBehaviour
 {
-    public static QuizLoader quizLoader = new QuizLoader();
-    public static Task<Quiz[]> quizlist;
+    // public static QuizLoader quizLoader = new QuizLoader();
+    // public static Task<Quiz[]> quizlist;
     private int buttonAdder = 0;
     public GameObject Button1;
     public GameObject Button2;
@@ -26,14 +26,14 @@ public class ChooseAQuiz : MonoBehaviour
 
 
 
-    public static void GetAllQuizzesAsync()
-    {
-        quizlist = quizLoader.GetAllQuizzes();      
-    }
+    // public static void GetAllQuizzesAsync()
+    // {
+    //     quizlist = quizLoader.GetAllQuizzes();      
+    // }
     // private static void passAllQuizzes(Quiz[] listQuizzesResponse)
     // {
     //     quizlist = listQuizzesResponse;
-    //     Debug.Log(quizlist[0].Name);
+    //     Debug.Log(quizlist[0].name);
     // }
 
     // Task<Quiz[]> GetAllQuizzes()
@@ -53,45 +53,49 @@ public class ChooseAQuiz : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        GetAllQuizzesAsync();     
+        // GetAllQuizzesAsync();   
+        Debug.Log("Calling ensure"); 
+        QuestionSet.EnsureData(); 
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(quizlist.IsCompleted)
+        if(QuestionSet.initialized)
         {
-            if(1 + buttonAdder <= quizlist.Result.Length){
+            // Debug.Log("inited");
+            var quizlist = QuestionSet.GetAvailableQuizzes();
+            if(1 + buttonAdder <= quizlist.Length){
                 Button1.SetActive(true);
-                Button1.GetComponentInChildren<Text>().text =  (1 + buttonAdder).ToString() + ". " + quizlist.Result[0 + buttonAdder].Name;
+                Button1.GetComponentInChildren<Text>().text =  (1 + buttonAdder).ToString() + ". " + quizlist[0 + buttonAdder].name;
             }
             else{
                 Button1.SetActive(false);
             }
-            if(2 + buttonAdder <= quizlist.Result.Length){
+            if(2 + buttonAdder <= quizlist.Length){
                 Button2.SetActive(true);
-                Button2.GetComponentInChildren<Text>().text = (2 + buttonAdder).ToString() + ". " + quizlist.Result[1 + buttonAdder].Name;
+                Button2.GetComponentInChildren<Text>().text = (2 + buttonAdder).ToString() + ". " + quizlist[1 + buttonAdder].name;
             }
             else{
                 Button2.SetActive(false);
             }
-            if(3 + buttonAdder <= quizlist.Result.Length){
+            if(3 + buttonAdder <= quizlist.Length){
                 Button3.SetActive(true);
-                Button3.GetComponentInChildren<Text>().text = (3 + buttonAdder).ToString() + ". " + quizlist.Result[2 + buttonAdder].Name;
+                Button3.GetComponentInChildren<Text>().text = (3 + buttonAdder).ToString() + ". " + quizlist[2 + buttonAdder].name;
             }
             else{
                 Button3.SetActive(false);
             }
-            if(4 + buttonAdder <= quizlist.Result.Length){
+            if(4 + buttonAdder <= quizlist.Length){
                 Button4.SetActive(true);
-                Button4.GetComponentInChildren<Text>().text = (4 + buttonAdder).ToString() + ". " + quizlist.Result[3 + buttonAdder].Name;
+                Button4.GetComponentInChildren<Text>().text = (4 + buttonAdder).ToString() + ". " + quizlist[3 + buttonAdder].name;
             }
             else{
                 Button4.SetActive(false);
             }
-            if(5 + buttonAdder <= quizlist.Result.Length){
+            if(5 + buttonAdder <= quizlist.Length){
                 Button5.SetActive(true);
-                Button5.GetComponentInChildren<Text>().text = (5 + buttonAdder).ToString() + ". " + quizlist.Result[4 + buttonAdder].Name;;
+                Button5.GetComponentInChildren<Text>().text = (5 + buttonAdder).ToString() + ". " + quizlist[4 + buttonAdder].name;
             }
             else{
                 Button5.SetActive(false);
@@ -103,24 +107,27 @@ public class ChooseAQuiz : MonoBehaviour
 
     public void onQuizChoice()
     {
-        // PlayerPrefs.SetFloat("Highscore", score);
-        if(EventSystem.current.currentSelectedGameObject.name == "Button1"){
-            PlayerPrefs.SetInt("QuizIndex", 0);
+        if(QuestionSet.initialized){
+            var quizlist2 = QuestionSet.GetAvailableQuizzes();
+            // PlayerPrefs.SetFloat("Highscore", score);
+            if(EventSystem.current.currentSelectedGameObject.name == "Button1"){
+                QuestionSet.SetByIndex(0);
+            }
+            else if(EventSystem.current.currentSelectedGameObject.name == "Button2"){
+                QuestionSet.SetByIndex(1);
+            }
+            else if(EventSystem.current.currentSelectedGameObject.name == "Button3"){
+                QuestionSet.SetByIndex(2);
+            }
+            else if(EventSystem.current.currentSelectedGameObject.name == "Button4"){
+                QuestionSet.SetByIndex(3);
+            }
+            else if(EventSystem.current.currentSelectedGameObject.name == "Button5"){
+                QuestionSet.SetByIndex(4);
+            }
+            Debug.Log(EventSystem.current.currentSelectedGameObject.name);
+            SceneManager.LoadScene("Game");
         }
-        else if(EventSystem.current.currentSelectedGameObject.name == "Button2"){
-            PlayerPrefs.SetInt("QuizIndex", 1);
-        }
-        else if(EventSystem.current.currentSelectedGameObject.name == "Button3"){
-            PlayerPrefs.SetInt("QuizIndex", 2);
-        }
-        else if(EventSystem.current.currentSelectedGameObject.name == "Button4"){
-            PlayerPrefs.SetInt("QuizIndex", 3);
-        }
-        else if(EventSystem.current.currentSelectedGameObject.name == "Button5"){
-            PlayerPrefs.SetInt("QuizIndex", 4);
-        }
-        Debug.Log(EventSystem.current.currentSelectedGameObject.name);
-        SceneManager.LoadScene("Game");
     }
 
     public void buttonUp()
@@ -134,8 +141,8 @@ public class ChooseAQuiz : MonoBehaviour
     }
     public void buttonDown()
     {
-        if(quizlist.IsCompleted){
-            if(buttonAdder < quizlist.Result.Length - 1){
+        if(QuestionSet.initialized){
+            if(buttonAdder < QuestionSet.GetAvailableQuizzes().Length - 1){
                 buttonAdder += 5;
             }
         }

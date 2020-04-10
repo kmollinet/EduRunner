@@ -7,7 +7,7 @@
 // string id = "b273fab4-6ee1-46f9-91ca-2251c7c4788a"; //this val should come from the onclick function somehow
 // QuestionSet.SetById(id); // doesn't return anything, just sets the static QuestionSet to the quiez with the passed id
 //                          // so then in another file, (ie playermotor) you can access the selected quiz like this
-// Console.WriteLine(QuestionSet.Get().Id); // quiz matches quiz with id used in above function
+// Debug.Log(QuestionSet.Get().Id); // quiz matches quiz with id used in above function
 
 
 
@@ -27,12 +27,14 @@ public partial class QuestionSet
     private List<int> usedQuestionIndices = new List<int>();
     private static QuizLoader quizLoader = new QuizLoader();
     private static QuestionSet qs;
-    private static bool initialized = false;
+    public static bool initialized = false;
     public int CurrentQuestionIndex { get; set; }
     [JsonProperty("Id")]
     public string Id { get; set; }
     [JsonProperty("questions")]
     public List<QuestionDocument> Questions { get; set; }
+    [JsonProperty ("questionsPerQuiz")]
+    public double QuestionsPerQuiz { get; set; }
     public void Next()
     {
         if (CurrentQuestionIndex + 1 >= Questions.Count)
@@ -128,10 +130,11 @@ public partial class QuestionSet
         if (initialized == false)
         {
             QuestionSet.Init();
-            Console.WriteLine("Fetching Quizlist");
-            while (QuestionSet.qs == null)
-            {
-            }
+            Debug.Log("Fetching Quizlist");
+            // while (QuestionSet.initialized == false)
+            // {
+            //     Debug.Log("while");
+            // }
             return;
         }
         else
@@ -158,6 +161,13 @@ public partial class QuestionSet
         EduRunner.Quiz quiz;
         QuestionSet.quizzes.TryGetValue (key, out quiz);
         QuestionSet.qs = QuestionSet.FromJson (JsonConvert.SerializeObject (quiz));
+        return;
+    }
+    public static void SetByIndex (int index) {
+        QuestionSet qs;
+        string id = QuestionSet.quizzes.Select (q => q).ToArray () [index].Key;
+        qs = QuestionSet.GetById (id);
+        QuestionSet.qs = QuestionSet.FromJson (JsonConvert.SerializeObject (qs));
         return;
     }
     public static QuizInfo[] GetAvailableQuizzes()
