@@ -116,8 +116,7 @@ public class PlayerMotor : MonoBehaviour
             if(totalQuestions > quizlist.Result[quizIndex].Questions.Count){
                 totalQuestions = quizlist.Result[quizIndex].Questions.Count;
             }
-            tileManager.GetComponent<TileManager>().DetermineTotalQuestions(totalQuestions); 
-            Debug.Log(totalQuestions);   
+            tileManager.GetComponent<TileManager>().DetermineTotalQuestions(totalQuestions);  
             if (qs.Questions.Count < 3)
             { // We can't handle less than 3 questions in a set because we need to display 3 answers.
                 Death();
@@ -150,18 +149,18 @@ public class PlayerMotor : MonoBehaviour
         }
         // X
         moveVector.x = Input.GetAxisRaw("Horizontal") * speed;
-        if (Input.GetMouseButton(0))
-        {
-            //right side of screen
-            if (Input.mousePosition.x > Screen.width / 2)
-            {
-                moveVector.x = speed;
-            }
-            else
-            {
-                moveVector.x = -speed;
-            }
-        }
+        // if (Input.GetMouseButton(0))
+        // {
+        //     //right side of screen
+        //     if (Input.mousePosition.x > Screen.width / 2)
+        //     {
+        //         moveVector.x = speed;
+        //     }
+        //     else
+        //     {
+        //         moveVector.x = -speed;
+        //     }
+        // }
         // y
         moveVector.y = verticalVelocity;
         // z
@@ -405,8 +404,6 @@ public class PlayerMotor : MonoBehaviour
         }
         else
         {
-            Debug.Log("initializing");
-            Debug.Log(tag);
             GameObject gameObject;
             gameObject = Instantiate(gameObj) as GameObject;
         }

@@ -44,7 +44,7 @@ public class EndingMenu : MonoBehaviour
 
     public void ToMenu()
     {
-        SceneManager.LoadScene("Menu");
+        SceneManager.LoadScene("SelectQuiz");
 
     }
 
