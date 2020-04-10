@@ -139,8 +139,6 @@ public class TileManager : MonoBehaviour
     }
 
     public void DetermineTotalQuestions(int totalQuestions){
-        Debug.Log("received total qs");
         totalQs = totalQuestions;
-        Debug.Log(totalQs);
     }
 }

@@ -80,6 +80,7 @@
      <Compile Include="Assets\Scripts\Coin_Fly.cs" />
      <Compile Include="Assets\Scripts\Doors.cs" />
      <Compile Include="Assets\Scripts\EndingMenu.cs" />
+     <Compile Include="Assets\Scripts\GameUI.cs" />
      <Compile Include="Assets\Scripts\MainMenu.cs" />
      <Compile Include="Assets\Scripts\PlayerMotor.cs" />
      <Compile Include="Assets\Scripts\QuestionSet.cs" />
@@ -87,6 +88,7 @@
      <Compile Include="Assets\Scripts\ScrollController.cs" />
      <Compile Include="Assets\Scripts\SigningIn.cs" />
      <Compile Include="Assets\Scripts\SignInOAuth.cs" />
+     <Compile Include="Assets\Scripts\swipeFunctionality.cs" />
      <Compile Include="Assets\Scripts\TileManager.cs" />
      <None Include="Assets\Packages\GraphQL.Client.Abstractions.Websocket.3.0.1\lib\netstandard2.0\GraphQL.Client.Abstractions.Websocket.xml" />
      <None Include="Assets\AurynSky\Forest Pack\READ ME.txt" />
