@@ -113,7 +113,11 @@ public class PlayerMotor : MonoBehaviour
             var quizIndex = PlayerPrefs.GetInt("QuizIndex");
             qs = QuestionSet.FromJson(JsonConvert.SerializeObject(quizlist.Result[quizIndex]));
             totalQuestions = (int)quizlist.Result[quizIndex].QuestionsPerQuiz;
-            tileManager.GetComponent<TileManager>().DetermineTotalQuestions(totalQuestions);    
+            if(totalQuestions > quizlist.Result[quizIndex].Questions.Count){
+                totalQuestions = quizlist.Result[quizIndex].Questions.Count;
+            }
+            tileManager.GetComponent<TileManager>().DetermineTotalQuestions(totalQuestions); 
+            Debug.Log(totalQuestions);   
             if (qs.Questions.Count < 3)
             { // We can't handle less than 3 questions in a set because we need to display 3 answers.
                 Death();
