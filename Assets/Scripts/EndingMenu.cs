@@ -48,8 +48,13 @@ public class EndingMenu : MonoBehaviour
 
     }
 
-    public void ToScoreboard()
-    {
-        SceneManager.LoadScene("Scoreboard");
-    }
+    /*
+     * Scoreboard scene is not done yet. UI is done, but not the functionality.
+     * We might combine the scoreboard in our SelectQuiz Scene
+     */
+
+    //public void ToScoreboard()
+    //{
+    //    SceneManager.LoadScene("Scoreboard");
+    //}
 }

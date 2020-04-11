@@ -68,15 +68,6 @@
     <Compile Include="Assets\AurynSky\Forest Pack\Scripts\Rotator.cs" />
     <Compile Include="Assets\AurynSky\Forest Pack\Scripts\WheelController.cs" />
     <Compile Include="Assets\AurynSky\Gems Ultimate Pack\Scripts\AnimationScript.cs" />
-    <Compile Include="Assets\GoogleSignIn\Future.cs" />
-    <Compile Include="Assets\GoogleSignIn\GoogleSignIn.cs" />
-    <Compile Include="Assets\GoogleSignIn\GoogleSignInConfiguration.cs" />
-    <Compile Include="Assets\GoogleSignIn\GoogleSignInStatusCode.cs" />
-    <Compile Include="Assets\GoogleSignIn\GoogleSignInUser.cs" />
-    <Compile Include="Assets\GoogleSignIn\Impl\BaseObject.cs" />
-    <Compile Include="Assets\GoogleSignIn\Impl\GoogleSignInImpl.cs" />
-    <Compile Include="Assets\GoogleSignIn\Impl\NativeFuture.cs" />
-    <Compile Include="Assets\GoogleSignIn\Impl\SignInHelperObject.cs" />
     <Compile Include="Assets\Scripts\APIClient.cs" />
     <Compile Include="Assets\Scripts\APIGraphQL\APIGraphQL.cs" />
     <Compile Include="Assets\Scripts\APIGraphQL\Coroutiner.cs" />
@@ -96,8 +87,6 @@
     <Compile Include="Assets\Scripts\QuestionSet.cs" />
     <Compile Include="Assets\Scripts\Score.cs" />
     <Compile Include="Assets\Scripts\ScrollController.cs" />
-    <Compile Include="Assets\Scripts\SigningIn.cs" />
-    <Compile Include="Assets\Scripts\SignInOAuth.cs" />
     <Compile Include="Assets\Scripts\swipeFunctionality.cs" />
     <Compile Include="Assets\Scripts\TileManager.cs" />
     <None Include="Assets\Packages\GraphQL.Client.Abstractions.Websocket.3.0.1\lib\netstandard2.0\GraphQL.Client.Abstractions.Websocket.xml" />
@@ -122,9 +111,7 @@
     <None Include="Assets\Packages\GraphQL.Primitives.3.0.1\LICENSE.txt" />
     <None Include="Assets\Packages\Microsoft.NETCore.Targets.1.1.0\dotnet_library_license.txt" />
     <None Include="Assets\Packages\Microsoft.NETCore.Platforms.1.1.0\ThirdPartyNotices 2.txt" />
-    <None Include="Assets\Packages\System.Runtime.4.3.0\ThirdPartyNotices 2.txt" />
     <None Include="Assets\Packages\System.Reactive.4.3.2\lib\netstandard2.0\System.Reactive.xml" />
-    <None Include="Assets\Packages\System.Runtime.InteropServices.WindowsRuntime.4.3.0\dotnet_library_license 2.txt" />
     <None Include="Assets\Packages\System.Runtime.CompilerServices.Unsafe.4.5.2\version 2.txt" />
     <None Include="Assets\Packages\GraphQL.Client.Abstractions.Websocket.3.0.1\lib\netstandard2.0\GraphQL.Client.Abstractions.Websocket 2.xml" />
     <None Include="Assets\Packages\System.Threading.Tasks.Extensions.4.5.3\version 2.txt" />
@@ -135,14 +122,12 @@
     <None Include="Assets\Packages\Microsoft.NETCore.Platforms.1.1.0\dotnet_library_license.txt" />
     <None Include="Assets\Packages\GraphQL.Client.Abstractions.3.0.1\lib\netstandard2.0\GraphQL.Client.Abstractions 2.xml" />
     <None Include="Assets\Packages\Microsoft.NETCore.Targets.1.1.0\dotnet_library_license 2.txt" />
-    <None Include="Assets\Packages\System.Runtime.4.3.0\dotnet_library_license 2.txt" />
     <None Include="Assets\Packages\GraphQL.Primitives.3.0.1\LICENSE 2.txt" />
     <None Include="Assets\Packages\Microsoft.NETCore.Platforms.1.1.0\dotnet_library_license 2.txt" />
     <None Include="Assets\Packages\GraphQL.Client.Serializer.Newtonsoft.3.0.1\LICENSE 2.txt" />
     <None Include="Assets\Packages\System.Threading.Tasks.Extensions.4.5.3\lib\netstandard2.0\System.Threading.Tasks.Extensions.xml" />
     <None Include="Assets\Packages\System.Runtime.CompilerServices.Unsafe.4.5.2\version.txt" />
     <None Include="Assets\RPG Monster Wave PBR\Shaders\PBRMaskTint.shader" />
-    <None Include="Assets\Packages\System.Runtime.InteropServices.WindowsRuntime.4.3.0\ThirdPartyNotices 2.txt" />
     <None Include="Assets\Packages\Newtonsoft.Json.12.0.3\lib\netstandard2.0\Newtonsoft.Json.xml" />
     <None Include="Assets\Userschema.txt" />
     <None Include="Assets\RPG Monster Wave PBR\Shaders\PBRMaskTint 2.shader" />
@@ -158,6 +143,21 @@
     <None Include="Assets\Pokemonschema.txt" />
     <None Include="Assets\AurynSky\Gems Ultimate Pack\READ ME.txt" />
     <None Include="Assets\Packages\System.Threading.Tasks.Extensions.4.5.3\version.txt" />
+    <Reference Include="Unity.TextMeshPro.Editor">
+      <HintPath>/Users/yaejinlee/Documents/GitHub/EduRunner/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.PackageManagerUI.Editor">
+      <HintPath>/Users/yaejinlee/Documents/GitHub/EduRunner/Library/ScriptAssemblies/Unity.PackageManagerUI.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.CollabProxy.Editor">
+      <HintPath>/Users/yaejinlee/Documents/GitHub/EduRunner/Library/ScriptAssemblies/Unity.CollabProxy.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.TextMeshPro">
+      <HintPath>/Users/yaejinlee/Documents/GitHub/EduRunner/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Analytics.DataPrivacy">
+      <HintPath>/Users/yaejinlee/Documents/GitHub/EduRunner/Library/ScriptAssemblies/Unity.Analytics.DataPrivacy.dll</HintPath>
+    </Reference>
     <Reference Include="UnityEngine.AIModule">
       <HintPath>/Applications/Unity/Hub/Editor/2018.4.14f1/Unity.app/Contents/Managed/UnityEngine/UnityEngine.AIModule.dll</HintPath>
     </Reference>
@@ -359,32 +359,56 @@
     <Reference Include="UnityEngine.SpatialTracking">
       <HintPath>/Applications/Unity/Hub/Editor/2018.4.14f1/Unity.app/Contents/UnityExtensions/Unity/UnitySpatialTracking/RuntimeEditor/UnityEngine.SpatialTracking.dll</HintPath>
     </Reference>
+    <Reference Include="System.Reactive 2">
+      <HintPath>/Users/yaejinlee/Documents/GitHub/EduRunner/Assets/Packages/System.Reactive.4.3.2/lib/netstandard2.0/System.Reactive 2.dll</HintPath>
+    </Reference>
     <Reference Include="System.Reactive">
       <HintPath>/Users/yaejinlee/Documents/GitHub/EduRunner/Assets/Packages/System.Reactive.4.3.2/lib/netstandard2.0/System.Reactive.dll</HintPath>
     </Reference>
     <Reference Include="GraphQL.Client.Abstractions">
       <HintPath>/Users/yaejinlee/Documents/GitHub/EduRunner/Assets/Packages/GraphQL.Client.Abstractions.3.0.1/lib/netstandard2.0/GraphQL.Client.Abstractions.dll</HintPath>
     </Reference>
+    <Reference Include="GraphQL.Client.Abstractions 2">
+      <HintPath>/Users/yaejinlee/Documents/GitHub/EduRunner/Assets/Packages/GraphQL.Client.Abstractions.3.0.1/lib/netstandard2.0/GraphQL.Client.Abstractions 2.dll</HintPath>
+    </Reference>
     <Reference Include="GraphQL.Client.Serializer.Newtonsoft">
       <HintPath>/Users/yaejinlee/Documents/GitHub/EduRunner/Assets/Packages/GraphQL.Client.Serializer.Newtonsoft.3.0.1/lib/netstandard2.0/GraphQL.Client.Serializer.Newtonsoft.dll</HintPath>
     </Reference>
-    <Reference Include="System.Runtime.InteropServices.WindowsRuntime">
-      <HintPath>/Users/yaejinlee/Documents/GitHub/EduRunner/Assets/Packages/System.Runtime.InteropServices.WindowsRuntime.4.3.0/lib/netstandard1.3/System.Runtime.InteropServices.WindowsRuntime.dll</HintPath>
+    <Reference Include="GraphQL.Client.Serializer.Newtonsoft 2">
+      <HintPath>/Users/yaejinlee/Documents/GitHub/EduRunner/Assets/Packages/GraphQL.Client.Serializer.Newtonsoft.3.0.1/lib/netstandard2.0/GraphQL.Client.Serializer.Newtonsoft 2.dll</HintPath>
+    </Reference>
+    <Reference Include="GraphQL.Primitives 2">
+      <HintPath>/Users/yaejinlee/Documents/GitHub/EduRunner/Assets/Packages/GraphQL.Primitives.3.0.1/lib/netstandard2.0/GraphQL.Primitives 2.dll</HintPath>
     </Reference>
     <Reference Include="GraphQL.Primitives">
       <HintPath>/Users/yaejinlee/Documents/GitHub/EduRunner/Assets/Packages/GraphQL.Primitives.3.0.1/lib/netstandard2.0/GraphQL.Primitives.dll</HintPath>
     </Reference>
+    <Reference Include="System.Runtime.CompilerServices.Unsafe 2">
+      <HintPath>/Users/yaejinlee/Documents/GitHub/EduRunner/Assets/Packages/System.Runtime.CompilerServices.Unsafe.4.5.2/lib/netstandard2.0/System.Runtime.CompilerServices.Unsafe 2.dll</HintPath>
+    </Reference>
     <Reference Include="System.Runtime.CompilerServices.Unsafe">
       <HintPath>/Users/yaejinlee/Documents/GitHub/EduRunner/Assets/Packages/System.Runtime.CompilerServices.Unsafe.4.5.2/lib/netstandard2.0/System.Runtime.CompilerServices.Unsafe.dll</HintPath>
+    </Reference>
+    <Reference Include="GraphQL.Client.Abstractions.Websocket 2">
+      <HintPath>/Users/yaejinlee/Documents/GitHub/EduRunner/Assets/Packages/GraphQL.Client.Abstractions.Websocket.3.0.1/lib/netstandard2.0/GraphQL.Client.Abstractions.Websocket 2.dll</HintPath>
     </Reference>
     <Reference Include="GraphQL.Client.Abstractions.Websocket">
       <HintPath>/Users/yaejinlee/Documents/GitHub/EduRunner/Assets/Packages/GraphQL.Client.Abstractions.Websocket.3.0.1/lib/netstandard2.0/GraphQL.Client.Abstractions.Websocket.dll</HintPath>
     </Reference>
+    <Reference Include="Newtonsoft.Json 2">
+      <HintPath>/Users/yaejinlee/Documents/GitHub/EduRunner/Assets/Packages/Newtonsoft.Json.12.0.3/lib/netstandard2.0/Newtonsoft.Json 2.dll</HintPath>
+    </Reference>
     <Reference Include="Newtonsoft.Json">
       <HintPath>/Users/yaejinlee/Documents/GitHub/EduRunner/Assets/Packages/Newtonsoft.Json.12.0.3/lib/netstandard2.0/Newtonsoft.Json.dll</HintPath>
     </Reference>
+    <Reference Include="System.Threading.Tasks.Extensions 2">
+      <HintPath>/Users/yaejinlee/Documents/GitHub/EduRunner/Assets/Packages/System.Threading.Tasks.Extensions.4.5.3/lib/netstandard2.0/System.Threading.Tasks.Extensions 2.dll</HintPath>
+    </Reference>
     <Reference Include="System.Threading.Tasks.Extensions">
       <HintPath>/Users/yaejinlee/Documents/GitHub/EduRunner/Assets/Packages/System.Threading.Tasks.Extensions.4.5.3/lib/netstandard2.0/System.Threading.Tasks.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="GraphQL.Client 2">
+      <HintPath>/Users/yaejinlee/Documents/GitHub/EduRunner/Assets/Packages/GraphQL.Client.3.0.1/lib/netstandard2.0/GraphQL.Client 2.dll</HintPath>
     </Reference>
     <Reference Include="GraphQL.Client">
       <HintPath>/Users/yaejinlee/Documents/GitHub/EduRunner/Assets/Packages/GraphQL.Client.3.0.1/lib/netstandard2.0/GraphQL.Client.dll</HintPath>
@@ -397,36 +421,6 @@
     </Reference>
     <Reference Include="Unity.Analytics.StandardEvents">
       <HintPath>/Users/yaejinlee/Documents/GitHub/EduRunner/Library/PackageCache/com.unity.analytics@3.2.2/Unity.Analytics.StandardEvents.dll</HintPath>
-    </Reference>
-    <Reference Include="GraphQL.Client.Abstractions 2">
-      <HintPath>/Users/yaejinlee/Documents/GitHub/EduRunner/Assets/Packages/GraphQL.Client.Abstractions.3.0.1/lib/netstandard2.0/GraphQL.Client.Abstractions 2.dll</HintPath>
-    </Reference>
-    <Reference Include="GraphQL.Client.Serializer.Newtonsoft 2">
-      <HintPath>/Users/yaejinlee/Documents/GitHub/EduRunner/Assets/Packages/GraphQL.Client.Serializer.Newtonsoft.3.0.1/lib/netstandard2.0/GraphQL.Client.Serializer.Newtonsoft 2.dll</HintPath>
-    </Reference>
-    <Reference Include="System.Runtime.CompilerServices.Unsafe 2">
-      <HintPath>/Users/yaejinlee/Documents/GitHub/EduRunner/Assets/Packages/System.Runtime.CompilerServices.Unsafe.4.5.2/lib/netstandard2.0/System.Runtime.CompilerServices.Unsafe 2.dll</HintPath>
-    </Reference>
-    <Reference Include="System.Reactive 2">
-      <HintPath>/Users/yaejinlee/Documents/GitHub/EduRunner/Assets/Packages/System.Reactive.4.3.2/lib/netstandard2.0/System.Reactive 2.dll</HintPath>
-    </Reference>
-    <Reference Include="System.Runtime.InteropServices.WindowsRuntime 2">
-      <HintPath>/Users/yaejinlee/Documents/GitHub/EduRunner/Assets/Packages/System.Runtime.InteropServices.WindowsRuntime.4.3.0/lib/netstandard1.3/System.Runtime.InteropServices.WindowsRuntime 2.dll</HintPath>
-    </Reference>
-    <Reference Include="System.Threading.Tasks.Extensions 2">
-      <HintPath>/Users/yaejinlee/Documents/GitHub/EduRunner/Assets/Packages/System.Threading.Tasks.Extensions.4.5.3/lib/netstandard2.0/System.Threading.Tasks.Extensions 2.dll</HintPath>
-    </Reference>
-    <Reference Include="GraphQL.Client 2">
-      <HintPath>/Users/yaejinlee/Documents/GitHub/EduRunner/Assets/Packages/GraphQL.Client.3.0.1/lib/netstandard2.0/GraphQL.Client 2.dll</HintPath>
-    </Reference>
-    <Reference Include="Newtonsoft.Json 2">
-      <HintPath>/Users/yaejinlee/Documents/GitHub/EduRunner/Assets/Packages/Newtonsoft.Json.12.0.3/lib/netstandard2.0/Newtonsoft.Json 2.dll</HintPath>
-    </Reference>
-    <Reference Include="GraphQL.Primitives 2">
-      <HintPath>/Users/yaejinlee/Documents/GitHub/EduRunner/Assets/Packages/GraphQL.Primitives.3.0.1/lib/netstandard2.0/GraphQL.Primitives 2.dll</HintPath>
-    </Reference>
-    <Reference Include="GraphQL.Client.Abstractions.Websocket 2">
-      <HintPath>/Users/yaejinlee/Documents/GitHub/EduRunner/Assets/Packages/GraphQL.Client.Abstractions.Websocket.3.0.1/lib/netstandard2.0/GraphQL.Client.Abstractions.Websocket 2.dll</HintPath>
     </Reference>
     <Reference Include="netstandard">
       <HintPath>/Applications/Unity/Hub/Editor/2018.4.14f1/Unity.app/Contents/NetStandard/ref/2.0.0/netstandard.dll</HintPath>
