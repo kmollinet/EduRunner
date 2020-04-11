@@ -15,8 +15,6 @@ using UnityEngine.EventSystems;
 
 public class ChooseAQuiz : MonoBehaviour
 {
-    // public static QuizLoader quizLoader = new QuizLoader();
-    // public static Task<Quiz[]> quizlist;
     private int buttonAdder = 0;
     public GameObject Button1;
     public GameObject Button2;
@@ -24,37 +22,9 @@ public class ChooseAQuiz : MonoBehaviour
     public GameObject Button4;
     public GameObject Button5;
 
-
-
-    // public static void GetAllQuizzesAsync()
-    // {
-    //     quizlist = quizLoader.GetAllQuizzes();      
-    // }
-    // private static void passAllQuizzes(Quiz[] listQuizzesResponse)
-    // {
-    //     quizlist = listQuizzesResponse;
-    //     Debug.Log(quizlist[0].name);
-    // }
-
-    // Task<Quiz[]> GetAllQuizzes()
-    // {
-    //     // return await quizLoader.GetAllQuizzes();
-    // }
-
-    // public static async void GetQuizByIdAsync()
-    // {
-    //     var quizId = "b273fab4-6ee1-46f9-91ca-2251c7c4788a";
-    //     var getQuizResponse = await quizLoader.GetQuizById(quizId);
-    //     Quiz quiz = await quizLoader.GetQuizById(quizId);
-    //     // Debug.Log(quiz);
-        
-    // }
-
     // Start is called before the first frame update
     void Start()
     {
-        // GetAllQuizzesAsync();   
-        Debug.Log("Calling ensure"); 
         QuestionSet.EnsureData(); 
     }
 
@@ -63,7 +33,6 @@ public class ChooseAQuiz : MonoBehaviour
     {
         if(QuestionSet.initialized)
         {
-            // Debug.Log("inited");
             var quizlist = QuestionSet.GetAvailableQuizzes();
             if(1 + buttonAdder <= quizlist.Length){
                 Button1.SetActive(true);
@@ -111,19 +80,19 @@ public class ChooseAQuiz : MonoBehaviour
             var quizlist2 = QuestionSet.GetAvailableQuizzes();
             // PlayerPrefs.SetFloat("Highscore", score);
             if(EventSystem.current.currentSelectedGameObject.name == "Button1"){
-                QuestionSet.SetByIndex(0);
+                QuestionSet.SetByIndex(0 + buttonAdder);
             }
             else if(EventSystem.current.currentSelectedGameObject.name == "Button2"){
-                QuestionSet.SetByIndex(1);
+                QuestionSet.SetByIndex(1 + buttonAdder);
             }
             else if(EventSystem.current.currentSelectedGameObject.name == "Button3"){
-                QuestionSet.SetByIndex(2);
+                QuestionSet.SetByIndex(2 + buttonAdder);
             }
             else if(EventSystem.current.currentSelectedGameObject.name == "Button4"){
-                QuestionSet.SetByIndex(3);
+                QuestionSet.SetByIndex(3 + buttonAdder);
             }
             else if(EventSystem.current.currentSelectedGameObject.name == "Button5"){
-                QuestionSet.SetByIndex(4);
+                QuestionSet.SetByIndex(4 + buttonAdder);
             }
             Debug.Log(EventSystem.current.currentSelectedGameObject.name);
             SceneManager.LoadScene("Game");
