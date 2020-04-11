@@ -116,4 +116,9 @@ public class ChooseAQuiz : MonoBehaviour
             }
         }
     }
+
+    public void playButton()
+    {
+        SceneManager.LoadScene("Game");
+    }
 }
