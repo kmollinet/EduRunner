@@ -1,0 +1,214 @@
+fileFormatVersion: 2
+guid: f180ac28dcabd4f1b9c5ab9fcaf62c7e
+ModelImporter:
+  serializedVersion: 23
+  fileIDToRecycleName:
+    100000: Body
+    100002: BottomEye_L
+    100004: BottomEye_R
+    100006: Chest
+    100008: EyeRoot
+    100010: Feet_L
+    100012: Feet_R
+    100014: FeetBall_L
+    100016: FeetBall_R
+    100018: FeetToe_L
+    100020: FeetToe_R
+    100022: Hand_L
+    100024: Hand_R
+    100026: Head
+    100028: Index01_L
+    100030: Index01_R
+    100032: Index02_L
+    100034: Index02_R
+    100036: Index03_L
+    100038: Index03_R
+    100040: Jaw
+    100042: LowerArm_L
+    100044: LowerArm_R
+    100046: LowerLeg_L
+    100048: LowerLeg_R
+    100050: Mid01_L
+    100052: Mid01_R
+    100054: Mid02_L
+    100056: Mid02_R
+    100058: Mid03_L
+    100060: Mid03_R
+    100062: Neck
+    100064: Pinky01_L
+    100066: Pinky01_R
+    100068: Pinky02_L
+    100070: Pinky02_R
+    100072: Pinky03_L
+    100074: Pinky03_R
+    100076: Shield
+    100078: Shield 1
+    100080: Skeleton
+    100082: Spine01
+    100084: Sword
+    100086: //RootNode
+    100088: Thumb01_L
+    100090: Thumb01_R
+    100092: Thumb02_L
+    100094: Thumb02_R
+    100096: Thumb03_L
+    100098: Thumb03_R
+    100100: UpperArm_L
+    100102: UpperArm_R
+    100104: UpperEye_L
+    100106: UpperEye_R
+    100108: UpperLeg_L
+    100110: UpperLeg_R
+    100112: Weapon
+    400000: Body
+    400002: BottomEye_L
+    400004: BottomEye_R
+    400006: Chest
+    400008: EyeRoot
+    400010: Feet_L
+    400012: Feet_R
+    400014: FeetBall_L
+    400016: FeetBall_R
+    400018: FeetToe_L
+    400020: FeetToe_R
+    400022: Hand_L
+    400024: Hand_R
+    400026: Head
+    400028: Index01_L
+    400030: Index01_R
+    400032: Index02_L
+    400034: Index02_R
+    400036: Index03_L
+    400038: Index03_R
+    400040: Jaw
+    400042: LowerArm_L
+    400044: LowerArm_R
+    400046: LowerLeg_L
+    400048: LowerLeg_R
+    400050: Mid01_L
+    400052: Mid01_R
+    400054: Mid02_L
+    400056: Mid02_R
+    400058: Mid03_L
+    400060: Mid03_R
+    400062: Neck
+    400064: Pinky01_L
+    400066: Pinky01_R
+    400068: Pinky02_L
+    400070: Pinky02_R
+    400072: Pinky03_L
+    400074: Pinky03_R
+    400076: Shield
+    400078: Shield 1
+    400080: Skeleton
+    400082: Spine01
+    400084: Sword
+    400086: //RootNode
+    400088: Thumb01_L
+    400090: Thumb01_R
+    400092: Thumb02_L
+    400094: Thumb02_R
+    400096: Thumb03_L
+    400098: Thumb03_R
+    400100: UpperArm_L
+    400102: UpperArm_R
+    400104: UpperEye_L
+    400106: UpperEye_R
+    400108: UpperLeg_L
+    400110: UpperLeg_R
+    400112: Weapon
+    2100000: lambert1
+    4300000: Skeleton
+    4300002: Shield
+    4300004: Sword
+    7400000: Take 001
+    9500000: //RootNode
+    13700000: Shield
+    13700002: Skeleton
+    13700004: Sword
+  externalObjects: {}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    useSRGBMaterialColor: 1
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+    previousCalculatedGlobalScale: 0.01
+    hasPreviousCalculatedGlobalScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
+    blendShapeNormalImportMode: 1
+    normalSmoothingSource: 0
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
