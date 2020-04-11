@@ -64,31 +64,28 @@ public class PlayerMotor : MonoBehaviour
 
 
     //  This "GetData()" Method does nothing - it's just an example of how to hit an API using standard REST API HTTP calls
-     public static async void GetData()
-    {
-        string baseUrl = "https://jsonplaceholder.typicode.com/todos/2";
-        using (HttpClient client = new HttpClient())
-        {
-            using (HttpResponseMessage res = await client.GetAsync(baseUrl))
-            {
-                using (HttpContent content = res.Content)
-                {
-                    var data = await content.ReadAsStringAsync();
-                    if (data != null)
-                    {
-                        Debug.Log(data);
-                    }
-                    else 
-                    {
-                        Debug.Log("NO Data----------");
-                    }
-                }
-            }
-        }
-    }
-
-    // public static QuizLoader quizLoader = new QuizLoader();
-    // public static Task<Quiz[]> quizlist = quizLoader.GetAllQuizzes();
+    //  public static async void GetData()
+    // {
+    //     string baseUrl = "https://jsonplaceholder.typicode.com/todos/2";
+    //     using (HttpClient client = new HttpClient())
+    //     {
+    //         using (HttpResponseMessage res = await client.GetAsync(baseUrl))
+    //         {
+    //             using (HttpContent content = res.Content)
+    //             {
+    //                 var data = await content.ReadAsStringAsync();
+    //                 if (data != null)
+    //                 {
+    //                     Debug.Log(data);
+    //                 }
+    //                 else 
+    //                 {
+    //                     Debug.Log("NO Data----------");
+    //                 }
+    //             }
+    //         }
+    //     }
+    // }
 
 
     public Quiz quiz;
@@ -206,16 +203,10 @@ public class PlayerMotor : MonoBehaviour
             if (GameObject.FindWithTag("scroll"))
             {
                 Destroy(GameObject.FindWithTag("scroll"));
-                // if(questionNum == totalQuestions - 1 || questionNum == QuestionSet.Get().Questions.Count - 1){
-                //     tileManager.GetComponent<TileManager>().MarkLastQuestion(); 
-                // }
-                // if(questionNum >= totalQuestions || questionNum >= QuestionSet.Get().Questions.Count){
-                //     tileManager.GetComponent<TileManager>().EndGame(); 
-                // }
-                // else{
                 QuestionSet.Get().Next();
-                questionNum += 1;
-                // }
+                if(questionNum + 1 <= totalQuestions){
+                    questionNum += 1;
+                }
             }
             if (GameObject.FindWithTag("answer01"))
             {
