@@ -21,11 +21,21 @@ public class ChooseAQuiz : MonoBehaviour
     public GameObject Button3;
     public GameObject Button4;
     public GameObject Button5;
+    private bool loggedOneTime = false;
 
     // Start is called before the first frame update
     void Start()
     {
+        Debug.Log("Beginning of Start() in ChooseAQuiz.cs file");
         QuestionSet.EnsureData(); 
+
+    }
+    QuizInfo[] quizlist;
+
+    void AssignQuizList()
+    {
+        quizlist = QuestionSet.GetAvailableQuizzes();
+
     }
 
     // Update is called once per frame
@@ -33,7 +43,13 @@ public class ChooseAQuiz : MonoBehaviour
     {
         if(QuestionSet.initialized)
         {
-            var quizlist = QuestionSet.GetAvailableQuizzes();
+            if(loggedOneTime == false)
+            {
+                Debug.Log("QuestionSet.initialized successfully in ChoosesAQuiz.cs");
+                Debug.Log("About to get available quizzes");
+                AssignQuizList(); //only assign it once
+                loggedOneTime = true;
+            }
             if(1 + buttonAdder <= quizlist.Length){
                 Button1.SetActive(true);
                 Button1.GetComponentInChildren<Text>().text =  (1 + buttonAdder).ToString() + ". " + quizlist[0 + buttonAdder].name;
@@ -76,6 +92,7 @@ public class ChooseAQuiz : MonoBehaviour
 
     public void onQuizChoice()
     {
+        Debug.Log("Beginning of onQuizChoice() in ChooseAQuiz.cs file");
         if(QuestionSet.initialized){
             var quizlist2 = QuestionSet.GetAvailableQuizzes();
             // PlayerPrefs.SetFloat("Highscore", score);
@@ -101,6 +118,7 @@ public class ChooseAQuiz : MonoBehaviour
 
     public void buttonUp()
     {
+        Debug.Log("Beginning of buttonUp() in ChooseAQuiz.cs file");
         if(buttonAdder > 5){
             buttonAdder -= 5;
         }
@@ -110,6 +128,7 @@ public class ChooseAQuiz : MonoBehaviour
     }
     public void buttonDown()
     {
+        Debug.Log("Beginning of buttonDown() in ChooseAQuiz.cs file");
         if(QuestionSet.initialized){
             if(buttonAdder < QuestionSet.GetAvailableQuizzes().Length - 1){
                 buttonAdder += 5;
@@ -119,6 +138,7 @@ public class ChooseAQuiz : MonoBehaviour
 
     public void playButton()
     {
+        Debug.Log("Beginning of playButton() in ChooseAQuiz.cs file");
         SceneManager.LoadScene("Game");
     }
 }

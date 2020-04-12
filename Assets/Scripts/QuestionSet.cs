@@ -42,6 +42,7 @@ public partial class QuestionSet
 
     public void Next()
     {
+        Debug.Log("Beginning of Next() method in QuestionSet.cs file");
         if (CurrentQuestionIndex + 1 >= Questions.Count)
         {
             CurrentQuestionIndex = 0;
@@ -53,6 +54,7 @@ public partial class QuestionSet
     }
     public int SetQuestion()
     {
+        Debug.Log("Beginning of SetQuestion() method in QuestionSet.cs file");
         int randomAnsIndex1 = -1;
         int randomAnsIndex2 = -1;
         int randomAnsIndex3 = -1;
@@ -96,6 +98,7 @@ public partial class QuestionSet
     }
     private void applyTextToBanners(int rand1, int rand2, int rand3)
     {
+        Debug.Log("Beginning of applyTextToBanners() method in QuestionSet.cs file");
         GameObject answer01 = GameObject.FindWithTag("answer01");
         if (answer01)
         {
@@ -118,6 +121,11 @@ public partial class QuestionSet
 
     void Start()
     {
+        try {Debug.Log(defaultQuiz);}
+        catch (Exception e) {Debug.Log(e);}
+        try {Debug.Log(qs);}
+        catch (Exception e) {Debug.Log(e);}
+        Debug.Log("Beginning of Start() method in QuestionSet.cs file");
     }
     public void Update()
     {
@@ -128,14 +136,25 @@ public partial class QuestionSet
     }
     public static async void Init()
     {
+        Debug.Log("Beginning of Init() method in QuestionSet.cs file");
         EduRunner.Quiz[] quizzes = await QuestionSet.quizLoader.GetAllQuizzes();
+        try {Debug.Log(quizzes);}
+        catch (Exception e) {Debug.Log(e);}
         QuestionSet.quizzes = quizzes.ToDictionary(q => q.Id);
+        try {Debug.Log(QuestionSet.quizzes);}
+        catch (Exception e) {Debug.Log(e);}
         QuestionSet.qs = QuestionSet.FromJson(JsonConvert.SerializeObject(quizzes[0]));
+        try {Debug.Log(QuestionSet.qs);}
+        catch (Exception e) {Debug.Log(e);}
         QuestionSet.initialized = true;
+        try {Debug.Log(QuestionSet.initialized);}
+        catch (Exception e) {Debug.Log(e);}
+        Debug.Log("end of init() method in QuestionSet.cs file. Should have just logged a bunch of things");
     }
     public static Dictionary<string, EduRunner.Quiz> quizzes;
     public static void EnsureData()
     {
+        Debug.Log("Beginning of EnsureData() method in QuestionSet.cs file");
         if (initialized == false)
         {
             QuestionSet.Init();
@@ -153,26 +172,32 @@ public partial class QuestionSet
     }
     public static QuestionSet Get()
     {
+        Debug.Log("Beginning of Get() method in QuestionSet.cs file");
         if (QuestionSet.qs == null)
         {
             QuestionSet.qs = QuestionSet.FromJson(JsonConvert.SerializeObject(QuestionSet.quizzes.First()));
         }
+        try {Debug.Log(QuestionSet.qs);}
+        catch (Exception e) {Debug.Log(e);}
         return QuestionSet.qs;
     }
     public static QuestionSet GetById(string key)
     {
+        Debug.Log("Beginning of GetById() method in QuestionSet.cs file");
         EduRunner.Quiz quiz;
         QuestionSet.quizzes.TryGetValue(key, out quiz);
         QuestionSet.qs = QuestionSet.FromJson(JsonConvert.SerializeObject(quiz));
         return QuestionSet.qs;
     }
     public static void SetById (string key) {
+        Debug.Log("Beginning of SetById() method in QuestionSet.cs file");
         EduRunner.Quiz quiz;
         QuestionSet.quizzes.TryGetValue (key, out quiz);
         QuestionSet.qs = QuestionSet.FromJson (JsonConvert.SerializeObject (quiz));
         return;
     }
     public static void SetByIndex (int index) {
+        Debug.Log("Beginning of SetByIndex() method in QuestionSet.cs file");
         QuestionSet qs;
         string id = QuestionSet.quizzes.Select (q => q).ToArray () [index].Key;
         qs = QuestionSet.GetById (id);
@@ -181,6 +206,7 @@ public partial class QuestionSet
     }
     public static QuizInfo[] GetAvailableQuizzes()
     {
+        Debug.Log("Beginning of GetAvailableQuizzes() method in QuestionSet.cs file");
         return QuestionSet.quizzes.Select(q => new QuizInfo(q.Key, q.Value.Name)).ToArray();
     }
 }
@@ -207,6 +233,7 @@ public partial class QuestionSet
     public static QuestionSet FromJson(string json) => JsonConvert.DeserializeObject<QuestionSet>(json, global::Converter.Settings);
     public static QuestionSet Init(string fileName)
     {
+        Debug.Log("Beginning of second Init() method in QuestionSet.cs file");
         string json = "";
         if (File.Exists(Application.streamingAssetsPath + "/" + fileName))
         {

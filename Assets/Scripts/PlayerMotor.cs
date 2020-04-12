@@ -60,7 +60,7 @@ public class PlayerMotor : MonoBehaviour
 
 
 
-    // private QuestionSet QuestionSet.Get();
+    // private QuestionSet quizlist;
 
 
     //  This "GetData()" Method does nothing - it's just an example of how to hit an API using standard REST API HTTP calls
@@ -90,33 +90,48 @@ public class PlayerMotor : MonoBehaviour
 
     public Quiz quiz;
     private string quizId;
+    private bool playerMotorLoggedOneTime = false;
+    QuestionSet quizlist;
+
 
     // Start is called before the first frame update
     void Start()
     {      
+        Debug.Log("Beginning of Start() method in PlayerMotor.cs file");
         controller = GetComponent<CharacterController>();
         startTime = Time.time;
         questionNum = 1;
         totalQuestionsText.text = "Question " + questionNum.ToString() + "/" + totalQuestions.ToString();
     }
 
+    void AssignPlayerMotorQuizList()
+    {
+        quizlist = QuestionSet.Get();
+    }
     // Update is called once per frame
     void Update()
     {
         if(QuestionSet.initialized)
         {
-            totalQuestions = (int)QuestionSet.Get().QuestionsPerQuiz;
-            if(totalQuestions > QuestionSet.Get().Questions.Count){
-                totalQuestions = QuestionSet.Get().Questions.Count;
+            if(playerMotorLoggedOneTime == false)
+            {
+                Debug.Log("QuestionSet.initialized successfully in PlayerMotor.cs");
+                Debug.Log("About to get available quizzes");
+                AssignPlayerMotorQuizList();
+                playerMotorLoggedOneTime = true;
+            }
+            totalQuestions = (int)quizlist.QuestionsPerQuiz;
+            if(totalQuestions > quizlist.Questions.Count){
+                totalQuestions = quizlist.Questions.Count;
             }
             tileManager.GetComponent<TileManager>().DetermineTotalQuestions(totalQuestions);  
-            if (QuestionSet.Get().Questions.Count < 3)
+            if (quizlist.Questions.Count < 3)
             { // We can't handle less than 3 questions in a set because we need to display 3 answers.
                 Death();
             }
-            if (QuestionSet.Get().Questions.Count < totalQuestions)
+            if (quizlist.Questions.Count < totalQuestions)
             {
-                totalQuestions = QuestionSet.Get().Questions.Count;
+                totalQuestions = quizlist.Questions.Count;
             }
         }
         totalQuestionsText.text = "Question " + questionNum.ToString() + "/" + totalQuestions.ToString();
@@ -203,7 +218,7 @@ public class PlayerMotor : MonoBehaviour
             if (GameObject.FindWithTag("scroll"))
             {
                 Destroy(GameObject.FindWithTag("scroll"));
-                QuestionSet.Get().Next();
+                quizlist.Next();
                 if(questionNum + 1 <= totalQuestions){
                     questionNum += 1;
                 }
@@ -342,6 +357,7 @@ public class PlayerMotor : MonoBehaviour
 
     private void Death()
     {
+        Debug.Log("Beginning of Death() method in PlayerMotor.cs file");
         isDead = true;
         GetComponent<Score>().OnDeath();
         // anim.Play("Die");
@@ -349,6 +365,7 @@ public class PlayerMotor : MonoBehaviour
 
     private void hitEnemy(GameObject enemy)
     {
+        Debug.Log("Beginning of hitEnemy() method in PlayerMotor.cs file");
         Destroy(enemy);
         anim.Play("GetHit");
         anim.Play("infantry_03_run");
@@ -357,7 +374,8 @@ public class PlayerMotor : MonoBehaviour
 
     public void SetQuestionAfterDelay()
     {
-        correctAnsPosition = QuestionSet.Get().SetQuestion();
+        Debug.Log("Beginning of SetQuestionAfterDelay() method in PlayerMotor.cs file");
+        correctAnsPosition = quizlist.SetQuestion();
     }
 
 
