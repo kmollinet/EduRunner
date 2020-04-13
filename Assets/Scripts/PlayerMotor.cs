@@ -64,28 +64,34 @@ public class PlayerMotor : MonoBehaviour
 
 
     //  This "GetData()" Method does nothing - it's just an example of how to hit an API using standard REST API HTTP calls
-    //  public static async void GetData()
-    // {
-    //     string baseUrl = "https://jsonplaceholder.typicode.com/todos/2";
-    //     using (HttpClient client = new HttpClient())
-    //     {
-    //         using (HttpResponseMessage res = await client.GetAsync(baseUrl))
-    //         {
-    //             using (HttpContent content = res.Content)
-    //             {
-    //                 var data = await content.ReadAsStringAsync();
-    //                 if (data != null)
-    //                 {
-    //                     Debug.Log(data);
-    //                 }
-    //                 else 
-    //                 {
-    //                     Debug.Log("NO Data----------");
-    //                 }
-    //             }
-    //         }
-    //     }
-    // }
+     public static async void GetData()
+    {
+        string baseUrl = "https://jsonplaceholder.typicode.com/todos/2";
+        using (HttpClient client = new HttpClient())
+        {
+            try{
+                using (HttpResponseMessage res = await client.GetAsync(baseUrl))
+                {
+                    using (HttpContent content = res.Content)
+                    {
+                        var data = await content.ReadAsStringAsync();
+                        if (data != null)
+                        {
+                            Debug.Log(data);
+                        }
+                        else 
+                        {
+                            Debug.Log("NO Data----------");
+                        }
+                    }
+                }
+
+            }
+            catch{
+                Debug.Log("no internet");
+            }
+        }
+    }
 
 
     public Quiz quiz;
@@ -97,6 +103,12 @@ public class PlayerMotor : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {      
+        try{
+            GetData();
+        }
+        catch{
+            Debug.Log("couldnt GetData()");
+        }
         Debug.Log("Beginning of Start() method in PlayerMotor.cs file");
         controller = GetComponent<CharacterController>();
         startTime = Time.time;
@@ -117,7 +129,12 @@ public class PlayerMotor : MonoBehaviour
             {
                 Debug.Log("QuestionSet.initialized successfully in PlayerMotor.cs");
                 Debug.Log("About to get available quizzes");
-                AssignPlayerMotorQuizList();
+                try{
+                    AssignPlayerMotorQuizList();
+                }
+                catch{
+                    Debug.Log("couldnt assign quizlist");
+                }
                 playerMotorLoggedOneTime = true;
             }
             totalQuestions = (int)quizlist.QuestionsPerQuiz;

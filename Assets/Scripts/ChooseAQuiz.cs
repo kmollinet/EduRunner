@@ -34,7 +34,12 @@ public class ChooseAQuiz : MonoBehaviour
 
     void AssignQuizList()
     {
-        quizlist = QuestionSet.GetAvailableQuizzes();
+        try{
+            quizlist = QuestionSet.GetAvailableQuizzes();
+        }
+        catch{
+            Debug.Log("Could not get quizlist in chooseaquiz");
+        }
 
     }
 
@@ -50,40 +55,43 @@ public class ChooseAQuiz : MonoBehaviour
                 AssignQuizList(); //only assign it once
                 loggedOneTime = true;
             }
-            if(1 + buttonAdder <= quizlist.Length){
-                Button1.SetActive(true);
-                Button1.GetComponentInChildren<Text>().text =  (1 + buttonAdder).ToString() + ". " + quizlist[0 + buttonAdder].name;
-            }
-            else{
-                Button1.SetActive(false);
-            }
-            if(2 + buttonAdder <= quizlist.Length){
-                Button2.SetActive(true);
-                Button2.GetComponentInChildren<Text>().text = (2 + buttonAdder).ToString() + ". " + quizlist[1 + buttonAdder].name;
-            }
-            else{
-                Button2.SetActive(false);
-            }
-            if(3 + buttonAdder <= quizlist.Length){
-                Button3.SetActive(true);
-                Button3.GetComponentInChildren<Text>().text = (3 + buttonAdder).ToString() + ". " + quizlist[2 + buttonAdder].name;
-            }
-            else{
-                Button3.SetActive(false);
-            }
-            if(4 + buttonAdder <= quizlist.Length){
-                Button4.SetActive(true);
-                Button4.GetComponentInChildren<Text>().text = (4 + buttonAdder).ToString() + ". " + quizlist[3 + buttonAdder].name;
-            }
-            else{
-                Button4.SetActive(false);
-            }
-            if(5 + buttonAdder <= quizlist.Length){
-                Button5.SetActive(true);
-                Button5.GetComponentInChildren<Text>().text = (5 + buttonAdder).ToString() + ". " + quizlist[4 + buttonAdder].name;
-            }
-            else{
-                Button5.SetActive(false);
+            if(quizlist != null){
+                if(1 + buttonAdder <= quizlist.Length){
+                    Button1.SetActive(true);
+                    Button1.GetComponentInChildren<Text>().text =  (1 + buttonAdder).ToString() + ". " + quizlist[0 + buttonAdder].name;
+                }
+                else{
+                    Button1.SetActive(false);
+                }
+                if(2 + buttonAdder <= quizlist.Length){
+                    Button2.SetActive(true);
+                    Button2.GetComponentInChildren<Text>().text = (2 + buttonAdder).ToString() + ". " + quizlist[1 + buttonAdder].name;
+                }
+                else{
+                    Button2.SetActive(false);
+                }
+                if(3 + buttonAdder <= quizlist.Length){
+                    Button3.SetActive(true);
+                    Button3.GetComponentInChildren<Text>().text = (3 + buttonAdder).ToString() + ". " + quizlist[2 + buttonAdder].name;
+                }
+                else{
+                    Button3.SetActive(false);
+                }
+                if(4 + buttonAdder <= quizlist.Length){
+                    Button4.SetActive(true);
+                    Button4.GetComponentInChildren<Text>().text = (4 + buttonAdder).ToString() + ". " + quizlist[3 + buttonAdder].name;
+                }
+                else{
+                    Button4.SetActive(false);
+                }
+                if(5 + buttonAdder <= quizlist.Length){
+                    Button5.SetActive(true);
+                    Button5.GetComponentInChildren<Text>().text = (5 + buttonAdder).ToString() + ". " + quizlist[4 + buttonAdder].name;
+                }
+                else{
+                    Button5.SetActive(false);
+                }
+
             }
 
         }

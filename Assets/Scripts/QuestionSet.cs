@@ -137,18 +137,23 @@ public partial class QuestionSet
     public static async void Init()
     {
         Debug.Log("Beginning of Init() method in QuestionSet.cs file");
-        EduRunner.Quiz[] quizzes = await QuestionSet.quizLoader.GetAllQuizzes();
+        try{
+            EduRunner.Quiz[] quizzes = await QuestionSet.quizLoader.GetAllQuizzes();
+            QuestionSet.quizzes = quizzes.ToDictionary(q => q.Id);
+            QuestionSet.qs = QuestionSet.FromJson(JsonConvert.SerializeObject(quizzes[0]));
+        }
+        catch{
+            Debug.Log("Couldnt assign quizzes in questionset.cs");
+        }
         try {Debug.Log(quizzes);}
         catch (Exception e) {Debug.Log(e);}
-        QuestionSet.quizzes = quizzes.ToDictionary(q => q.Id);
         try {Debug.Log(QuestionSet.quizzes);}
         catch (Exception e) {Debug.Log(e);}
-        QuestionSet.qs = QuestionSet.FromJson(JsonConvert.SerializeObject(quizzes[0]));
         try {Debug.Log(QuestionSet.qs);}
         catch (Exception e) {Debug.Log(e);}
-        QuestionSet.initialized = true;
         try {Debug.Log(QuestionSet.initialized);}
         catch (Exception e) {Debug.Log(e);}
+        QuestionSet.initialized = true;
         Debug.Log("end of init() method in QuestionSet.cs file. Should have just logged a bunch of things");
     }
     public static Dictionary<string, EduRunner.Quiz> quizzes;
