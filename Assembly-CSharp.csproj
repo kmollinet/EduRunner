@@ -368,7 +368,11 @@
  <HintPath>C:/Program Files/Unity/Hub/Editor/2018.4.14f1/Editor/Data/UnityExtensions/Unity/UnitySpatialTracking/RuntimeEditor/UnityEngine.SpatialTracking.dll</HintPath>
  </Reference>
  <Reference Include="GraphQL.Client 2">
+<<<<<<< HEAD
  <HintPath>C:/Users/Tomi/Desktop/winter2020/EduRunner/Assets/Packages/GraphQL.Client.3.0.1/lib/netstandard2.0/GraphQL.Client 2.dll</HintPath>
+=======
+ <HintPath>C:/Users/kylem/EduRunner/Assets/Packages/GraphQL.Client.3.0.1/lib/netstandard2.0/GraphQL.Client 2.dll</HintPath>
+>>>>>>> 14eb4280cb45deab35f42326a3b9de053da99ea6
  </Reference>
  <Reference Include="GraphQL.Client">
  <HintPath>C:/Users/Tomi/Desktop/winter2020/EduRunner/Assets/Packages/GraphQL.Client.3.0.1/lib/netstandard2.0/GraphQL.Client.dll</HintPath>
@@ -376,11 +380,17 @@
  <Reference Include="GraphQL.Client.Abstractions 2">
  <HintPath>C:/Users/Tomi/Desktop/winter2020/EduRunner/Assets/Packages/GraphQL.Client.Abstractions.3.0.1/lib/netstandard2.0/GraphQL.Client.Abstractions 2.dll</HintPath>
  </Reference>
+ <Reference Include="GraphQL.Client.Abstractions 2">
+ <HintPath>C:/Users/kylem/EduRunner/Assets/Packages/GraphQL.Client.Abstractions.3.0.1/lib/netstandard2.0/GraphQL.Client.Abstractions 2.dll</HintPath>
+ </Reference>
  <Reference Include="GraphQL.Client.Abstractions">
  <HintPath>C:/Users/Tomi/Desktop/winter2020/EduRunner/Assets/Packages/GraphQL.Client.Abstractions.3.0.1/lib/netstandard2.0/GraphQL.Client.Abstractions.dll</HintPath>
  </Reference>
  <Reference Include="GraphQL.Client.Abstractions.Websocket 2">
  <HintPath>C:/Users/Tomi/Desktop/winter2020/EduRunner/Assets/Packages/GraphQL.Client.Abstractions.Websocket.3.0.1/lib/netstandard2.0/GraphQL.Client.Abstractions.Websocket 2.dll</HintPath>
+ </Reference>
+ <Reference Include="GraphQL.Client.Abstractions.Websocket 2">
+ <HintPath>C:/Users/kylem/EduRunner/Assets/Packages/GraphQL.Client.Abstractions.Websocket.3.0.1/lib/netstandard2.0/GraphQL.Client.Abstractions.Websocket 2.dll</HintPath>
  </Reference>
  <Reference Include="GraphQL.Client.Abstractions.Websocket">
  <HintPath>C:/Users/Tomi/Desktop/winter2020/EduRunner/Assets/Packages/GraphQL.Client.Abstractions.Websocket.3.0.1/lib/netstandard2.0/GraphQL.Client.Abstractions.Websocket.dll</HintPath>
@@ -388,11 +398,17 @@
  <Reference Include="GraphQL.Client.Serializer.Newtonsoft 2">
  <HintPath>C:/Users/Tomi/Desktop/winter2020/EduRunner/Assets/Packages/GraphQL.Client.Serializer.Newtonsoft.3.0.1/lib/netstandard2.0/GraphQL.Client.Serializer.Newtonsoft 2.dll</HintPath>
  </Reference>
+ <Reference Include="GraphQL.Client.Serializer.Newtonsoft 2">
+ <HintPath>C:/Users/kylem/EduRunner/Assets/Packages/GraphQL.Client.Serializer.Newtonsoft.3.0.1/lib/netstandard2.0/GraphQL.Client.Serializer.Newtonsoft 2.dll</HintPath>
+ </Reference>
  <Reference Include="GraphQL.Client.Serializer.Newtonsoft">
  <HintPath>C:/Users/Tomi/Desktop/winter2020/EduRunner/Assets/Packages/GraphQL.Client.Serializer.Newtonsoft.3.0.1/lib/netstandard2.0/GraphQL.Client.Serializer.Newtonsoft.dll</HintPath>
  </Reference>
  <Reference Include="GraphQL.Primitives 2">
  <HintPath>C:/Users/Tomi/Desktop/winter2020/EduRunner/Assets/Packages/GraphQL.Primitives.3.0.1/lib/netstandard2.0/GraphQL.Primitives 2.dll</HintPath>
+ </Reference>
+ <Reference Include="GraphQL.Primitives 2">
+ <HintPath>C:/Users/kylem/EduRunner/Assets/Packages/GraphQL.Primitives.3.0.1/lib/netstandard2.0/GraphQL.Primitives 2.dll</HintPath>
  </Reference>
  <Reference Include="GraphQL.Primitives">
  <HintPath>C:/Users/Tomi/Desktop/winter2020/EduRunner/Assets/Packages/GraphQL.Primitives.3.0.1/lib/netstandard2.0/GraphQL.Primitives.dll</HintPath>
@@ -400,11 +416,17 @@
  <Reference Include="Newtonsoft.Json 2">
  <HintPath>C:/Users/Tomi/Desktop/winter2020/EduRunner/Assets/Packages/Newtonsoft.Json.12.0.3/lib/netstandard2.0/Newtonsoft.Json 2.dll</HintPath>
  </Reference>
+ <Reference Include="Newtonsoft.Json 2">
+ <HintPath>C:/Users/kylem/EduRunner/Assets/Packages/Newtonsoft.Json.12.0.3/lib/netstandard2.0/Newtonsoft.Json 2.dll</HintPath>
+ </Reference>
  <Reference Include="Newtonsoft.Json">
  <HintPath>C:/Users/Tomi/Desktop/winter2020/EduRunner/Assets/Packages/Newtonsoft.Json.12.0.3/lib/netstandard2.0/Newtonsoft.Json.dll</HintPath>
  </Reference>
  <Reference Include="System.Reactive 2">
  <HintPath>C:/Users/Tomi/Desktop/winter2020/EduRunner/Assets/Packages/System.Reactive.4.3.2/lib/netstandard2.0/System.Reactive 2.dll</HintPath>
+ </Reference>
+ <Reference Include="System.Reactive 2">
+ <HintPath>C:/Users/kylem/EduRunner/Assets/Packages/System.Reactive.4.3.2/lib/netstandard2.0/System.Reactive 2.dll</HintPath>
  </Reference>
  <Reference Include="System.Reactive">
  <HintPath>C:/Users/Tomi/Desktop/winter2020/EduRunner/Assets/Packages/System.Reactive.4.3.2/lib/netstandard2.0/System.Reactive.dll</HintPath>
@@ -412,11 +434,17 @@
  <Reference Include="System.Runtime.CompilerServices.Unsafe 2">
  <HintPath>C:/Users/Tomi/Desktop/winter2020/EduRunner/Assets/Packages/System.Runtime.CompilerServices.Unsafe.4.5.2/lib/netstandard2.0/System.Runtime.CompilerServices.Unsafe 2.dll</HintPath>
  </Reference>
+ <Reference Include="System.Runtime.CompilerServices.Unsafe 2">
+ <HintPath>C:/Users/kylem/EduRunner/Assets/Packages/System.Runtime.CompilerServices.Unsafe.4.5.2/lib/netstandard2.0/System.Runtime.CompilerServices.Unsafe 2.dll</HintPath>
+ </Reference>
  <Reference Include="System.Runtime.CompilerServices.Unsafe">
  <HintPath>C:/Users/Tomi/Desktop/winter2020/EduRunner/Assets/Packages/System.Runtime.CompilerServices.Unsafe.4.5.2/lib/netstandard2.0/System.Runtime.CompilerServices.Unsafe.dll</HintPath>
  </Reference>
  <Reference Include="System.Threading.Tasks.Extensions 2">
  <HintPath>C:/Users/Tomi/Desktop/winter2020/EduRunner/Assets/Packages/System.Threading.Tasks.Extensions.4.5.3/lib/netstandard2.0/System.Threading.Tasks.Extensions 2.dll</HintPath>
+ </Reference>
+ <Reference Include="System.Threading.Tasks.Extensions 2">
+ <HintPath>C:/Users/kylem/EduRunner/Assets/Packages/System.Threading.Tasks.Extensions.4.5.3/lib/netstandard2.0/System.Threading.Tasks.Extensions 2.dll</HintPath>
  </Reference>
  <Reference Include="System.Threading.Tasks.Extensions">
  <HintPath>C:/Users/Tomi/Desktop/winter2020/EduRunner/Assets/Packages/System.Threading.Tasks.Extensions.4.5.3/lib/netstandard2.0/System.Threading.Tasks.Extensions.dll</HintPath>
@@ -428,10 +456,14 @@
  <HintPath>C:/Users/Tomi/Desktop/winter2020/EduRunner/Library/PackageCache/com.unity.analytics@3.2.2/Unity.Analytics.StandardEvents.dll</HintPath>
  </Reference>
  <Reference Include="Unity.Analytics.Tracker">
+<<<<<<< HEAD
  <HintPath>C:/Users/Tomi/Desktop/winter2020/EduRunner/Library/PackageCache/com.unity.analytics@3.2.2/Unity.Analytics.Tracker.dll</HintPath>
  </Reference>
  <Reference Include="System.IO.Compression.FileSystem">
  <HintPath>C:/Users/Tomi/Desktop/winter2020/EduRunner/Library/PackageCache/com.unity.connect.share@1.0.10-preview/Plugins/System.IO.Compression.FileSystem.dll</HintPath>
+=======
+ <HintPath>C:/Users/kylem/EduRunner/Library/PackageCache/com.unity.analytics@3.2.2/Unity.Analytics.Tracker.dll</HintPath>
+>>>>>>> 14eb4280cb45deab35f42326a3b9de053da99ea6
  </Reference>
  <Reference Include="netstandard">
  <HintPath>C:/Program Files/Unity/Hub/Editor/2018.4.14f1/Editor/Data/NetStandard/ref/2.0.0/netstandard.dll</HintPath>
