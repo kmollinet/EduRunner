@@ -133,6 +133,7 @@ public class PlayerMotor : MonoBehaviour
                     AssignPlayerMotorQuizList();
                 }
                 catch{
+                    quizlist = QuestionSet.qs;
                     Debug.Log("couldnt assign quizlist");
                 }
                 playerMotorLoggedOneTime = true;
